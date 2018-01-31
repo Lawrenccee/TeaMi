@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import Footer from './footer';
 
 class SessionForm extends React.Component {
   constructor(props) {
@@ -50,93 +51,96 @@ class SessionForm extends React.Component {
     const buttonText = formType === 'login' ? "Login" : 'Sign Up';
 
     return (
-      <div className='session-container'>
-        <div className="session-form-container">
-          
-          <header className='session-header'>
-            <div className='logo-container'>
-            </div>
-
-            <h1>
-              TeaMí
-            </h1>
-
-            <p>
-              {buttonText} to get started.
-            </p>
-          </header>
-
-          <form onSubmit={this.handleSubmit} className="session-form">
-            { formType === 'signup' &&
-              <input 
-                type="text"
-                value={this.state.username}
-                onChange={this.update("username")}
-                placeholder="Display name"
-              />
-            }
-
-            <input
-              type="text"
-              value={this.state.email}
-              onChange={this.update("email")}
-              placeholder="Email or phone number"
-            />
-
-            <input
-              type="password"
-              value={this.state.password}
-              onChange={this.update("password")}
-              placeholder="Password"
-            />
-
-            <button>{buttonText}</button>
+      <div className='main-session-container'>
+        <div className='session-container'>
+          <div className="session-form-container">
             
-            { formType === 'login' &&
-              <div>
+            <header className='session-header'>
+              <div className='logo-container'>
+              </div>
+
+              <h1>
+                TeaMí
+              </h1>
+
+              <p>
+                {buttonText} to get started.
+              </p>
+            </header>
+
+            <form onSubmit={this.handleSubmit} className="session-form">
+              { formType === 'signup' &&
                 <input 
-                  type="submit" 
-                  onClick={this.handleDemo} 
-                  value="Demo Login"
+                  type="text"
+                  value={this.state.username}
+                  onChange={this.update("username")}
+                  placeholder="Display name"
                 />
+              }
+
+              <input
+                type="text"
+                value={this.state.email}
+                onChange={this.update("email")}
+                placeholder="Email or phone number"
+              />
+
+              <input
+                type="password"
+                value={this.state.password}
+                onChange={this.update("password")}
+                placeholder="Password"
+              />
+
+              <button>{buttonText}</button>
+              
+              { formType === 'login' &&
+                <div>
+                  <input 
+                    type="submit" 
+                    onClick={this.handleDemo} 
+                    value="Demo Login"
+                  />
+                  <div className='session-form-link-container'>
+                    <p>
+                      New User?
+                      <Link 
+                        to='/signup' 
+                        onClick={this.handleLink}
+                      >
+                        Sign Up
+                      </Link>
+                      instead!</p>
+                  </div>
+                </div>
+              }
+
+              { formType === 'signup' &&
                 <div className='session-form-link-container'>
                   <p>
-                    New User?
+                    Already have an account? 
                     <Link 
-                      to='/signup' 
+                      to='/login' 
                       onClick={this.handleLink}
                     >
-                      Sign Up
+                      Login
                     </Link>
-                    instead!</p>
+                  instead!</p>
                 </div>
-              </div>
-            }
+              }
+              
+            </form>
 
-            { formType === 'signup' &&
-              <div className='session-form-link-container'>
-                <p>
-                  Already have an account? 
-                  <Link 
-                    to='/login' 
-                    onClick={this.handleLink}
-                  >
-                    Login
-                  </Link>
-                 instead!</p>
-              </div>
-            }
-            
-          </form>
+            <ul>
+              {errors.map(error => <li key={error}>{error}</li>)}
+            </ul>
+          </div>
 
-          <ul>
-            {errors.map(error => <li key={error}>{error}</li>)}
-          </ul>
+          <div className='session-image-container'>
+              <div className='session-image' />
+          </div>
         </div>
-
-        <div className='session-image-container'>
-            <div className='session-image' />
-        </div>
+        <Footer />
       </div>
     );
   }

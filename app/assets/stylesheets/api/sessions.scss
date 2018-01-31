@@ -45,6 +45,11 @@
 
 .session-form a {
   margin: 0 5px;
+  color: $link-color;
+}
+
+.session-form a:visited {
+  color: $link-color;
 }
 
 .session-form input[type='text'], .session-form input[type='password'] {
@@ -107,3 +112,45 @@
 .session-container {
   display: flex;
 }
+
+.session-container li {
+  color: red;
+  margin: 5px;
+  text-align: left;
+}
+
+.session-container ul {
+  list-style-type: disc; 
+  padding-left: 10px;
+}
+
+.main-session-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.footer {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  height: 40px;
+  background-color: $link-color;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.footer a {
+  margin: 0 20px;
+  color: $background-color;
+  font-size: 20px;
+}
+
+.footer a:visited {
+  color: $background-color;
+}
+
+// .footer-icon {
+//   vertical-align: bottom;
+// }
