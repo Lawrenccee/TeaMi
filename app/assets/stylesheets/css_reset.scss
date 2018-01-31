@@ -52,7 +52,8 @@ table {
 a {
 	text-decoration: none;
 }
-input[type='submit']{
-  background:none;
-  border:none;
+input {
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	appearance: none;
 }
