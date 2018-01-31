@@ -7,7 +7,7 @@ class Api::SessionsController < ApplicationController
 
     if @user
       login(@user)
-      redirect_to api_user_url(@user)
+      render :show
     else
       render json: ["Invalid Credentials"], status: 422
     end
