@@ -91,13 +91,13 @@
   background-position: center;
   background-image: asset_url('splash.jpg');
   background-size: contain;
-  height: 100%;
-  width: 100%
+  height: inherit;
+  width: inherit;
 }
 
 .session-image-container {
   height: 640px;
-  width: 500px;
+  width: 640px;
   margin: 0 auto;
   display: flex;
   justify-content: center;
