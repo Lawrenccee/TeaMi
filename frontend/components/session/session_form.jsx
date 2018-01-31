@@ -51,35 +51,43 @@ class SessionForm extends React.Component {
 
     return (
       <div className="session-form-container">
-        <ul>
-          {errors.map(error => <li key={error}>{error}</li>)}
-        </ul>
+        
+        <header className='session-header'>
+          <div className='logo-container'>
+          </div>
+
+          <h1>
+            TeaMí
+          </h1>
+
+          <p>
+            Sign in to get started.
+          </p>
+        </header>
+
         <form onSubmit={this.handleSubmit} className="session-form">
           { formType === 'signup' &&
-            <label>Username:
-              <input 
-                type="text"
-                value={this.state.username}
-                onChange={this.update("username")}
-              />
-            </label>
+            <input 
+              type="text"
+              value={this.state.username}
+              onChange={this.update("username")}
+              placeholder="Display name"
+            />
           }
 
-          <label>Email:
-            <input
-              type="text"
-              value={this.state.email}
-              onChange={this.update("email")}
-            />
-          </label>
+          <input
+            type="text"
+            value={this.state.email}
+            onChange={this.update("email")}
+            placeholder="Email or phone number"
+          />
 
-          <label>Password:
-            <input
-              type="password"
-              value={this.state.password}
-              onChange={this.update("password")}
-            />
-          </label>
+          <input
+            type="password"
+            value={this.state.password}
+            onChange={this.update("password")}
+            placeholder="Password"
+          />
 
           <button>{buttonText}</button>
           
@@ -90,7 +98,7 @@ class SessionForm extends React.Component {
                 onClick={this.handleDemo} 
                 value="Demo Login"
               />
-              <div>
+              <div className='session-form-link-container'>
                 <Link 
                   to='/signup' 
                   onClick={this.handleLink}
@@ -103,7 +111,7 @@ class SessionForm extends React.Component {
           }
 
           { formType === 'signup' &&
-            <div>
+            <div className='session-form-link-container'>
               <Link 
                 to='/login' 
                 onClick={this.handleLink}
@@ -115,6 +123,10 @@ class SessionForm extends React.Component {
           }
           
         </form>
+
+        <ul>
+          {errors.map(error => <li key={error}>{error}</li>)}
+        </ul>
       </div>
     );
   }

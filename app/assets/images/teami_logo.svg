@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   id="svg4604"
+   viewBox="0 0 370.2678 541.48945"
+   sodipodi:docname="ivan-alvarado-Hoja01.svg"
+   version="1.1"
+   inkscape:version="0.48.5 r10040"
+   width="100%"
+   height="100%">
+  <defs
+     id="defs4606">
+    <clipPath
+       id="clipPath554"
+       clipPathUnits="userSpaceOnUse">
+      <path
+         id="path556"
+         inkscape:connector-curvature="0"
+         d="m 435.85,570.76 c 13.509,16.729 33.148,24.578 43.571,31.466 -8.989,-8.201 -29.577,-17.459 -42.001,-36.625 -11.215,-17.302 -5.693,-33.296 -1.208,-40.414 -1.528,0.569 -3.041,1.559 -4.23,3.239 -3.852,5.459 -11.15,23.733 3.868,42.334" />
+    </clipPath>
+    <clipPath
+       id="clipPath530"
+       clipPathUnits="userSpaceOnUse">
+      <path
+         id="path532"
+         inkscape:connector-curvature="0"
+         d="m 492.82,620.53 c 0,0 -1.181,-8.485 -10.269,-16.019 -9.092,-7.53 -31.685,-15.146 -46.705,-33.749 -15.018,-18.601 -7.72,-36.875 -3.868,-42.334 2.211,-3.134 5.562,-3.876 8.019,-3.935 -0.91,4.277 -1.486,9.019 -1.24,13.954 1.975,19.781 17.473,32.284 19.949,34.611 1.349,1.202 3.866,3.206 6.919,5.426 3.133,2.181 6.435,4.655 9.461,7.536 6.074,5.517 10.949,11.079 10.935,11.079 0.012,0 -4.141,-6.116 -9.656,-12.355 -2.642,-3.15 -5.994,-6.258 -8.846,-8.643 -2.823,-2.472 -5.122,-4.588 -6.416,-5.743 -1.264,-1.176 -5.338,-4.717 -9.235,-10.434 -1.967,-2.905 -3.76,-6.166 -5.493,-10.141 -1.684,-3.434 -2.509,-7.461 -2.548,-11.521 -0.062,-7.086 1.858,-14.012 3.846,-19.377 2.668,-1.382 6.865,-1.834 13.43,0.615 5.236,2.902 9.737,6.218 13.616,9.831 l -6.202,8.169 11.594,-2.494 c 3.872,4.61 6.918,9.569 9.3,14.689 l -11.267,3.398 14.096,3.661 c 2.466,7.16 3.802,14.474 4.41,21.474 l -11.195,-1.946 -0.114,-0.047 0.067,0.04 -1.22,-0.213 12.821,8.513 c 0.57,19.967 -4.189,35.955 -4.189,35.955" />
+    </clipPath>
+    <linearGradient
+       id="linearGradient5491"
+       y2="539.75"
+       gradientUnits="userSpaceOnUse"
+       y1="575.79999"
+       gradientTransform="matrix(-60.285,-9.4312,-48.457,309.74,509.04,413.06)"
+       x2="463.88"
+       x1="500.87"
+       inkscape:collect="always">
+      <stop
+         id="stop568"
+         style="stop-color:#9ed747"
+         offset="0" />
+      <stop
+         id="stop570"
+         style="stop-color:#7fcc2b"
+         offset="1" />
+    </linearGradient>
+    <linearGradient
+       id="linearGradient3024"
+       y2="539.75"
+       xlink:href="#linearGradient5491"
+       gradientUnits="userSpaceOnUse"
+       x2="463.88"
+       gradientTransform="matrix(-60.285,-9.4312,-48.457,309.74,509.04,413.06)"
+       y1="575.79999"
+       x1="500.87"
+       inkscape:collect="always" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient5491"
+       id="linearGradient3057"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="matrix(-60.285,-9.4312,-48.457,309.74,509.04,413.06)"
+       x1="500.87"
+       y1="575.79999"
+       x2="463.88"
+       y2="539.75" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient5491"
+       id="linearGradient3059"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="matrix(-60.285,-9.4312,-48.457,309.74,509.04,413.06)"
+       x1="500.87"
+       y1="575.79999"
+       x2="463.88"
+       y2="539.75" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient5491"
+       id="linearGradient3061"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="matrix(-60.285,-9.4312,-48.457,309.74,509.04,413.06)"
+       x1="500.87"
+       y1="575.79999"
+       x2="463.88"
+       y2="539.75" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient5491"
+       id="linearGradient3063"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="matrix(-60.285,-9.4312,-48.457,309.74,509.04,413.06)"
+       x1="500.87"
+       y1="575.79999"
+       x2="463.88"
+       y2="539.75" />
+  </defs>
+  <sodipodi:namedview
+     id="base"
+     bordercolor="#666666"
+     inkscape:pageshadow="2"
+     inkscape:window-y="0"
+     pagecolor="#ffffff"
+     inkscape:window-maximized="0"
+     inkscape:zoom="0.7"
+     inkscape:window-x="684"
+     inkscape:window-height="766"
+     showgrid="false"
+     borderopacity="1.0"
+     inkscape:current-layer="layer1"
+     inkscape:cx="55.657892"
+     inkscape:cy="214.57934"
+     inkscape:window-width="682"
+     inkscape:pageopacity="0.0"
+     inkscape:document-units="px"
+     fit-margin-top="0"
+     fit-margin-left="0"
+     fit-margin-right="0"
+     fit-margin-bottom="0" />
+  <g
+     id="layer1"
+     inkscape:label="Capa 1"
+     inkscape:groupmode="layer"
+     transform="translate(-186.86324,-255.43261)">
+    <g
+       id="g5479"
+       transform="translate(-20.81,33.819)">
+      <g
+         id="g526"
+         style="fill:url(#linearGradient3024)"
+         transform="matrix(5.2687,0,0,-5.2687,-2040.9,3491)">
+        <g
+           id="g528"
+           style="fill:url(#linearGradient3063)"
+           clip-path="url(#clipPath530)">
+          <g
+             id="g534"
+             style="fill:url(#linearGradient3061)">
+            <g
+               id="g540"
+               style="fill:url(#linearGradient3059)">
+              <path
+                 id="path548"
+                 style="fill:url(#linearGradient3057)"
+                 inkscape:connector-curvature="0"
+                 d="M 0,0 H 810 V 751 H 0 V 0 z" />
+            </g>
+          </g>
+        </g>
+      </g>
+      <g
+         id="g550"
+         style="fill:#7fb820"
+         transform="matrix(5.2687,0,0,-5.2687,-2040.9,3491)">
+        <g
+           id="g552"
+           style="fill:#7fb820"
+           clip-path="url(#clipPath554)">
+          <g
+             id="g558"
+             style="fill:#7fb820">
+            <g
+               id="g564"
+               style="fill:#7fb820">
+              <path
+                 id="path572"
+                 style="fill:#7fb820"
+                 inkscape:connector-curvature="0"
+                 d="m 10.846,10.032 h 810 v 751 h -810 v -751 z" />
+            </g>
+          </g>
+        </g>
+      </g>
+    </g>
+  </g>
+  <metadata
+     id="metadata47">
+    <rdf:RDF>
+      <cc:Work>
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <cc:license
+           rdf:resource="http://creativecommons.org/licenses/publicdomain/" />
+        <dc:publisher>
+          <cc:Agent
+             rdf:about="http://openclipart.org/">
+            <dc:title>Openclipart</dc:title>
+          </cc:Agent>
+        </dc:publisher>
+      </cc:Work>
+      <cc:License
+         rdf:about="http://creativecommons.org/licenses/publicdomain/">
+        <cc:permits
+           rdf:resource="http://creativecommons.org/ns#Reproduction" />
+        <cc:permits
+           rdf:resource="http://creativecommons.org/ns#Distribution" />
+        <cc:permits
+           rdf:resource="http://creativecommons.org/ns#DerivativeWorks" />
+      </cc:License>
+    </rdf:RDF>
+  </metadata>
+</svg>

@@ -5,12 +5,74 @@
 .session-form-container {
   display: flex;
   flex-direction: column;
-  background-color: $dark-blue;
-  width: 360;
-  height: 640;
+  width: 286px;
+  height: 640px;
+  justify-content: center;
+  margin-left: 20%;
 }
 
 .session-form {
   display: flex;
   flex-direction: column;
+}
+
+.session-form input {
+
+}
+
+.session-form button, .session-form input[type='submit']  {
+  background-color: $main-color;
+  color: $background-color;
+  cursor: pointer;
+}
+
+.session-form button, .session-form input {
+  width: 286px;
+  height: 42px;
+  font-size: 17px;
+  border-radius: 5px;
+  margin: 5px 0;
+}
+
+.session-form input {
+  border: 1px solid $signin-border
+}
+
+.session-form input[type='text'], .session-form input[type='password'] {
+  padding-left: 10px;
+}
+
+.session-form-link-container {
+  display: flex;
+  justify-content: center;
+}
+
+.session-form-link-container p {
+  margin-left: 5px;
+}
+
+.logo-container {
+  width: 100%;
+  height: 120px;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-image: asset_url('teami_logo.svg')
+}
+
+.session-header h1 {
+  font-size: 36px;
+  font-weight: 200;
+}
+
+.session-header p {
+  font-size: 20px;
+  font-weight: 200;
+}
+
+.session-header p, .session-header h1 {
+  text-align: center;
+}
+
+.session-header p, .session-header h1, .logo-container {
+  margin: 20px 0;
 }

@@ -6,7 +6,6 @@ import { AuthRoute, ProtectedRoute } from '../util/route_util';
 
 const App = () => (
   <div>
-    <h1>Welcome to Teami!</h1>
     <Switch>
       <Redirect exact from='/' to='/chats' />
       <ProtectedRoute path="/chats" component={LogoutContainer} />
