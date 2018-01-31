@@ -33,13 +33,13 @@
   height: 42px;
 }
 
-.session-form button, .session-form input[type='text'], .session-form input[type='password'] {
+.session-form button, .session-form input {
   font-size: 17px;
   border-radius: 5px;
   margin: 5px 0;
 }
 
-.session-form input {
+.session-form input[type='text'], .session-form input[type='password'] {
   border: 1px solid $signin-border
 }
 
