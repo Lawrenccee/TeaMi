@@ -9,6 +9,7 @@
   height: 640px;
   justify-content: center;
   margin-left: 20%;
+  position: relative;
 }
 
 .session-form {
@@ -120,6 +121,8 @@
 }
 
 .session-container ul {
+  position: absolute;
+  top: 565px;
   list-style-type: disc; 
   padding-left: 10px;
 }

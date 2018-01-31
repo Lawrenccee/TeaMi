@@ -43,7 +43,42 @@ class SessionForm extends React.Component {
 
   handleDemo(e) {
     e.preventDefault();
-    console.log('Demo Log in!');
+  
+    let email = " DemoUser@Tea.Mi";
+    let password = " password";
+
+    let pIndex = 0;
+
+    let typePassword = () => {
+      if (pIndex < password.length) {
+        this.refs.password.value += password[pIndex];
+        pIndex++;
+      } else if (pIndex === password.length) {
+        email = email.slice(1);
+        password = password.slice(1);
+        this.props.submitUser({ 
+          email, 
+          password
+        }); // username is OolongTeaOnly
+      }
+
+      setTimeout(typePassword, 1000);
+    };
+
+    let eIndex = 0;
+
+    let typeEmail = () => {
+      if (eIndex < email.length) {
+        this.refs.email.value += email[eIndex];
+        eIndex++;
+      } else if (eIndex === email.length) {
+        typePassword(); 
+      }
+
+      setTimeout(typeEmail, 75);
+    };
+
+    typeEmail();
   }
 
   render() {
@@ -83,6 +118,7 @@ class SessionForm extends React.Component {
                 value={this.state.email}
                 onChange={this.update("email")}
                 placeholder="Email or phone number"
+                ref="email"
               />
 
               <input
@@ -90,6 +126,7 @@ class SessionForm extends React.Component {
                 value={this.state.password}
                 onChange={this.update("password")}
                 placeholder="Password"
+                ref="password"
               />
 
               <button>{buttonText}</button>
