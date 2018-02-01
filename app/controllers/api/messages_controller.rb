@@ -1,11 +1,14 @@
 class Api::MessagesController < ApplicationController
   def create
-    @message = new Message.new(message_params)
+    @message = Message.new(message_params)
 
     @message.chat_id = params[:chat_id]
     @message.author_id = current_user.id
 
     @chat = Chat.find_by(id: params[:chat_id])
+
+    @limit = params[:limit]
+    # passed through local state of current page
 
     if @message.save
       # render how to do with render?
