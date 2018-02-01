@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  body: MyString
+  giphy_url: MyString
+  author_id: 1
+  chat_id: 1
+
+two:
+  body: MyString
+  giphy_url: MyString
+  author_id: 1
+  chat_id: 1

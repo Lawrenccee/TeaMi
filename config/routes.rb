@@ -4,6 +4,9 @@ Rails.application.routes.draw do
   namespace :api, defaults: { format: :json } do
     resources :users, only: [:create, :update, :show]
     resource :session, only: [:create, :destroy]
+    resources :chats, only: [:create, :show, :index, :update] do 
+        resources :messages, only: [:create, show]
+    end
   end
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html

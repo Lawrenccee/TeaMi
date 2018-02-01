@@ -7,6 +7,11 @@ class User < ApplicationRecord
   before_validation :ensure_session_token
 
   #TODO Add relations here
+  has_many :messages,
+    primary_key: :id,
+    foreign_key: :author_id,
+    class_name: :Message,
+    dependent: :destroy
 
   attr_reader :password
 
@@ -41,3 +46,4 @@ class User < ApplicationRecord
     self.session_token ||= User.generate_session_token
   end
 end
+
