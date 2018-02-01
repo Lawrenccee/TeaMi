@@ -10,16 +10,34 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180131222858) do
+ActiveRecord::Schema.define(version: 20180201022612) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "chat_memberships", force: :cascade do |t|
+    t.string "chat_id", null: false
+    t.string "member_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["chat_id", "member_id"], name: "index_chat_memberships_on_chat_id_and_member_id", unique: true
+    t.index ["chat_id"], name: "index_chat_memberships_on_chat_id"
+    t.index ["member_id"], name: "index_chat_memberships_on_member_id"
+  end
+
+  create_table "chats", force: :cascade do |t|
+    t.string "name", null: false
+    t.string "chat_pic_url"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["name"], name: "index_chats_on_name"
+  end
+
   create_table "messages", force: :cascade do |t|
-    t.string "body"
+    t.text "body"
     t.string "giphy_url"
-    t.integer "author_id"
-    t.integer "chat_id"
+    t.integer "author_id", null: false
+    t.integer "chat_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["author_id"], name: "index_messages_on_author_id"

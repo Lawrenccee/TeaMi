@@ -9,3 +9,22 @@
 User.create([
   { username: "OolongMilkTeaOnly", email: "DemoUser@Tea.Mi", password: "password"}
 ])
+
+# Chat.create([
+#   { name: "OolongMilkTeaOnly" }
+# ])
+
+# ChatMembership.create([
+#   { 
+#     member_id: User.find_by(email: "DemoUser@Tea.Mi").id,
+#     chat_id: Chat.find_by(name: "OolongMilkTeaOnly").id
+#   }
+# ])
+
+Message.create([
+  {
+    body: "This is a test Teami message!",
+    author_id: User.find_by(email: "DemoUser@Tea.Mi").id,
+    chat_id: Chat.find_by(name: "OolongMilkTeaOnly").id
+  }
+])

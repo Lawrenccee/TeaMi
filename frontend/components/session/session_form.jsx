@@ -83,7 +83,7 @@ class SessionForm extends React.Component {
 
   render() {
     const { formType, errors, clearSessionErrors } = this.props;
-    const buttonText = formType === 'login' ? "Login" : 'Sign Up';
+    const buttonText = formType === 'login' ? "Log In" : 'Sign Up';
 
     return (
       <div className='main-session-container'>
@@ -160,7 +160,7 @@ class SessionForm extends React.Component {
                       to='/login' 
                       onClick={this.handleLink}
                     >
-                      Login
+                      Log In
                     </Link>
                   instead!</p>
                 </div>

@@ -13,6 +13,15 @@ class User < ApplicationRecord
     class_name: :Message,
     dependent: :destroy
 
+  has_many :chat_memberships,
+    primary_key: :id,
+    foreign_key: :member_id,
+    class_name: :ChatMembership
+
+  has_many :chats,
+    through: :chat_memberships,
+    source: :chat
+
   attr_reader :password
 
   def password=(password)
