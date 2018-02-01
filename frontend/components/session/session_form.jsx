@@ -136,7 +136,7 @@ class SessionForm extends React.Component {
                   <input 
                     type="submit" 
                     onClick={this.handleDemo} 
-                    value="Demo Login"
+                    value="Demo Log In"
                   />
                   <div className='session-form-link-container'>
                     <p>

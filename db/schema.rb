@@ -10,14 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180201022612) do
+ActiveRecord::Schema.define(version: 20180201194939) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "chat_memberships", force: :cascade do |t|
-    t.string "chat_id", null: false
-    t.string "member_id", null: false
+    t.integer "chat_id", null: false
+    t.integer "member_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["chat_id", "member_id"], name: "index_chat_memberships_on_chat_id_and_member_id", unique: true

@@ -4,28 +4,32 @@ class Api::ChatsController < ApplicationController
   end
 
   def create
+    # TODO: How to prevent chat with same memberships?
+    # Do I have to do a database search???
+
     @chat = Chat.new(chat_params)
     # pass param called members with all the people
     # name will be created on frontend and passed through
     @errors = []
 
     if @chat.save
-      params[:members].each do |member|
+      params[:members].each do |_, member|
         @membership = ChatMembership.new(
-          member_id: member.id, 
-          chat_id: @chat.id
+          member_id: member[:id], 
+          chat_id: @chat[:id]
         )
 
         unless @membership.save
-          errors = errors.concat(@membership.errors.full_messages)
+          @errors = errors.concat(@membership.errors.full_messages)
         end
       end
 
-      unless errors.empty?
-        render json: errors, status: 422
+      if @errors.empty?
+        # @chats = Chat.all
+        # render :index
+        render :show # just merge the new one
       else
-        @chats = Chat.all
-        render :index
+        render json: errors, status: 422        
       end
     else
       render json: @chat.errors.full_messages, status: 422
@@ -40,6 +44,42 @@ class Api::ChatsController < ApplicationController
   end
 
   def update
+    @chat = Chat.find_by(id: params[:id])
+    # pass param called members with all the people
+    # name will be created on frontend and passed through
+    @errors = []
+
+    # Add new members
+    unless params[:members].nil?
+      params[:members].each do |_, member|
+        @membership = ChatMembership.new(
+          member_id: member[:id], 
+          chat_id: @chat[:id]
+        )
+
+        unless @membership.save
+          @errors = @errors.concat(@membership.errors.full_messages)
+        end
+      end
+
+      if @errors.empty?
+        # @chats = Chat.all
+        # render :index
+        render :show # just merge edited one
+      else
+        render json: @membership.errors.full.messages, status: 422
+      end
+
+    # Change name/pic instead
+
+    else 
+      if @chat.update(chat_params)
+        @chats = Chat.all
+        render :index
+      else
+        render json: @chat.errors.full_messages, status: 422
+      end
+    end
   end
 
   private
@@ -75,5 +115,41 @@ end
 #       chat_id: 6
 #     },
 #     limit: 2
+#   }
+# }).then((chat) => (console.log(chat)));
+
+# $.ajax({
+#   method: 'POST',
+#   url: 'api/chats',
+#   dataType: 'json',
+#   data: {
+#     members: {
+#       5: {
+#         id: 5
+#       },
+#       6: {
+#         id: 6
+#       }
+#     },
+#     chat: {
+#       name: "Test making new chat"
+#     }
+#   }
+# }).then((chat) => (console.log(chat)));
+
+# $.ajax({
+#   method: 'PATCH',
+#   url: 'api/chats/14',
+#   dataType: 'json',
+#   data: {
+#     members: {
+#       7: {
+#         id: 7
+#       },
+#     },
+#     chat: {
+#       name: "Name Change shouldn't happen yet",
+#       chat_pic_url: "fake pic url"
+#     }
 #   }
 # }).then((chat) => (console.log(chat)));
