@@ -1,14 +1,15 @@
+// Might never even reach these errors... because of validations
 import { 
-  RECEIVE_SESSION_ERRORS, 
-  RECEIVE_CURRENT_USER, 
-  CLEAR_SESSION_ERRORS
-} from '../actions/session_actions'; 
+  RECEIVE_CHAT_ERRORS, 
+  RECEIVE_CHATS, 
+  RECEIVE_CHAT 
+} from './chats_reducer';
 
-const SessionErrorsReducer = (oldState = [], action) => {
+const ChatErrorsReducer = (oldState = [], action) => {
   Object.freeze(oldState);
 
-  switch(action.type) {
-    case RECEIVE_SESSION_ERRORS:
+  switch (action.type) {
+    case RECEIVE_CHAT_ERRORS:
       let newState = []; //oldState.slice();
 
       if (action.errors.responseJSON) {
@@ -26,13 +27,13 @@ const SessionErrorsReducer = (oldState = [], action) => {
       }
 
       return newState;
-    case RECEIVE_CURRENT_USER:
+    case RECEIVE_CHATS:
       return [];
-    case CLEAR_SESSION_ERRORS:
+    case RECEIVE_CHAT:
       return [];
-    default: 
+    default:
       return oldState;
   }
 };
 
-export default SessionErrorsReducer;
+export default ChatErrorsReducer;

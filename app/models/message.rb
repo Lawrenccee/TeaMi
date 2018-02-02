@@ -3,7 +3,7 @@ class Message < ApplicationRecord
   validates :chat_id, presence: true
   validate :body_xor_gif
 
-  after_create_commit { Message.BroadcastJob.perform_later(self) }
+  # after_create_commit { Message.BroadcastJob.perform_later(self) }
 
   belongs_to :author,
     primary_key: :id,

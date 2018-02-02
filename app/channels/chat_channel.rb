@@ -15,10 +15,5 @@ class ChatChannel < ApplicationCable::Channel
     message_params = data[:message]
 
     Message.create(message_params)
-    
-    # ActionCable.server.broadcast(
-    #   "chats-#{data[:message][:chat_id]}",
-    #   message: message_params
-    # )
   end
 end

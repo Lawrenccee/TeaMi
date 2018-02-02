@@ -80,17 +80,17 @@ class Api::ChatsController < ApplicationController
         if @message.save
           render :show # just merge edited one
         else
-          render json: @message.errors.full.messages, status: 422
+          render json: @message.errors.full_messages, status: 422
         end
       else
-        render json: @membership.errors.full.messages, status: 422
+        render json: @membership.errors.full_messages, status: 422
       end
 
     # Change name/pic instead
 
     else 
       if params[:chat][:name] != @chat[:name]
-        @body = params[:chat][:name] 
+        @body = "#{current_user[:username]} changed the chat name to #{params[:chat][:name]}" 
       else
         @body = "#{current_user[:username]} updated the chat picture"
       end
@@ -98,7 +98,7 @@ class Api::ChatsController < ApplicationController
       if @chat.update(chat_params)
 
         @message = Message.new(
-          body: body,
+          body: @body,
           author_id: current_user[:id],
           chat_id: @chat[:id]
         )
@@ -106,7 +106,7 @@ class Api::ChatsController < ApplicationController
         if @message.save
           render :show
         else
-          render json: @membership.errors.full.messages, status: 422
+          render json: @membership.errors.full_messages, status: 422
         end
       else
         render json: @chat.errors.full_messages, status: 422
@@ -181,7 +181,8 @@ end
 #     },
 #     chat: {
 #       name: "Name Change shouldn't happen yet",
-#       chat_pic_url: "fake pic url"
+#       chat_pic_url: "fake pic url",
+#       id: 14
 #     }
 #   }
 # }).then((chat) => (console.log(chat)));

@@ -31,7 +31,7 @@ export const createChat = ({ chat, members }) => (
 
 export const updateChat = ({ chat, members }) => (
   $.ajax({
-    method: 'POST',
+    method: 'PATCH',
     url: `api/chats/${chat.id}`,
     dataType: 'json',
     data: {
