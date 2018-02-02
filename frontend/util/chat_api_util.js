@@ -12,19 +12,18 @@ export const fetchChat = ({ chatId, limit = 1 }) => (
     url: `api/chats/${chatId}`,
     dataType: 'json',
     data: {
-      limit: limit
+      limit: limit // how many messages to fetch
     }
   })
 );
 
-export const createChat = ({ chat, members }) => (
+export const createChat = ({ members }) => (
   $.ajax({
     method: 'POST',
     url: 'api/chats',
     dataType: 'json',
     data: {
-      members,
-      chat
+      members
     }
   })
 );
@@ -36,19 +35,20 @@ export const updateChat = ({ chat, members }) => (
     dataType: 'json',
     data: {
       members,
-      chat
-    }
+      chat,
+      limit: 1 // to merge update message to current ones
+    },
   })
 );
 
-export const createMessage = ({ message, limit = 1 }) => (
+export const createMessage = ({ message }) => (
   $.ajax({
     method: 'POST',
     url: `api/chats/${message.chat_id}/messages`,
     dataType: 'json',
     data: {
       message,
-      limit,
+      limit: 1, // to merge this message to current ones
     }
   })
 );

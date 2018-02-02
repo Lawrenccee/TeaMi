@@ -7,10 +7,18 @@ class Api::ChatsController < ApplicationController
     # TODO: How to prevent chat with same memberships?
     # Do I have to do a database search???
 
-    @chat = Chat.new(chat_params)
+    @names = []
+
+    params[:members].each do |_, member|
+       @names.push(member[:username])
+    end
+
+    @chat = Chat.new(name: @names.join(", "))
+
+    @errors = []
+    
     # pass param called members with all the people
     # name will be created on frontend and passed through
-    @errors = []
 
     if @chat.save
       params[:members].each do |_, member|
@@ -45,6 +53,7 @@ class Api::ChatsController < ApplicationController
 
   def update
     @chat = Chat.find_by(id: params[:id])
+    @limit = params[:limit]
     # pass param called members with all the people
     # name will be created on frontend and passed through
     @errors = []
@@ -120,69 +129,3 @@ class Api::ChatsController < ApplicationController
     params.require(:chat).permit(:name, :chat_pic_url)
   end
 end
-
-# $.ajax({
-  # method: 'GET',
-  # url: 'api/chats',
-  # dataType: 'json'
-# }).then((chats) => (console.log(chats)));
-
-# $.ajax({
-#   method: 'GET',
-#   url: 'api/chats/6',
-#   dataType: 'json',
-#   data: {
-#     limit: 1
-#   }
-# }).then((chat) => (console.log(chat)));
-
-# $.ajax({
-#   method: 'POST',
-#   url: 'api/chats/6/messages',
-#   dataType: 'json',
-#   data: {
-#     message: {
-#       body: "Testing console return",
-#       author_id: 6,
-#       chat_id: 6
-#     },
-#     limit: 2
-#   }
-# }).then((chat) => (console.log(chat)));
-
-# $.ajax({
-#   method: 'POST',
-#   url: 'api/chats',
-#   dataType: 'json',
-#   data: {
-#     members: {
-#       5: {
-#         id: 5
-#       },
-#       6: {
-#         id: 6
-#       }
-#     },
-#     chat: {
-#       name: "Test making new chat"
-#     }
-#   }
-# }).then((chat) => (console.log(chat)));
-
-# $.ajax({
-#   method: 'PATCH',
-#   url: 'api/chats/14',
-#   dataType: 'json',
-#   data: {
-#     members: {
-#       7: {
-#         id: 7
-#       },
-#     },
-#     chat: {
-#       name: "Name Change shouldn't happen yet",
-#       chat_pic_url: "fake pic url",
-#       id: 14
-#     }
-#   }
-# }).then((chat) => (console.log(chat)));
