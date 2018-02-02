@@ -62,10 +62,26 @@ class Api::ChatsController < ApplicationController
         end
       end
 
+      @names = []
+
+      params[:members].each do |_, member|
+        @names.push(member[:username])
+      end
+
       if @errors.empty?
         # @chats = Chat.all
         # render :index
-        render :show # just merge edited one
+        @message = Message.new(
+          body: "added #{@names.join(', ')} to the group",
+          author_id: current_user[:id],
+          chat_id: @chat[:id]
+        )
+
+        if @message.save
+          render :show # just merge edited one
+        else
+          render json: @message.errors.full.messages, status: 422
+        end
       else
         render json: @membership.errors.full.messages, status: 422
       end
@@ -73,9 +89,25 @@ class Api::ChatsController < ApplicationController
     # Change name/pic instead
 
     else 
+      if params[:chat][:name] != @chat[:name]
+        @body = params[:chat][:name] 
+      else
+        @body = "#{current_user[:username]} updated the chat picture"
+      end
+
       if @chat.update(chat_params)
-        @chats = Chat.all
-        render :index
+
+        @message = Message.new(
+          body: body,
+          author_id: current_user[:id],
+          chat_id: @chat[:id]
+        )
+
+        if @message.save
+          render :show
+        else
+          render json: @membership.errors.full.messages, status: 422
+        end
       else
         render json: @chat.errors.full_messages, status: 422
       end
@@ -90,9 +122,9 @@ class Api::ChatsController < ApplicationController
 end
 
 # $.ajax({
-#   method: 'GET',
-#   url: 'api/chats',
-#   dataType: 'json'
+  # method: 'GET',
+  # url: 'api/chats',
+  # dataType: 'json'
 # }).then((chats) => (console.log(chats)));
 
 # $.ajax({
