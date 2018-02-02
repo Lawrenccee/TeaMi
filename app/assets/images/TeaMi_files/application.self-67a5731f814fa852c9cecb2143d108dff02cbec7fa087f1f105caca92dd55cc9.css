@@ -1,0 +1,283 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+
+ */
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+@import url("https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700");
+/* line 8, /Users/lawrenceguintu/Documents/AppAcademy/Projects/FullStack/TeaMi/app/assets/stylesheets/css_reset.scss */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video, input, button {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font-family: 'Source Sans Pro', sans-serif;
+  vertical-align: baseline;
+}
+
+/* HTML5 display-role reset for older browsers */
+/* line 29, /Users/lawrenceguintu/Documents/AppAcademy/Projects/FullStack/TeaMi/app/assets/stylesheets/css_reset.scss */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+
+/* line 33, /Users/lawrenceguintu/Documents/AppAcademy/Projects/FullStack/TeaMi/app/assets/stylesheets/css_reset.scss */
+body {
+  line-height: 1;
+  background-color: #ffffff;
+}
+
+/* line 37, /Users/lawrenceguintu/Documents/AppAcademy/Projects/FullStack/TeaMi/app/assets/stylesheets/css_reset.scss */
+ol, ul {
+  list-style: none;
+}
+
+/* line 40, /Users/lawrenceguintu/Documents/AppAcademy/Projects/FullStack/TeaMi/app/assets/stylesheets/css_reset.scss */
+blockquote, q {
+  quotes: none;
+}
+
+/* line 43, /Users/lawrenceguintu/Documents/AppAcademy/Projects/FullStack/TeaMi/app/assets/stylesheets/css_reset.scss */
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: '';
+  content: none;
+}
+
+/* line 48, /Users/lawrenceguintu/Documents/AppAcademy/Projects/FullStack/TeaMi/app/assets/stylesheets/css_reset.scss */
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/* line 52, /Users/lawrenceguintu/Documents/AppAcademy/Projects/FullStack/TeaMi/app/assets/stylesheets/css_reset.scss */
+a {
+  text-decoration: none;
+}
+
+/* line 56, /Users/lawrenceguintu/Documents/AppAcademy/Projects/FullStack/TeaMi/app/assets/stylesheets/css_reset.scss */
+input {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+/* line 62, /Users/lawrenceguintu/Documents/AppAcademy/Projects/FullStack/TeaMi/app/assets/stylesheets/css_reset.scss */
+input[type='submit'], button {
+  cursor: pointer;
+}
+
+/* line 5, /Users/lawrenceguintu/Documents/AppAcademy/Projects/FullStack/TeaMi/app/assets/stylesheets/api/sessions.scss */
+.session-form-container {
+  display: flex;
+  flex-direction: column;
+  width: 296px;
+  height: 640px;
+  justify-content: center;
+  margin-left: 20%;
+  position: relative;
+}
+
+/* line 15, /Users/lawrenceguintu/Documents/AppAcademy/Projects/FullStack/TeaMi/app/assets/stylesheets/api/sessions.scss */
+.session-form {
+  display: flex;
+  flex-direction: column;
+}
+
+/* line 20, /Users/lawrenceguintu/Documents/AppAcademy/Projects/FullStack/TeaMi/app/assets/stylesheets/api/sessions.scss */
+.session-form button, .session-form input[type='submit'] {
+  background-color: #7DCC4D;
+  color: #ffffff;
+  cursor: pointer;
+  padding-right: 10px;
+  width: 296px;
+  height: 42px;
+  font-size: 17px;
+  border-radius: 5px;
+  margin: 5px 0;
+}
+
+/* line 32, /Users/lawrenceguintu/Documents/AppAcademy/Projects/FullStack/TeaMi/app/assets/stylesheets/api/sessions.scss */
+.session-form input[type='text'], .session-form input[type='password'] {
+  width: 286px;
+  height: 42px;
+}
+
+/* line 37, /Users/lawrenceguintu/Documents/AppAcademy/Projects/FullStack/TeaMi/app/assets/stylesheets/api/sessions.scss */
+.session-form button, .session-form input {
+  font-size: 17px;
+  border-radius: 5px;
+  margin: 5px 0;
+}
+
+/* line 43, /Users/lawrenceguintu/Documents/AppAcademy/Projects/FullStack/TeaMi/app/assets/stylesheets/api/sessions.scss */
+.session-form input[type='text'], .session-form input[type='password'] {
+  border: 1px solid lightgray;
+}
+
+/* line 47, /Users/lawrenceguintu/Documents/AppAcademy/Projects/FullStack/TeaMi/app/assets/stylesheets/api/sessions.scss */
+.session-form a {
+  margin: 0 5px;
+  color: #7DCC4D;
+}
+
+/* line 52, /Users/lawrenceguintu/Documents/AppAcademy/Projects/FullStack/TeaMi/app/assets/stylesheets/api/sessions.scss */
+.session-form a:visited {
+  color: #7DCC4D;
+}
+
+/* line 56, /Users/lawrenceguintu/Documents/AppAcademy/Projects/FullStack/TeaMi/app/assets/stylesheets/api/sessions.scss */
+.session-form input[type='text'], .session-form input[type='password'] {
+  padding-left: 10px;
+}
+
+/* line 60, /Users/lawrenceguintu/Documents/AppAcademy/Projects/FullStack/TeaMi/app/assets/stylesheets/api/sessions.scss */
+.session-form-link-container {
+  display: flex;
+  justify-content: center;
+}
+
+/* line 65, /Users/lawrenceguintu/Documents/AppAcademy/Projects/FullStack/TeaMi/app/assets/stylesheets/api/sessions.scss */
+.session-form-link-container p {
+  margin-left: 5px;
+}
+
+/* line 69, /Users/lawrenceguintu/Documents/AppAcademy/Projects/FullStack/TeaMi/app/assets/stylesheets/api/sessions.scss */
+.logo-container {
+  width: 100%;
+  height: 120px;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-image: url(/assets/teami_logo-0cc5a4423b166dd08c3914e2f342c82a380bcede2187c18c6c81800274555d6f.svg);
+}
+
+/* line 77, /Users/lawrenceguintu/Documents/AppAcademy/Projects/FullStack/TeaMi/app/assets/stylesheets/api/sessions.scss */
+.session-header h1 {
+  font-size: 36px;
+  font-weight: 200;
+}
+
+/* line 82, /Users/lawrenceguintu/Documents/AppAcademy/Projects/FullStack/TeaMi/app/assets/stylesheets/api/sessions.scss */
+.session-header p {
+  font-size: 20px;
+  font-weight: 200;
+}
+
+/* line 87, /Users/lawrenceguintu/Documents/AppAcademy/Projects/FullStack/TeaMi/app/assets/stylesheets/api/sessions.scss */
+.session-header p, .session-header h1 {
+  text-align: center;
+}
+
+/* line 91, /Users/lawrenceguintu/Documents/AppAcademy/Projects/FullStack/TeaMi/app/assets/stylesheets/api/sessions.scss */
+.session-header p, .session-header h1, .logo-container {
+  margin: 20px 0;
+}
+
+/* line 95, /Users/lawrenceguintu/Documents/AppAcademy/Projects/FullStack/TeaMi/app/assets/stylesheets/api/sessions.scss */
+.session-image {
+  background-repeat: no-repeat;
+  background-position: center;
+  background-image: url(/assets/splash-8f4a07ec713a943e99661b5bd29c0754a2391cebaca7245dde8d23d384b91dd5.jpg);
+  background-size: contain;
+  height: inherit;
+  width: inherit;
+}
+
+/* line 104, /Users/lawrenceguintu/Documents/AppAcademy/Projects/FullStack/TeaMi/app/assets/stylesheets/api/sessions.scss */
+.session-image-container {
+  height: 640px;
+  width: 640px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* line 113, /Users/lawrenceguintu/Documents/AppAcademy/Projects/FullStack/TeaMi/app/assets/stylesheets/api/sessions.scss */
+.session-container {
+  display: flex;
+}
+
+/* line 117, /Users/lawrenceguintu/Documents/AppAcademy/Projects/FullStack/TeaMi/app/assets/stylesheets/api/sessions.scss */
+.session-container li {
+  color: red;
+  margin: 5px;
+  text-align: left;
+}
+
+/* line 123, /Users/lawrenceguintu/Documents/AppAcademy/Projects/FullStack/TeaMi/app/assets/stylesheets/api/sessions.scss */
+.session-container ul {
+  position: absolute;
+  top: 565px;
+  list-style-type: disc;
+  padding-left: 10px;
+}
+
+/* line 130, /Users/lawrenceguintu/Documents/AppAcademy/Projects/FullStack/TeaMi/app/assets/stylesheets/api/sessions.scss */
+.main-session-container {
+  display: flex;
+  flex-direction: column;
+}
+
+/* line 135, /Users/lawrenceguintu/Documents/AppAcademy/Projects/FullStack/TeaMi/app/assets/stylesheets/api/sessions.scss */
+.footer {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  height: 40px;
+  background-color: #7DCC4D;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* line 147, /Users/lawrenceguintu/Documents/AppAcademy/Projects/FullStack/TeaMi/app/assets/stylesheets/api/sessions.scss */
+.footer a {
+  margin: 0 20px;
+  color: #ffffff;
+  font-size: 20px;
+}
+
+/* line 153, /Users/lawrenceguintu/Documents/AppAcademy/Projects/FullStack/TeaMi/app/assets/stylesheets/api/sessions.scss */
+.footer a:visited {
+  color: #ffffff;
+}
+
+/* line 1, /Users/lawrenceguintu/Documents/AppAcademy/Projects/FullStack/TeaMi/app/assets/stylesheets/components/chat_list.scss */
+.chat-list-item img {
+  height: 25px;
+  width: 25px;
+  border: 1px solid lightgray;
+  border-radius: 100px;
+}
+
+/* line 8, /Users/lawrenceguintu/Documents/AppAcademy/Projects/FullStack/TeaMi/app/assets/stylesheets/components/chat_list.scss */
+.chat-list-item ul {
+  display: flex;
+}

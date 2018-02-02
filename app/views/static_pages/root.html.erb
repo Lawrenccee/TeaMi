@@ -7,6 +7,10 @@
       ).html_safe
     %>
   <% end %>
+
+  window.staticImages = {
+    profile_pic_url: "<%= asset_url('profile_pic.svg') %>"
+  }
 </script>
 
 <div id="root">

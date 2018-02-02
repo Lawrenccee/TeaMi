@@ -1,5 +1,5 @@
 import values from 'lodash/values';
 
-export const selectAllChatsOfUser = (state) => (
-  state.entities.chats
+export const selectAllChats = (state) => (
+  values(state.entities.chats)
 );
