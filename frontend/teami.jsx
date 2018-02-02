@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import configureStore from './store/store';
 import Root from './components/root';
 import * as sessionActions from './actions/session_actions';
+import * as chatApi from './util/chat_api_util';
 
 document.addEventListener("DOMContentLoaded", () => {
   let store;
@@ -22,6 +23,7 @@ document.addEventListener("DOMContentLoaded", () => {
   window.getState = store.getState;
   window.dispatch = store.dispatch;
   window.sessionActions = sessionActions;
+  window.chatApi = chatApi;
 
   const root = document.getElementById("root");
   ReactDOM.render(<Root store={store} />, root);
