@@ -166,6 +166,8 @@ class SessionForm extends React.Component {
                 </div>
               }
               
+                {/* <textarea name="test" ref="test" id="" cols="30" rows="10"></textarea>
+                <a onClick={() => {App.chat.speak(this.refs.test.value);}}>TestChat!</a> */}
             </form>
 
             <ul>
