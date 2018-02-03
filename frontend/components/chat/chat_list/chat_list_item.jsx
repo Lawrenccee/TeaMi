@@ -11,7 +11,7 @@ const ChatListItem = ({ chat }) => {
     <li className="chat-list-item">
       <ul>
         <div>
-          <li>
+          <li className='chat-list-item-img'>
             <img 
               onError={(e) => { e.target.src = window.staticImages.profile_pic_url;} } 
               src={`${profilePicUrl}`} 
@@ -19,15 +19,17 @@ const ChatListItem = ({ chat }) => {
             />
           </li>
         </div>
-        <div>
-          <li>        
-            {chat.name}
-          </li>
-          <li>
-            {chat.preview.timestamp}
-          </li>
-          <li>
-            {chat.preview.body}
+        <div className='chat-list-text-container'>
+          <div className='chat-list-item-description'>
+            <li className='chat-list-item-name'>        
+              <p>{chat.name}</p>
+            </li>
+            <li className='chat-list-item-timestamp'>
+              <p>{chat.preview.timestamp}</p>
+            </li>
+          </div>
+          <li className='chat-list-item-body'>
+            <p>{chat.preview.body}</p>
           </li>
         </div>
       </ul>
