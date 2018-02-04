@@ -8,7 +8,7 @@ import { receiveChatHighlight } from '../../../actions/ui_actions';
 
 const mapStateToProps = (state, ownProps) => ({
   chats: selectAllChats(state),
-  chatHighlight: state.ui.chatHighlight
+  chatHighlight: state.ui.chatHighlight,
 });
 
 const mapDispatchToProps = (dispatch, ownProps) => ({

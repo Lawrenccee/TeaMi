@@ -1,6 +1,10 @@
 class Api::ChatsController < ApplicationController
   def index
-    @chats = current_user.chats
+    if current_user
+      @chats = current_user.chats
+    else
+      render json: {}
+    end
   end
 
   def create

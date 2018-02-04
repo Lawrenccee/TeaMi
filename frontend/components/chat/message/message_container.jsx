@@ -7,7 +7,7 @@ class MessageContainer extends React.Component {
   render() {
     
     return (
-      <div>
+      <div className="message-container">
         <MessageListContainer />
         <MessageFormContainer />
       </div>

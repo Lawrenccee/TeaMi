@@ -8,7 +8,17 @@ class ChatList extends React.Component {
   }
 
   componentWillMount() {
-    this.listenFunctionId = setInterval(this.props.fetchChats, 1000);
+    this.listen = true;
+
+    const listen = () => {
+      if (this.listen) {
+        this.props.fetchChats().then(() => (
+          setTimeout(listen)
+        ));
+      }
+    };
+
+    // listen();
   }
 
   componentDidMount() {
@@ -28,11 +38,10 @@ class ChatList extends React.Component {
           this.props.history.push(`/chats/new`);
         }
       });
-
   }
 
   componentWillUnmount() {
-    clearInterval(this.listenFunctionId);
+    this.listen = false; // stop requesting chat info
   }
 
   componentWillReceiveProps(newProps) {

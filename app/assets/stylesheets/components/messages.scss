@@ -1,0 +1,40 @@
+.message-container {
+  height: 100vh;
+}
+
+.message-list-container {
+  height: 95vh;
+  position: relative;
+  display: flex;
+  overflow: auto;
+}
+
+.message-list-container ul {
+  height: 100%;
+}
+
+.message-form-container {
+  height: 5vh;
+  position: relative;
+  display: flex;
+}
+
+.message-form {
+  height: 100%;
+  width: 100%;
+}
+
+.message-form textarea {
+  height: 100%;
+  width: 100%;
+}
+
+.myMessage {
+  background-color: $your-bubble-color;
+  color: $your-text-color;
+}
+
+.their-message {
+  background-color: $their-bubble-color;
+  color: $their-text-color;
+}

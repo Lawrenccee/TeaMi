@@ -30,7 +30,6 @@ class MessageForm extends React.Component {
       this.setState({
         chat_id: newProps.match.params.chatId,
       });
-      // App.chat.unsubscribe();
       this.setUpChat(
         newProps.match.params.chatId,
         () => this.props.fetchChat({
@@ -38,6 +37,12 @@ class MessageForm extends React.Component {
           limit: this.state.limit
         })
       );
+    }
+  }
+
+  componentWillUnmount() {
+    if (App.chat) {
+      App.chat.logout();
     }
   }
 
@@ -57,6 +62,10 @@ class MessageForm extends React.Component {
         // reactReceive is a function set in the react component to handle the data received
         // when the stuff is done.
         receiveData();
+      },
+
+      logout: function() {
+        // this.perform('unsubscribed');
       },
 
       speak: function (message) {
@@ -86,8 +95,8 @@ class MessageForm extends React.Component {
 
   render() {
     return (
-      <div>
-        <form onKeyDown={this.handleKeyDown}>
+      <div className='message-form-container'>
+        <form className='message-form' onKeyDown={this.handleKeyDown}>
           <textarea 
             name="body" 
             cols="30" 
