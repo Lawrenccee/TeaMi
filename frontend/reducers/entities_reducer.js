@@ -1,10 +1,10 @@
 import { combineReducers } from 'redux';
 import ChatsReducer from './chats_reducer';
-// import UsersReducer from './user_reducer';
+import UsersReducer from './users_reducer';
 
 const EntitiesReducer = combineReducers({
   chats: ChatsReducer,
-  // users: UsersReducer,
+  users: UsersReducer,
 });
 
 export default EntitiesReducer;
