@@ -6,17 +6,18 @@ $dark-blue: #457F8B;
 $leaf-green: #7DCC4D;
 $leaf-dark-green: #5DA87C;
 $leaf-blue: #4DCC9C;
+$light-gray: #f2f2f2;
 
 $background-color: #ffffff;
 $your-bubble-color: $light-blue;
-$their-bubble-color: lightgray;
+$their-bubble-color: $light-gray;
 $their-text-color: black;
 $your-text-color: $background-color;
 $chat-name-color: black;
-$preview-color: lightgray;
-$time-color: lightgray;
+$preview-color: $light-gray;
+$time-color: $light-gray;
 $profile-link-color: $your-bubble-color;
-$current-chat-color: lightgray;
+$current-chat-color: $light-gray;
 $main-color: $leaf-green; // dark green before
-$signin-border: lightgray;
+$signin-border: $light-gray;
 $link-color: $leaf-green; // dark green before

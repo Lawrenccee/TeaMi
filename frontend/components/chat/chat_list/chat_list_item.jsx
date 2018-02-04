@@ -3,7 +3,6 @@ import React from 'react';
 class ChatListItem extends React.Component {
   constructor(props) {
     super(props);
-
     this.handleClick = this.handleClick.bind(this);
   }
 
@@ -29,30 +28,28 @@ class ChatListItem extends React.Component {
         className={`chat-list-item ${highlight}`} 
         onClick={this.handleClick}
       >
-        <ul>
-          <div>
-            <li className='chat-list-item-img'>
-              <img 
-                onError={(e) => { e.target.src = window.staticImages.profile_pic_url;} } 
-                src={`${profilePicUrl}`} 
-                alt="profile_pic" 
-              />
-            </li>
+        <div className='chat-list-item-img-container'>
+          <div className='chat-list-item-img'>
+            <img 
+              onError={(e) => { e.target.src = window.staticImages.profile_pic_url;} } 
+              src={`${profilePicUrl}`} 
+              alt="profile_pic" 
+            />
           </div>
-          <div className='chat-list-text-container'>
-            <div className='chat-list-item-description'>
-              <li className='chat-list-item-name'>        
-                <p>{chat.name}</p>
-              </li>
-              <li className='chat-list-item-timestamp'>
-                <p>{chat.preview.timestamp}</p>
-              </li>
+        </div> 
+        <div className='chat-list-text-container'>
+          <div className='chat-list-item-description'>
+            <div className='chat-list-item-name'>        
+              <div>{chat.name}</div>
             </div>
-            <li className='chat-list-item-body'>
-              <p>{chat.preview.body}</p>
-            </li>
+            <div className='chat-list-item-timestamp'>
+              <div>{chat.preview.timestamp}</div>
+            </div>
           </div>
-        </ul>
+          <div className='chat-list-item-body'>
+            <div>{chat.preview.body}</div>
+          </div>
+        </div>
       </li>
     );
   }

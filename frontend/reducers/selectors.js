@@ -10,3 +10,10 @@ export const selectAllChats = (state) => {
 
   return sorted;
 };
+
+export const selectMessagesOfChat = (state, chatId) => {
+  if (state.entities.chats[chatId]) {
+    return values(state.entities.chats[chatId].messages);
+  }
+  return [];
+};

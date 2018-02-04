@@ -45,6 +45,7 @@ class Api::ChatsController < ApplicationController
   end
 
   def show
+    p params
     @chat = Chat.find_by(id: params[:id])
     @limit = params[:limit]
     # ^ will be local state in react to pass thru, 

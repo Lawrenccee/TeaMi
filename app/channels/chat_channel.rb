@@ -2,7 +2,7 @@ class ChatChannel < ApplicationCable::Channel
   def subscribed
     # stream_from "some_channel"
     # passed from App.chat method in chat.js
-    stream_from "chats-#{chat_id}"
+    stream_from "chats-#{params[:chat_id]}"
   end
 
   def unsubscribed
@@ -11,9 +11,13 @@ class ChatChannel < ApplicationCable::Channel
   end
 
   def speak(data)
-    p data[:message]
-    message_params = data[:message]
+    message_params = {
+      body: data["body"],
+      giphy_url: data["giphy_url"],
+      chat_id: data["chat_id"],
+      author_id: data["author_id"]
+    }
 
-    Message.create(message_params)
+    message = Message.create(message_params)
   end
 end

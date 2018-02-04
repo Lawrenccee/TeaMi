@@ -30,7 +30,7 @@ export const fetchChats = () => dispatch => (
 export const fetchChat = ({ chatId, limit = 1 }) => dispatch => (
   ChatApi.fetchChat({ chatId, limit })
     .then(
-      (chat) => dispatch(receiveChats(chat)),
+      (chat) => dispatch(receiveChat(chat)),
       (errors) => dispatch(receiveChatErrors(errors))
     )
 );

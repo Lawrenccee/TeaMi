@@ -1,5 +1,6 @@
 class Api::MessagesController < ApplicationController
   def create
+    p params
     @message = Message.new(message_params)
 
     @message.chat_id = params[:chat_id]

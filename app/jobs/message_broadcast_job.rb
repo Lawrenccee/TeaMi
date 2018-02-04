@@ -8,7 +8,7 @@ class MessageBroadcastJob < ApplicationJob
   def broadcast_to_chat(message)
     ActionCable.server.broadcast(
       "chats-#{message[:chat_id]}",
-      message: render_message
+      message: JSON.parse(render_message(message))
     )
   end
 

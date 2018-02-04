@@ -29,11 +29,15 @@ class ChatList extends React.Component {
   }
 
   render() {
-    const { chats, chatHighlight, receiveChatHighlight } = this.props;
+    const { chats, chatHighlight, receiveChatHighlight } = this.props;    
+    if (chats.length === 0) {
+      return null;
+    }
+
     const ChatListItems = this.props.chats.map(chat => {     
       return (
         <ChatListItem 
-          key={chat.id} 
+          key={`chat-${chat.id}`} 
           chat={chat} 
           chatHighlight={chatHighlight}
           receiveChatHighlight={receiveChatHighlight}

@@ -6,7 +6,7 @@ const ChatsReducer = (oldState = {}, action) => {
 
   switch(action.type) {
     case RECEIVE_CHATS:
-      return action.chats;
+      return merge({}, oldState, action.chats);
     case RECEIVE_CHAT:
       return merge({}, oldState, action.chat);
     default: 
