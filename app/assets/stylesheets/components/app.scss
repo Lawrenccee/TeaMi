@@ -6,9 +6,9 @@
 }
 
 .chats-left-sidebar {
-  position: relative;
   min-width: 25vw;
   max-width: 33%;
-  margin-right: 10px;
-  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  position: relative;
 }

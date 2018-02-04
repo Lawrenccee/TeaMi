@@ -1,13 +1,13 @@
 .chat-sidebar {
-  width: 100%;
-  padding-right: 12px;
+  flex: 2 1 auto;
+  display: flex;
 }
 
 .chat-list {
   display: block;
   overflow-y: scroll;
   overflow-x: hidden;
-  width: 100%;
+  flex: 1 1 auto;
 }
 
 .chat-list-item {
