@@ -5,11 +5,10 @@ import MessageFormContainer from './message_form_container';
 
 class MessageContainer extends React.Component {
   render() {
-    const {messages} = this.props;
     
     return (
       <div>
-        <MessageListContainer messages={messages}/>
+        <MessageListContainer />
         <MessageFormContainer />
       </div>
     );

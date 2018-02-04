@@ -13,7 +13,12 @@ class ChatList extends React.Component {
         if (this.props.chats.length > 0) {
           if (this.props.history.location.pathname === `/chats/` || 
             this.props.history.location.pathname === `/chats`) {
-            this.props.receiveChatHighlight(this.props.chats[0].id);  
+            if (this.props.chatHighlight && 
+              this.props.chats[0].id === this.props.chatHighlight) {
+              this.props.history.push(`/chats/${this.props.chatHighlight}`);
+            } else {
+              this.props.receiveChatHighlight(this.props.chats[0].id);  
+            }
           }        
         } else {
           this.props.history.push(`/chats/new`);

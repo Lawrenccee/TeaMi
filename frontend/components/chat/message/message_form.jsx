@@ -21,7 +21,24 @@ class MessageForm extends React.Component {
       () => this.props.fetchChat({
         chatId: this.props.match.params.chatId,
         limit: this.state.limit
-      }));
+      })
+    );
+  }
+
+  componentWillReceiveProps(newProps) {
+    if(newProps.match.params.chatId !== this.props.match.params.chatId) {
+      this.setState({
+        chat_id: newProps.match.params.chatId,
+      });
+      App.chat.unsubscribe();
+      this.setUpChat(
+        newProps.match.params.chatId,
+        () => this.props.fetchChat({
+          chatId: newProps.match.params.chatId,
+          limit: this.state.limit
+        })
+      );
+    }
   }
 
   setUpChat(chatId, receiveData) {

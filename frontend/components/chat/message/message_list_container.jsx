@@ -1,17 +1,17 @@
 import React from 'react';
+import { withRouter } from 'react-router-dom';
+import { connect } from 'react-redux';
+import MessageList from './message_list';
+import { selectMessagesOfChat } from '../../../reducers/selectors';
 
-const MessageListContainer = ({ messages }) => {
-  const MessageListItems = messages.map((message) => (
-    <li key={`message-${message.id}`}> {message.body} </li>
-  ));
+const mapStateToProps = (state, ownProps) => ({
+  messages: selectMessagesOfChat(state, ownProps.match.params.chatId),
+  currentUser: state.session.currentUser,
+});
 
-  return (
-    <div>
-      <ul>
-        {MessageListItems}
-      </ul>
-    </div>
-  );
-};
-
-export default MessageListContainer;
+export default withRouter(
+  connect(
+    mapStateToProps,
+    null
+  )(MessageList)
+);

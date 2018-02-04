@@ -1,7 +1,6 @@
 class ChatChannel < ApplicationCable::Channel
   def subscribed
     # stream_from "some_channel"
-    # passed from App.chat method in chat.js
     stream_from "chats-#{params[:chat_id]}"
   end
 

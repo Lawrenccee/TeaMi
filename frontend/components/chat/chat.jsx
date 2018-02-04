@@ -16,8 +16,12 @@ class Chat extends React.Component {
   }
 
   componentWillReceiveProps(newProps) {
-    if(newProps.match.params.chatId !== this.props.match.params.chatId) {      
-      // this.props.fetchChat(newProps.match.params.chatId);
+    if (this.props.match.params.chatId &&
+      newProps.match.params.chatId !== this.props.match.params.chatId) {      
+      this.props.fetchChat({
+        chatId: newProps.match.params.chatId,
+        limit: 100,
+      });
     }
   }
 
@@ -28,7 +32,7 @@ class Chat extends React.Component {
       return (
         <div>
           {/* <ChatHeaderContainer /> */}
-          <MessageContainer messages={messages} />
+          <MessageContainer/>
           {/* <ChatInfoContainer /> */}
         </div>
       );
