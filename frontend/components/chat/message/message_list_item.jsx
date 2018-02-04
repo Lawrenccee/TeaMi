@@ -1,14 +1,23 @@
 import React from 'react';
 
 const MessageListItem = ({ message, currentUser }) => {
-  if (message.id === currentUser.id) {
+  console.log(message);
+  if (message.author_id === currentUser.id) {
     return (
-      <li className='my-message'> {message.body} </li>
+      <li className='message my-message'> 
+        <div>
+          {message.body} 
+        </div>
+      </li>
     );
   }
   else {
     return (
-      <li className='their-message'> {message.body} </li>
+      <li className='message their-message'> 
+        <div>
+          {message.body}
+        </div>
+      </li>
     );
   }  
 };

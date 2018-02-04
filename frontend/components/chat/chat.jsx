@@ -30,7 +30,7 @@ class Chat extends React.Component {
 
     if (chat) {
       return (
-        <div>
+        <div className="chat-container">
           {/* <ChatHeaderContainer /> */}
           <MessageContainer/>
           {/* <ChatInfoContainer /> */}

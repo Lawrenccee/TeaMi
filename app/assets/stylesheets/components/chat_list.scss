@@ -1,17 +1,21 @@
+.chat-sidebar {
+  width: 100%;
+  padding-right: 12px;
+}
+
 .chat-list {
   display: block;
-  // overflow: scroll;
-  // min-width: 240px;
-  // width: 25%;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  width: 100%;
 }
 
 .chat-list-item {
   cursor: pointer;
   height: 50px;
   padding: 7px;
+  min-width: 25%;
   padding-left: 12px;
-  min-width: 228px;
-  width: 25%;
   display: flex;
 }
 
@@ -53,10 +57,19 @@
 .chat-list-item-name div, 
 .chat-list-item-body div, 
 .chat-list-item-timestamp div {
-  margin: 5px 0;
+  padding: 5px 0;
 }
 
 .chat-list-item-name, .chat-list-item-body {
+  min-width: 0;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  display: inline-block;
+}
+
+.chat-list-item-body div, 
+.chat-list-item-name div {
   min-width: 0;
   white-space: nowrap;
   text-overflow: ellipsis;

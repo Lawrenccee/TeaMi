@@ -68,7 +68,7 @@ class ChatList extends React.Component {
     });
 
     return (
-      <div>
+      <div className='chat-sidebar'>
         {/* <ChatsSearch/> */}
         <ul className="chat-list">
           {ChatListItems}

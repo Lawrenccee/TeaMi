@@ -3,18 +3,18 @@
 }
 
 .message-list-container {
-  height: 95vh;
-  position: relative;
+  height: 94vh;
   display: flex;
   overflow: auto;
 }
 
-.message-list-container ul {
+.message-list {
   height: 100%;
+  width: 100%;
 }
 
 .message-form-container {
-  height: 5vh;
+  height: 4vh;
   position: relative;
   display: flex;
 }
@@ -29,12 +29,32 @@
   width: 100%;
 }
 
-.myMessage {
+.message {
+  display: flex;
+}
+
+.my-message {
+  justify-content: flex-end;
+}
+
+.their-message {
+  justify-content: flex-start;
+}
+
+.my-message div, .their-message div {
+  max-width: 50%;
+  display: block;  
+  padding: 5px 10px;
+  border-radius: 15px;
+  margin: 2px;
+}
+
+.my-message div {
   background-color: $your-bubble-color;
   color: $your-text-color;
 }
 
-.their-message {
+.their-message div {
   background-color: $their-bubble-color;
   color: $their-text-color;
 }
