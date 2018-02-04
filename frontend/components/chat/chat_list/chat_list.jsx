@@ -5,6 +5,10 @@ import ChatListItem from './chat_list_item';
 class ChatList extends React.Component {
   constructor(props) {
     super(props);
+
+    this.state = {
+      listenFunction: () => setInterval(this.props.fetchChats()),
+    };
   }
 
   componentDidMount() {
@@ -23,8 +27,14 @@ class ChatList extends React.Component {
         } else {
           this.props.history.push(`/chats/new`);
         }
+
+        this.state.listenFunction();
       });
 
+  }
+
+  componentWillUnmount() {
+    clearInterval(this.state.listenFunction);
   }
 
   componentWillReceiveProps(newProps) {

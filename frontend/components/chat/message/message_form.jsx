@@ -30,7 +30,7 @@ class MessageForm extends React.Component {
       this.setState({
         chat_id: newProps.match.params.chatId,
       });
-      App.chat.unsubscribe();
+      // App.chat.unsubscribe();
       this.setUpChat(
         newProps.match.params.chatId,
         () => this.props.fetchChat({
