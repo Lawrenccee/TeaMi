@@ -26,7 +26,7 @@ export const resetState = () => ({
 export const login = (formUser) => (dispatch) => (
   SessionApi.login(formUser)
     .then(
-      (user) => dispatch(receiveCurrentUser(user)),
+      (user) => {dispatch(resetState()); dispatch(receiveCurrentUser(user));},
       (errors) => dispatch(receiveSessionErrors(errors))
     )
 );

@@ -156,6 +156,7 @@ class SessionForm extends React.Component {
                 <div className='session-form-link-container'>
                   <p>
                     Already have an account? 
+                    <br/>
                     <Link 
                       to='/login' 
                       onClick={this.handleLink}

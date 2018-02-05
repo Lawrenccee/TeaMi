@@ -1,16 +1,20 @@
 import React from 'react';
-import { ProtectedRoute } from '../../util/route_util';
-import LogoutContainer from '../logout/logout_container';
-import TiEdit from 'react-icons/lib/ti/edit';
+import { connect } from 'react-redux';
+import { withRouter } from 'react-router-dom';
+import { clearChatHighlight } from '../../actions/ui_actions';
+import Nav from './nav';
 
-const NavContainer = (props) => {
-  return (
-    <nav className="navbar">
-      <ProtectedRoute path="/chats" component={LogoutContainer} />
-      <p>TeaMí</p>
-      <button onClick={() => props.history.push('/chats/new')}><TiEdit size={30} /></button>
-    </nav>
-  );
-};
+const mapStateToProps = (state, ownProps) => ({
 
-export default NavContainer;
+});
+
+const mapDisptachToProps = (dispatch, ownProps) => ({
+  clearChatHighlight: () => dispatch(clearChatHighlight()),
+});
+
+export default withRouter(
+  connect(
+    null,
+    mapDisptachToProps
+  )(Nav)
+);

@@ -22,16 +22,16 @@
   color: $background-color;
   cursor: pointer;
   padding-right: 10px;
-  width: 296px;
+  width: 260px;
   height: 42px;
-  font-size: 17px;
+  font-size: 16px;
   border-radius: 5px;
   margin: 5px 0;
   outline: none;
 }
 
 .session-form input[type='text'], .session-form input[type='password'] {
-  width: 286px;
+  width: 250px;
   height: 42px;  
 }
 .session-form input[type='text']:focus, .session-form input[type='password']:focus {
@@ -39,7 +39,7 @@
 }
 
 .session-form button, .session-form input {
-  font-size: 17px;
+  font-size: 16px;
   border-radius: 5px;
   margin: 5px 0;
 }
@@ -64,27 +64,37 @@
 .session-form-link-container {
   display: flex;
   justify-content: center;
+  width: 262px;
 }
 
 .session-form-link-container p {
+  padding-top: 5px;
   margin-left: 5px;
+  text-align: center;
 }
 
 .logo-container {
   width: 100%;
-  height: 120px;
+  height: 140px;
   background-repeat: no-repeat;
   background-position: center;
   background-image: asset_url('teami_logo.svg')
 }
 
+.session-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 262px;
+}
+
 .session-header h1 {
-  font-size: 36px;
+  font-size: 45px;
   font-weight: 200;
 }
 
 .session-header p {
-  font-size: 20px;
+  font-size: 25px;
   font-weight: 200;
 }
 
@@ -93,7 +103,7 @@
 }
 
 .session-header p, .session-header h1, .logo-container {
-  margin: 20px 0;
+  margin: 10px 0;
 }
 
 .session-image {
@@ -126,7 +136,7 @@
 
 .session-container ul {
   position: absolute;
-  top: 565px;
+  top: 590px;
   list-style-type: disc; 
   padding-left: 10px;
 }

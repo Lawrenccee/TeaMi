@@ -10,7 +10,7 @@ const ChatHighlightReducer = (oldState = null, action) => {
     case RECEIVE_CHAT_HIGHLIGHT:
       return action.chatId;
     case CLEAR_CHAT_HIGHLIGHT:
-      return null;
+      return 'new';
     default:
       return oldState;
   }
