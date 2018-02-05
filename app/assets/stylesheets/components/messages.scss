@@ -13,10 +13,12 @@
 
 .message-list {
   flex: 1 1 auto;
+  width: 100%;
 }
 
 .message-form-container {
   display: flex;
+  width: 100%;
   flex: 1 2 auto;
 }
 
@@ -29,6 +31,10 @@
   height: 100%;
   width: 100%;
   flex: 1 1 auto;
+  padding-top: 20px;
+  padding-left: 10px;
+  resize: none;
+  overflow: auto;
 }
 
 .message {
@@ -44,6 +50,7 @@
 }
 
 .my-message div, .their-message div {
+  word-wrap: break-word;
   max-width: 50%;
   display: block;  
   padding: 5px 10px;

@@ -17,7 +17,7 @@ table, caption, tbody, tfoot, thead, tr, th, td,
 article, aside, canvas, details, embed, 
 figure, figcaption, footer, header, hgroup, 
 menu, nav, output, ruby, section, summary,
-time, mark, audio, video, input, button {
+time, mark, audio, video, input, button, textarea {
 	margin: 0;
 	padding: 0;
 	border: 0;
@@ -61,4 +61,17 @@ input {
 
 input[type='submit'], button {
 	cursor: pointer;
+}
+
+input[type='text']:focus, input[type='password']:focus {
+	outline: 1px solid lightgray;
+}
+
+textarea:focus {
+	outline: none;
+}
+
+textarea {
+	border: none;
+	border-top: 1px solid $their-bubble-color;
 }

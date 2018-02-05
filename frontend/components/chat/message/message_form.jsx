@@ -99,8 +99,9 @@ class MessageForm extends React.Component {
         <form className='message-form' onKeyDown={this.handleKeyDown}>
           <textarea 
             name="body" 
-            rows="2" 
+            rows="1" 
             onChange={this.update("body")}
+            placeholder={"Type a message..."}
           >
             {this.body}
           </textarea>
