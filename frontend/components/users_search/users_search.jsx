@@ -74,7 +74,7 @@ class UsersSearch extends React.Component {
           />
         </form>
         { UsersSearchItems.length > 0 &&
-          <ul>
+          <ul id="users-search-results">
             {UsersSearchItems}
           </ul>
         }

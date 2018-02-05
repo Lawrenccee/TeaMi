@@ -3,7 +3,7 @@
    License: none (public domain)
 */
 
-@import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700');
+@import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,,700');
 
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
@@ -63,8 +63,9 @@ input[type='submit'], button {
 	cursor: pointer;
 }
 
-input[type='text']:focus, input[type='password']:focus {
-	outline: 1px solid lightgray;
+input[type='text']:focus, input[type='password']:focus, input[type='submit']:focus, button {
+	outline: none;
+	overflow: hidden;
 }
 
 textarea:focus {
@@ -74,4 +75,12 @@ textarea:focus {
 textarea {
 	border: none;
 	border-top: 1px solid $their-bubble-color;
+}
+
+.hidden {
+	visibility: hidden;
+}
+
+textarea, input, button {
+	font-weight: 300;
 }

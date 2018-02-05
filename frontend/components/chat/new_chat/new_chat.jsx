@@ -73,9 +73,18 @@ class NewChat extends React.Component {
       placeholder = "Type the name of a person or group";
     }
 
+    const searchResults = document.getElementById("users-search-results");
+
     return (
       <div className='new-chat-container'>
-        <div className ='new-chat-input'>
+        <div className='new-chat-input' 
+          onClick={() => {
+            document.getElementById("users-search").focus();
+            if (searchResults) {
+              searchResults.classList.remove("hidden");
+            }
+          }}
+        >
           <p>To:</p>
           <div className='new-chat-input-list'>
             <ul className='new-chat-members'>
@@ -98,7 +107,13 @@ class NewChat extends React.Component {
             />
           </div>
         </div>
-        <div className='new-chat-main' />
+        <div className='new-chat-main' 
+          onClick={() => {
+            if (searchResults) {
+              searchResults.classList.add("hidden");
+            }
+          }}
+        />
       </div>
     );
   }
