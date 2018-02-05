@@ -1,0 +1,14 @@
+ .navbar {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  min-height: 50px;
+  padding: 0 10px;
+  border-right: 1px solid $their-bubble-color;
+  border-bottom: 1px solid $their-bubble-color;
+ }
+
+ .navbar p {
+   font-size: 20px;
+ }

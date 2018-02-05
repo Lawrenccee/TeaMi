@@ -1,6 +1,8 @@
 .chat-sidebar {
   flex: 2 1 auto;
   display: flex;
+  border-right: 1px solid $their-bubble-color;
+  padding-top: 10px;
 }
 
 .chat-list {

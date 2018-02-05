@@ -45,6 +45,7 @@ class NewChat extends React.Component {
 
       this.props.createChat({members: members}).then(() => {
         this.members = {};
+        this.memberOrder = [];
         this.setState({
           members: this.members,
         });
@@ -76,7 +77,7 @@ class NewChat extends React.Component {
           <div className='new-chat-input-list'>
             <ul className='new-chat-members'>
               {
-                this.memberOrder.map(index => 
+                this.memberOrder.map(index =>
                   <li key={`member-${this.members[index].id}`}>
                     {this.members[index].username}
                   </li>
