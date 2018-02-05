@@ -43,13 +43,19 @@ class UsersSearch extends React.Component {
       if (user.id !== currentUser.id && 
         user.username.toUpperCase().includes(this.state.name.toUpperCase()) &&
         this.state.name) {
+          const imgUrl = user.profile_pic_url === null ? 
+            window.staticImages.profile_pic_url : user.profile_pic_url;
+
           UsersSearchItems.push(
             <li 
               onClick={(e) => this.handleClick(e)}
               data-user-index={index}
               key={`users-search-${user.id}`}
-            >
-              {user.username}
+            > 
+              <div>
+                <img src={`${imgUrl}`} />
+                {user.username}
+              </div>
             </li>
           );
         }
@@ -64,11 +70,14 @@ class UsersSearch extends React.Component {
             onChange={this.update("name")}
             onKeyDown={(e) => handleKeyDown(e)}
             placeholder={placeholder}
+            autoComplete="off"
           />
         </form>
-        <ul>
-          {UsersSearchItems}
-        </ul>
+        { UsersSearchItems.length > 0 &&
+          <ul>
+            {UsersSearchItems}
+          </ul>
+        }
       </div>
     );
   }
