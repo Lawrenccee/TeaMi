@@ -5,7 +5,7 @@ import { Route, Redirect, Switch } from 'react-router-dom';
 import { AuthRoute, ProtectedRoute } from '../util/route_util';
 import ChatListContainer from './chat/chat_list/chat_list_container';
 import ChatContainer from './chat/chat_container';
-// import NewChatContainer from './new_chat/new_chat_container';
+import NewChatContainer from './chat/new_chat/new_chat_container';
 
 const App = () => (
   <div>
@@ -20,8 +20,8 @@ const App = () => (
         </div>
         
         <Switch>
+          <ProtectedRoute path="/chats/new" component={NewChatContainer} />
           <ProtectedRoute path="/chats/:chatId" component={ChatContainer} />
-          {/* <ProtectedRoute path="/chats/new" component={NewChatContainer} /> */}
         </Switch>
       </div>
   </div>

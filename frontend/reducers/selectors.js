@@ -17,3 +17,6 @@ export const selectMessagesOfChat = (state, chatId) => {
   }
   return [];
 };
+export const selectAllUsers = (state) => {
+  return values(state.entities.users);
+};
