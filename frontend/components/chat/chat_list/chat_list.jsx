@@ -18,7 +18,7 @@ class ChatList extends React.Component {
       }
     };
 
-    // listen();
+    listen();
   }
 
   componentDidMount() {

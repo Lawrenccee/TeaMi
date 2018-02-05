@@ -55,7 +55,9 @@ class NewChat extends React.Component {
 
   handleUser(user) {
     this.members[user.id] = user;
-    this.memberOrder.push(user.id);
+    if (!this.memberOrder.includes(user.id)) {
+      this.memberOrder.push(user.id);
+    }
 
     this.setState({
       members: this.members,
