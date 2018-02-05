@@ -1,5 +1,5 @@
 import React from 'react';
-// import ChatHeaderContainer from './chat_header/chat_header_container';
+import ChatHeaderContainer from './chat_header/chat_header_container';
 import MessageContainer from './message/message_container';
 // import ChatInfoContainer from './chat_info/chat_info_container;
 
@@ -31,7 +31,7 @@ class Chat extends React.Component {
     if (chat) {
       return (
         <div className="chat-container">
-          {/* <ChatHeaderContainer /> */}
+          <ChatHeaderContainer chat={chat}/>
           <MessageContainer/>
           {/* <ChatInfoContainer /> */}
         </div>

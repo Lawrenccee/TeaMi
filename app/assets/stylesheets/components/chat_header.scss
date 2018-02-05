@@ -1,0 +1,11 @@
+.new-chat-input, .chat-header {
+  display: flex;
+  flex-direction: row;
+  min-height: 23px;
+  padding: 13px;
+  border-bottom: 1px solid $their-bubble-color;
+}
+
+.chat-header {
+  
+}
