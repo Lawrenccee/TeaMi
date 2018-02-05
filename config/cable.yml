@@ -6,10 +6,8 @@ test:
 
 production:
   adapter: redis
-  url: 
-  redis://h:p85799f3d919920f86fa4d0b6232194ec0694a168d4d99d52820ec5da61d01212@ec2-35-153-9-69.compute-1.amazonaws.com:15869
+  url: redis://h:p85799f3d919920f86fa4d0b6232194ec0694a168d4d99d52820ec5da61d01212@ec2-35-153-9-69.compute-1.amazonaws.com:15869
   channel_prefix: TeaMi_production
   port: 15869
   host: ec2-35-153-9-69.compute-1.amazonaws.com
   password: p85799f3d919920f86fa4d0b6232194ec0694a168d4d99d52820ec5da61d01212
-  
