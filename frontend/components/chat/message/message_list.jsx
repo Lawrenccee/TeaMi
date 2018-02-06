@@ -12,7 +12,7 @@ class MessageList extends React.Component {
   scrollBottom() {
     const messageListContainer =
     document.getElementsByClassName('message-list-container')[0];
-    
+
     if (messageListContainer) {
       messageListContainer.scrollTop = messageListContainer.scrollHeight;
     }

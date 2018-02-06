@@ -77,6 +77,7 @@ class MessageForm extends React.Component {
   handleKeyDown(e) {
     switch (e.keyCode) {
       case 13: // ENTER
+        e.preventDefault();
         App.chat.speak(this.state);
         e.currentTarget.reset();
         break;

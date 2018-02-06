@@ -10,12 +10,18 @@ class ChatListItem extends React.Component {
     this.props.receiveChatHighlight(this.props.chat.id);
   }
 
+  componentWillReceiveProps(newProps) {
+    if (this.props.chatHighlight !== newProps.chatHighlight) {
+      this.props.receiveChatHighlight(newProps.chatHighlight);
+    }
+  }
+
   render() {
     const { chat, chatHighlight, receiveChatHighlight } = this.props;
     let profilePicUrl = window.staticImages.profile_pic_url;
     let highlight = "";
 
-    if (chat.id === chatHighlight ) {
+    if (chat.id === parseInt(chatHighlight)) {
       highlight = "highlight";
     }
     

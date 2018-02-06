@@ -16,7 +16,7 @@ const App = () => (
       <div className="chats-main">
         <div className="chats-left-sidebar">
           <ProtectedRoute path="/chats" component={NavContainer} />
-          <ProtectedRoute path="/chats" component={ChatListContainer} />
+          <ProtectedRoute path="/chats/:chatId?" component={ChatListContainer} />
         </div>
         
         <Switch>
