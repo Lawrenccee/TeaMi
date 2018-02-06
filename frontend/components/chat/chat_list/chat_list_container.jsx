@@ -12,7 +12,7 @@ const mapStateToProps = (state, ownProps) => ({
 });
 
 const mapDispatchToProps = (dispatch, ownProps) => ({
-  fetchChats: () => dispatch(fetchChats()),
+  fetchChats: (query) => dispatch(fetchChats(query)),
   receiveChatHighlight: (chatId) => dispatch(receiveChatHighlight(chatId))
 });
 

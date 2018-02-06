@@ -1,5 +1,6 @@
 import React from 'react';
 import MessageListItem from './message_list_item';
+import { ClipLoader } from 'react-spinners';
 
 class MessageList extends React.Component {
   constructor(props) {
@@ -10,8 +11,11 @@ class MessageList extends React.Component {
 
   scrollBottom() {
     const messageListContainer =
-      document.getElementsByClassName('message-list-container')[0];
-    messageListContainer.scrollTop = messageListContainer.scrollHeight;
+    document.getElementsByClassName('message-list-container')[0];
+    
+    if (messageListContainer) {
+      messageListContainer.scrollTop = messageListContainer.scrollHeight;
+    }
   }
 
   componentDidUpdate(prevProps) {
@@ -22,13 +26,24 @@ class MessageList extends React.Component {
 
   render() {
     const { messages, currentUser } = this.props;
+
+    if (messages[0] === "loading") {
+      return (
+        <div className="message-loader">
+          <ClipLoader
+            color={'#7DCC4D'}
+          />
+        </div>
+      );
+    }
+
     const MessageListItems = messages.map((message) => (
-      <MessageListItem 
+      <MessageListItem
         message={message}
         currentUser={currentUser}
         key={`message-${message.id}`}
       />
-    ));
+    )); 
 
     return (
       <div className="message-list-container">

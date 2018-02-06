@@ -13,10 +13,15 @@ export const selectAllChats = (state) => {
 
 export const selectMessagesOfChat = (state, chatId) => {
   if (state.entities.chats[chatId]) {
-    return values(state.entities.chats[chatId].messages);
+    if (state.entities.chats[chatId].messages || 
+      state.entities.chats[chatId].preview.body === "") {
+      return values(state.entities.chats[chatId].messages);
+    } else {
+      return ["loading"];
+    }
   }
-  return [];
 };
+
 export const selectAllUsers = (state) => {
   return values(state.entities.users);
 };

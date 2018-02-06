@@ -67,3 +67,10 @@
   background-color: $their-bubble-color;
   color: $their-text-color;
 }
+
+.message-loader {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}

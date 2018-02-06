@@ -1,7 +1,14 @@
 class Api::ChatsController < ApplicationController
   def index
     if current_user
-      @chats = current_user.chats
+     
+      # TODO have chatsearch query from here but messes up the 
+      # chat search reducer return
+      if params[:query].length > 0
+        @chats = current_user.chats.where('LOWER(name) ILIKE ?', "%#{params[:query]}%")
+      else 
+        @chats = current_user.chats
+      end
     else
       render json: {}
     end

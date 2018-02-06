@@ -5,6 +5,10 @@ import ChatListItem from './chat_list_item';
 class ChatList extends React.Component {
   constructor(props) {
     super(props);
+
+    this.state = {
+      query: "",
+    };
   }
 
   componentWillMount() {
@@ -50,26 +54,45 @@ class ChatList extends React.Component {
     }
   }
 
+  update(property) {
+    return e => {
+      this.setState({
+        [property]: e.target.value
+      });
+    };
+  }
+
   render() {
     const { chats, chatHighlight, receiveChatHighlight } = this.props;    
     if (chats.length === 0) {
       return null;
     }
 
-    const ChatListItems = this.props.chats.map(chat => {     
-      return (
-        <ChatListItem 
-          key={`chat-${chat.id}`} 
-          chat={chat} 
-          chatHighlight={chatHighlight}
-          receiveChatHighlight={receiveChatHighlight}
-        />
+    const ChatListItems = [];
+    
+    this.props.chats.forEach(chat => {     
+      if (chat.name.toUpperCase().includes(this.state.query.toUpperCase())) {
+        ChatListItems.push(
+          <ChatListItem 
+            key={`chat-${chat.id}`} 
+            chat={chat} 
+            chatHighlight={chatHighlight}
+            receiveChatHighlight={receiveChatHighlight}
+          />
         );
+      }
     });
 
     return (
       <div className='chat-sidebar'>
-        {/* <ChatsSearch/> */}
+        <form className='chats-search'>
+          <input 
+            type="text" 
+            value={this.state.query}
+            onChange={this.update("query")}
+            placeholder={"Search for a chat..."}
+          />
+        </form>
         <ul className="chat-list">
           {ChatListItems}
         </ul>

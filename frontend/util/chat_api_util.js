@@ -1,8 +1,11 @@
-export const fetchChats = () => (
+export const fetchChats = (query = "") => (
   $.ajax({
     method: 'GET',
     url: 'api/chats',
-    dataType: 'json'
+    dataType: 'json',
+    data: {
+      query: query
+    }
   })
 );
 
