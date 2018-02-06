@@ -1,0 +1,60 @@
+.giphy-search-container {
+  position: absolute;
+  width: 100%;
+  top: -65px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: $background-color;
+}
+
+.giphys-search {
+  position: relative;
+  width: 100%;
+  padding: 10px;
+  border-top: 1px solid $their-bubble-color;
+  border-bottom: 1px solid $their-bubble-color;
+}
+
+.giphy-search-form {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.giphy-search-form input {
+  width: 80%;
+  align-self: center;
+  padding: 5px 0;
+  padding-left: 15px;
+  border-radius: 20px;
+  background-color: $their-bubble-color;
+}
+
+.giphy-attr {
+  text-align: center;
+}
+
+.giphy-search-list {
+  width: 100%;
+  position: absolute;
+  display: flex;
+  overflow-x: scroll;
+  overflow-y: hidden;
+  top: -137px;
+  padding: 5px;
+  background-color: $background-color;
+}
+
+.giphy-search-list li {
+  margin: 5px;
+}
+
+.giphy-search-form button {
+  margin-left: 20px;
+  background-color: $your-bubble-color;
+  color: $background-color;
+  padding: 5px 10px;
+  border-radius: 15px;
+}

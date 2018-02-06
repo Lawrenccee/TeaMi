@@ -20,10 +20,16 @@
   display: flex;
   width: 100%;
   flex: 1 2 auto;
+  position: relative;
 }
 
 .message-form {
+  display: flex;
   width: 100%;
+  flex: 1 1 auto;
+}
+
+.message-form button {
   flex: 1 1 auto;
 }
 
@@ -73,4 +79,26 @@
   align-items: center;
   justify-content: center;
   height: 100%;
+}
+
+.giphy-message div {
+  background-color: transparent;
+  overflow: hidden;
+  border-radius: 5px;
+  margin: 0 10px;
+}
+
+.giphy-message img {
+  border-radius: 10px;
+}
+
+.giphy-button {
+  border-top: 1px solid $their-bubble-color;
+}
+
+.giphy-button svg {
+  width: 30px;
+  height: 30px;
+  margin-top: -50px;
+  margin-right: 20px;
 }

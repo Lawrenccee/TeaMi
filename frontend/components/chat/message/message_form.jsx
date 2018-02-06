@@ -1,4 +1,6 @@
 import React from 'react';
+import GiphysSearchContainer from '../message/giphys_search_container';
+import FaMagic from 'react-icons/lib/fa/magic';
 
 class MessageForm extends React.Component {
   constructor(props) {
@@ -10,9 +12,11 @@ class MessageForm extends React.Component {
       author_id: this.props.currentUser.id,
       chat_id: this.props.match.params.chatId,
       limit: 10,
+      searchGiphy: false,
     };
 
     this.handleKeyDown = this.handleKeyDown.bind(this);
+    this.toggleGiphy = this.toggleGiphy.bind(this);
   }
 
   componentDidMount() {
@@ -94,9 +98,22 @@ class MessageForm extends React.Component {
     };
   }
 
+  toggleGiphy(e) {
+    e.preventDefault();
+
+    this.setState({
+      searchGiphy: !this.state.searchGiphy
+    });
+  }
+
   render() {
     return (
       <div className='message-form-container'>
+        { this.state.searchGiphy &&
+          <div className='giphy-search-container'>
+            <GiphysSearchContainer App={App}/>
+          </div>
+        }
         <form className='message-form' onKeyDown={this.handleKeyDown}>
           <textarea 
             name="body" 
@@ -106,6 +123,12 @@ class MessageForm extends React.Component {
           >
             {this.body}
           </textarea>
+          <button 
+            className="giphy-button" 
+            onClick={this.toggleGiphy}
+          >
+            <FaMagic />
+          </button>          
         </form>
       </div>
     );
