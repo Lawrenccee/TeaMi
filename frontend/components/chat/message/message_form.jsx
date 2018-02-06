@@ -127,7 +127,7 @@ class MessageForm extends React.Component {
             className="giphy-button" 
             onClick={this.toggleGiphy}
           >
-            <FaMagic />
+            <FaMagic size={30} color={`#7DCC4D`}/>
           </button>          
         </form>
       </div>

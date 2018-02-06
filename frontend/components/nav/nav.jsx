@@ -13,7 +13,7 @@ const Nav = (props) => {
           props.clearChatHighlight();
         }
       }}>
-        <TiEdit size={30} />
+        <TiEdit size={30} color={`#7DCC4D`}/>
       </button>
     </nav>
   );

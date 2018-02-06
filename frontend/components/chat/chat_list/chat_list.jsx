@@ -1,6 +1,6 @@
 import React from 'react';
-// import ChatsSearch from './chats_search';
 import ChatListItem from './chat_list_item';
+import ReactSearch from 'react-icons/lib/fa/search';
 
 class ChatList extends React.Component {
   constructor(props) {
@@ -84,12 +84,15 @@ class ChatList extends React.Component {
     return (
       <div className='chat-sidebar'>
         <form className='chats-search'>
-          <input 
-            type="text" 
-            value={this.state.query}
-            onChange={this.update("query")}
-            placeholder={"Search for a chat..."}
-          />
+          <div>
+            <ReactSearch size={15} color={`#a3a3a3`} />
+            <input
+              type="text"
+              value={this.state.query}
+              onChange={this.update("query")}
+              placeholder={"Search for a TeaMí..."}
+            />
+          </div>
         </form>
         <ul className="chat-list">
           {ChatListItems}

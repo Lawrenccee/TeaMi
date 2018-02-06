@@ -18,6 +18,7 @@
   border-radius: 10px;
   padding: 2px 0;
   padding-left: 10px;
+  text-indent: 15px;
 }
 
 .chat-list {
@@ -104,4 +105,14 @@
 
 .highlight {
   background-color: $their-bubble-color;
+}
+
+.chats-search  {
+  position: relative;
+}
+
+.chats-search svg {
+  position: absolute;
+  top: 10px;
+  left: 27px;
 }
