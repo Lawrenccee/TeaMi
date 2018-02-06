@@ -45,10 +45,10 @@ class ChatList extends React.Component {
   }
 
   componentWillReceiveProps(newProps) {
-    if (newProps.chatHighlight !== this.props.chatHighlight) {
-      if (this.props.history.location.pathname !== `/chats/${newProps.chatHighlight}`) {
-        this.props.history.push(`/chats/${newProps.chatHighlight}`);
-      }
+    if (newProps.chatHighlight &&
+      this.props.history.location.pathname !== 
+      `/chats/${newProps.chatHighlight}`) {
+      this.props.history.push(`/chats/${newProps.chatHighlight}`);
     }
   }
 
