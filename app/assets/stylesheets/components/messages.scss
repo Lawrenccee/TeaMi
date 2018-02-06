@@ -45,6 +45,19 @@
 
 .message {
   display: flex;
+  position: relative;
+}
+
+.message-timestamp-show {
+  color: rgba(0, 0, 0, 0.4);
+  background-color: $background-color;
+  max-width: 50%;
+  font-size: 12px;
+  display: flex;
+}
+
+.message-timestamp-hide {
+  display: none;;
 }
 
 .my-message {
