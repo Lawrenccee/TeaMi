@@ -6,11 +6,9 @@
 }
 
 .chats-search {
-  margin: 5px 0;
-  display: flex;
-  justify-content: center;
+  padding: 5px 0;
   border-bottom: 1px solid $their-bubble-color;
-  padding-bottom: 22px;
+  text-align: center;
 }
 
 .chats-search input {
