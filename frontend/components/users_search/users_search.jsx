@@ -7,6 +7,9 @@ class UsersSearch extends React.Component {
     this.state = {
       name: "",
     };
+
+    this.handleBlur = this.handleBlur.bind(this);
+    this.handleFocus = this.handleFocus.bind(this);
   }
 
   update(property) {
@@ -17,13 +20,32 @@ class UsersSearch extends React.Component {
     };
   }
 
-  handleClick(e) {
-    const userIndex = e.currentTarget.dataset.userIndex;
-    this.props.handleUser(this.props.users[userIndex]);
-    
+  handleMouseUp(e) {
+    console.log('hello');
     this.setState({
       name: ""
     }, () => document.getElementById("users-search").focus());
+  }
+
+  handleMouseDown(e) {
+    e.preventDefault();
+
+    const userIndex = e.currentTarget.dataset.userIndex;
+    this.props.handleUser(this.props.users[userIndex]);
+  }
+
+  handleBlur(e) {
+    const results = document.getElementById("users-search-results");
+    if (results) {
+      document.getElementById("users-search-results").classList.add('hidden');
+    }
+  }
+
+  handleFocus() {
+    const results = document.getElementById("users-search-results");
+    if (results) {
+      document.getElementById("users-search-results").classList.remove('hidden');
+    }
   }
 
   render() {
@@ -49,7 +71,8 @@ class UsersSearch extends React.Component {
 
           UsersSearchItems.push(
             <li 
-              onClick={(e) => this.handleClick(e)}
+              onMouseDown={(e) => this.handleMouseDown(e)}
+              onMouseUp={(e) => this.handleMouseUp((e))}
               data-user-index={index}
               key={`users-search-${user.id}`}
             > 
@@ -72,6 +95,8 @@ class UsersSearch extends React.Component {
             onKeyDown={(e) => handleKeyDown(e)}
             placeholder={placeholder}
             autoComplete="off"
+            onFocus={this.handleFocus}
+            onBlur={this.handleBlur}
           />
         </form>
         { UsersSearchItems.length > 0 &&

@@ -69,9 +69,12 @@
 .new-chat-users-search img {
   height: 25px;
   width: 25px;
+  margin: 5px 0;
   margin-right: 10px;
   border-radius: 50px;
   overflow: hidden;
+  border-left: 1px solid #7DCC4D;
+  border-right: 1px solid #7DCC4D;
 }
 
 .new-chat-users-search li:hover {
