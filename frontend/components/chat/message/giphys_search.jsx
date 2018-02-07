@@ -5,7 +5,7 @@ class GiphysSearch extends React.Component {
     super(props);
     
     this.state = {
-      body: "",
+      body: `${this.props.currentUser.username} sent a GIF`,
       giphy_url: "",
       author_id: this.props.currentUser.id,
       chat_id: this.props.match.params.chatId,
