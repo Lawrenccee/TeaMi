@@ -2,4 +2,6 @@
   max-width: 420px;
   min-width: 200px;
   flex: 0 2 33.33%;
+  border-left: 1px solid $their-bubble-color;
+  padding: 15px;
 }

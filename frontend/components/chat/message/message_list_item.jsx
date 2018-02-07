@@ -108,8 +108,6 @@ class MessageListItem extends React.Component {
             onMouseLeave={this.handleMyUnHover}
           >
             {message.body}
-            <br />
-            {users[message.author_id].username}
           </div>
         </li>
       );
@@ -121,8 +119,6 @@ class MessageListItem extends React.Component {
             onMouseLeave={this.handleTheirUnHover}
           >
             {message.body}
-            <br/>
-            {users[message.author_id].username}
           </div>
           <span className={this.state.theirTimeStampClass}>
             {message.timestamp}
