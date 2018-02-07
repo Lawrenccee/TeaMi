@@ -65,7 +65,11 @@ class ChatInfo extends React.Component {
 
     const { chat, users, currentUser, usersObject } = this.props;
 
-    const chatMembers = chat.member_ids;
+    let chatMembers = chat.member_ids;
+
+    if (!chatMembers) {
+      chatMembers = [];
+    }
 
     return (
       <div className='chat-info-container'>
@@ -103,7 +107,7 @@ class ChatInfo extends React.Component {
               this.memberOrder.map(index =>
                 <li 
                 onKeyDown={(e) => this.handleDeleteMember(e, index)}
-                key={`member-${this.members[index].id}`}
+                key={`chat-member-${this.members[index].id}`}
                 tabIndex={0}
               >
                   {this.members[index].username}
@@ -117,7 +121,7 @@ class ChatInfo extends React.Component {
           <ul className='chat-info-members-list'>
             {
               chatMembers.map(id =>
-                <li>
+                <li key={`current-member-${id}`}>
                   {usersObject[id].profile_pic_url &&
                     <img src={`${usersObject[id].profile_pic_url}`} height="50" width="50" />
                   }
