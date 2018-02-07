@@ -1,36 +1,20 @@
 import React from 'react';
-// import UsersSearch from '../../users_search/users_search';
+import { connect } from 'react-redux';
+import { withRouter } from 'react-router-dom';
+import { updateChat } from '../../../actions/chat_actions';
+import ChatInfo from './chat_info';
 
-class ChatInfoContainer extends React.Component {
-  constructor(props) {
-    super(props);
-  }
+const mapStateToProps = (state, ownProps) => ({
 
-  render() {
-    const { chat } = this.props;
+});
 
-    return (
-      <div className='chat-info-container'>
-        <div className='chat-info'>
-          { chat.chat_pic_url  &&
-            <img src={`${chat.chat_pic_url}`} height="50" width="50" />            
-          }
-          { chat.chat_pic_url === "" || chat.chat_pic_url === null &&
-            <img src={window.staticImages.profile_pic_url} height="50" width="50" />                        
-          }
-          {chat.name}
-        </div>
-        <div className='my-info'>
-          <a href='https://github.com/Lawrenccee'>{`TeaMí Profile`}</a>
-          <br/>
-          <a href='https://www.linkedin.com/in/lawrence-guintu-96a81a101/'>{`Favorite Tea`}</a>
-        </div>
-        {/* <UsersSearch 
-        
-        /> */}
-      </div>
-    );
-  }
-}
+const mapDispatchToProps = (dispatch, ownProps) => ({
+  updateChat: ({ chat, members }) => dispatch(updateChat({ chat, members })),
+});
 
-export default ChatInfoContainer;
+export default withRouter(
+  connect(
+    null,
+    mapDispatchToProps
+  )(ChatInfo)
+);

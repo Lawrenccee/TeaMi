@@ -58,6 +58,11 @@
 }
 
 .message-timestamp-hide {
+  color: rgba(0, 0, 0, 0.4);
+  background-color: $background-color;
+  max-width: 50%;
+  font-size: 12px;
+  display: flex;
   visibility: hidden;
 }
 
