@@ -21,7 +21,7 @@ class UsersSearch extends React.Component {
   }
 
   handleMouseUp(e) {
-    console.log('hello');
+    e.preventDefault();
     this.setState({
       name: ""
     }, () => document.getElementById("users-search").focus());
@@ -32,6 +32,9 @@ class UsersSearch extends React.Component {
 
     const userIndex = e.currentTarget.dataset.userIndex;
     this.props.handleUser(this.props.users[userIndex]);
+    this.setState({
+      name: ""
+    });
   }
 
   handleBlur(e) {
@@ -57,7 +60,8 @@ class UsersSearch extends React.Component {
       handleKeyDown,
       className,
       handleUser,
-      chatMembers = []
+      chatMembers = [],
+      added
     } = this.props;
 
     const UsersSearchItems = [];
@@ -65,7 +69,7 @@ class UsersSearch extends React.Component {
     users.forEach((user, index) => {
       if (user.id !== currentUser.id && !chatMembers.includes(user.id) &&
         user.username.toUpperCase().includes(this.state.name.toUpperCase()) &&
-        this.state.name) {
+        this.state.name && !added.includes(user.id)) {
           const imgUrl = user.profile_pic_url === null ? 
             window.staticImages.profile_pic_url : user.profile_pic_url;
 

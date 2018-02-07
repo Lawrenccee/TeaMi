@@ -100,6 +100,7 @@ class NewChat extends React.Component {
               placeholder={placeholder}
               handleKeyDown={this.handleKeyDown}
               className={"new-chat-users-search"}
+              added={this.memberOrder}
             />
           </div>
         </div>

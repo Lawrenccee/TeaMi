@@ -101,6 +101,7 @@ class ChatInfo extends React.Component {
             className={"new-chat-users-search"}
             handleUser={this.handleUser}
             chatMembers={chatMembers}
+            added={this.memberOrder}
           />
           <ul className='new-chat-members'>
             {
