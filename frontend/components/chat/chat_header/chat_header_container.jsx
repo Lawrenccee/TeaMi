@@ -1,4 +1,5 @@
 import React from 'react';
+import FaInfoCircle from 'react-icons/lib/fa/info-circle';
 // import { withRouter } from 'react-router-dom';
 // import { connect } from  'react-redux';
 // import ChatHeader from './chat_header';
@@ -21,7 +22,7 @@ import React from 'react';
 const ChatHeaderContainer = ({ chat }) => (
   <div className="chat-header">
     <p>{chat.name}</p>
-    <button>Hide right sidebar</button>
+    <button><FaInfoCircle size={30} color={`#7DCC4D`} /></button>
   </div>
 );
 
