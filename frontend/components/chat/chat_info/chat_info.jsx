@@ -30,6 +30,9 @@ class ChatInfo extends React.Component {
     if (values(members).length !== 0) {
       this.props.updateChat({ members: members, chat: this.props.chat });
     }
+
+    this.memberOrder = [];
+    this.setState({ members: {} });
   }
 
   handleUser(user) {
