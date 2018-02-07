@@ -51,7 +51,7 @@ class MessageListItem extends React.Component {
       messageClass = "message my-message";
     }
 
-    if (message.giphy_url !== "") {
+    if (message.giphy_url !== "" && message.giphy_url) {
       messageClass += " giphy-message";
 
       if (message.author_id === currentUser.id) {

@@ -97,6 +97,7 @@ class GiphysSearch extends React.Component {
             type="text"
             onChange={this.updateSearchTerm()}
             value={this.state.searchTerm}
+            autoComplete={"off"}
             placeholder={"Search for a GIF..."}
           /> 
           { this.state.loadMore && this.state.searchTerm.length > 0 &&

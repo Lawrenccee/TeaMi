@@ -27,19 +27,21 @@ class UsersSearch extends React.Component {
   }
 
   render() {
-    const { 
+    let { 
       users, 
       currentUser, 
       handleEnter,
       placeholder,
       handleKeyDown,
-      className
+      className,
+      handleUser,
+      chatMembers = []
     } = this.props;
 
     const UsersSearchItems = [];
 
     users.forEach((user, index) => {
-      if (user.id !== currentUser.id && 
+      if (user.id !== currentUser.id && !chatMembers.includes(user.id) &&
         user.username.toUpperCase().includes(this.state.name.toUpperCase()) &&
         this.state.name) {
           const imgUrl = user.profile_pic_url === null ? 

@@ -27,9 +27,6 @@ class Api::ChatsController < ApplicationController
     @chat = Chat.new(name: @names.join(", "))
 
     @errors = []
-    
-    # pass param called members with all the people
-    # name will be created on frontend and passed through
 
     if @chat.save
       params[:members].each do |_, member|
@@ -44,8 +41,6 @@ class Api::ChatsController < ApplicationController
       end
 
       if @errors.empty?
-        # @chats = Chat.all
-        # render :index
         render :show # just merge the new one
       else
         render json: errors, status: 422        
@@ -59,15 +54,11 @@ class Api::ChatsController < ApplicationController
     p params
     @chat = Chat.find_by(id: params[:id])
     @limit = params[:limit]
-    # ^ will be local state in react to pass thru, 
-    # we can set to 10 for now
   end
 
   def update
     @chat = Chat.find_by(id: params[:id])
     @limit = params[:limit]
-    # pass param called members with all the people
-    # name will be created on frontend and passed through
     @errors = []
 
     # Add new members
@@ -89,19 +80,24 @@ class Api::ChatsController < ApplicationController
         @names.push(member[:username])
       end
 
-      if @errors.empty?
-        # @chats = Chat.all
-        # render :index
-        @message = Message.new(
-          body: "added #{@names.join(', ')} to the group",
-          author_id: current_user[:id],
-          chat_id: @chat[:id]
-        )
 
-        if @message.save
-          render :show # just merge edited one
+      if @errors.empty?
+
+        if @chat.update(name: "#{@chat[:name]}, #{@names.join(', ')}")
+
+          @message = Message.new(
+            body: "#{current_user[:username]} added #{@names.join(', ')} to the group",
+            author_id: current_user[:id],
+            chat_id: @chat[:id]
+          )
+
+          if @message.save
+            render :show # just merge edited one
+          else
+            render json: @message.errors.full_messages, status: 422
+          end
         else
-          render json: @message.errors.full_messages, status: 422
+          render json: @chat.errors.full_messages, status: 422 
         end
       else
         render json: @membership.errors.full_messages, status: 422

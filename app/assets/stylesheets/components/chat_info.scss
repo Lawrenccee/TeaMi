@@ -35,3 +35,37 @@
   color: $leaf-green;
   font-size: 18px;
 }
+
+.chat-info-users-search {
+  padding: 10px;
+}
+
+.chat-info-users-search input {
+  background-color: $light-gray;
+  text-indent: 10px;
+  border-radius: 10px;
+}
+.chat-info-users-search .new-chat-members {
+  overflow: auto;
+  display: flex;
+  flex-direction: row;
+  flex: 0 0 0;
+  flex-wrap: nowrap;
+  margin-top: 5px;
+}
+
+.chat-info-users-search .new-chat-members li {
+  cursor: pointer;
+}
+
+.chat-info-users-search .new-chat-members li:focus {
+  cursor: pointer;
+  outline: none;
+  background-color: $background-color;
+  color: $leaf-green;
+  border: 1px solid $leaf-green;
+}
+
+.chat-info-users-search ul {
+  background-color: $background-color;
+}

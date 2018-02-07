@@ -1,13 +1,85 @@
 import React from 'react';
-// import UsersSearch from '../../users_search/users_search';
+import UsersSearch from '../../users_search/users_search';
+import values from 'lodash/values';
+import merge from 'lodash/merge';
 
 class ChatInfo extends React.Component {
   constructor(props) {
     super(props);
+
+    this.state = ({
+      members: {},
+    });
+
+    this.members = {};
+    this.memberOrder = [];
+    
+    this.handleUser = this.handleUser.bind(this);
+    this.handleEnter = this.handleEnter.bind(this);
+    this.handleKeyDown = this.handleKeyDown.bind(this);
+    this.handleDeleteMember = this.handleDeleteMember.bind(this);
+  }
+
+  componentDidMount() {
+    this.props.fetchUsers();
+  }
+
+  handleKeyDown(e) {
+    switch (e.keyCode) {
+      case 8:
+        if (this.memberOrder.length > 0 && e.target.value === "") {
+          delete this.members[this.memberOrder.pop()];
+          this.setState({
+            members: this.members,
+          });
+        }
+        break;
+    }
+  }
+
+  handleEnter(e) {
+    e.preventDefault();
+    let members = merge({}, this.state.members);
+
+    if (values(members).length !== 0) {
+      this.props.updateChat({ members: members, chat: this.props.chat });
+    }
+  }
+
+  handleUser(user) {
+    if (user.id !== this.props.currentUser.id && 
+      !this.props.chat.member_ids.includes(user.id)) {
+
+      this.members[user.id] = user;
+      if (!this.memberOrder.includes(user.id)) {
+        this.memberOrder.push(user.id);
+      }
+
+      this.setState({
+        members: this.members,
+      });
+    }
+  }
+
+  handleDeleteMember(e, id) {
+    switch (e.keyCode) {
+      case 8:
+        const index = this.memberOrder.indexOf(id);
+        this.memberOrder.splice(index, 1);
+
+        delete this.members[id];
+        break;
+    }
   }
 
   render() {
-    const { chat } = this.props;
+    if (this.props.users.length === 0) {
+      return null;
+    }
+
+    const { chat, users, currentUser, usersObject } = this.props;
+
+    const chatMembers = chat.member_ids;
 
     return (
       <div className='chat-info-container'>
@@ -21,13 +93,39 @@ class ChatInfo extends React.Component {
           <p>{chat.name}</p>
         </div>
         <div className='my-info'>
-          <a href='https://github.com/Lawrenccee'>{`TeaMí Profile`}</a>
+          <a href='https://github.com/Lawrenccee'>
+            {`TeaMí Profile`}
+          </a>
           <br />
-          <a href='https://www.linkedin.com/in/lawrence-guintu-96a81a101/'>{`Favorite Milk Tea`}</a>
+          <a href='https://www.linkedin.com/in/lawrence-guintu-96a81a101/'>
+            {`Favorite Milk Tea`}
+          </a>
         </div>
-        {/* <UsersSearch 
-        
-        /> */}
+        <div className="chat-info-users-search">      
+          <UsersSearch
+            users={users}
+            currentUser={currentUser}
+            handleEnter={this.handleEnter}
+            placeholder={"Add a member to this chat..."}
+            handleKeyDown={this.handleKeyDown}
+            className={"new-chat-users-search"}
+            handleUser={this.handleUser}
+            chatMembers={chatMembers}
+          />
+          <ul className='new-chat-members'>
+            {
+              this.memberOrder.map(index =>
+                <li 
+                onKeyDown={(e) => this.handleDeleteMember(e, index)}
+                key={`member-${this.members[index].id}`}
+                tabIndex={0}
+              >
+                  {this.members[index].username}
+                </li>
+              )
+            }
+          </ul>  
+        </div>
       </div>
     );
   }
