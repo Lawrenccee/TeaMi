@@ -97,9 +97,7 @@ class GiphysSearch extends React.Component {
             <button className="giphy-load-more">Load More!</button>
           }
         </form>
-        <div className="giphy-attr">
-          <p> Powered by Giphy </p>
-        </div>
+        <div className="giphy-attr"></div>
       </div>
     );
   }

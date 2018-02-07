@@ -1,11 +1,11 @@
 import React from 'react';
+import FaSignOut from 'react-icons/lib/fa/sign-out';
 
 const Logout = ({ logout, errors }) => (
   <div>
-    {/* <ul>
-      {errors.map(error => <li>{error}</li>)}
-    </ul> Because shouldnt show if user isnt logged in*/}
-    <button onClick={() => logout()}>Logout</button>
+    <button onClick={() => logout()}>
+      <FaSignOut size={30} color={`#7DCC4D`} transform={"scale(-1,1)"}/>
+    </button>
   </div>
 );
 

@@ -19,13 +19,12 @@
 .giphy-search-form {
   width: 100%;
   display: flex;
-  align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
 }
 
 .giphy-search-form input {
-  width: 80%;
-  align-self: center;
+  flex: 5 2 0%;
+  margin-left: 10px;
   padding: 5px 0;
   padding-left: 15px;
   border-radius: 20px;
@@ -34,6 +33,12 @@
 
 .giphy-attr {
   text-align: center;
+  background-image: asset_url('powered_by_giphy.gif');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  height: 25px;
+  background-color: black;
 }
 
 .giphy-search-list {
@@ -57,4 +62,6 @@
   color: $background-color;
   padding: 5px 10px;
   border-radius: 15px;
+  flex: 1 1 0%;
 }
+
