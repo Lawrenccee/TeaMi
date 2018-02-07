@@ -1,7 +1,7 @@
 export const fetchSearchGiphys = ({searchTerm, offset, limit}) => {
   return $.ajax({
     method: 'GET',
-    url: `http://api.giphy.com/v1/gifs/search?q=${searchTerm}&api_key=dc6zaTOxFJmzC&offset=${offset}&limit=${limit}`,
+    url: `https://api.giphy.com/v1/gifs/search?q=${searchTerm}&api_key=dc6zaTOxFJmzC&offset=${offset}&limit=${limit}`,
     dataType: 'json'
   });
 };
