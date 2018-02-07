@@ -33,6 +33,7 @@ class GiphysSearch extends React.Component {
     }, () => {
       App.chat.speak(this.state);
       this.props.clearGiphys();
+      this.props.close();
       this.setState({ giphy_url: "", loadMore: false });
     });
   }

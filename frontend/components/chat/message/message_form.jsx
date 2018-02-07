@@ -102,7 +102,9 @@ class MessageForm extends React.Component {
   }
 
   toggleGiphy(e) {
-    e.preventDefault();
+    if(e) {
+      e.preventDefault();
+    }
 
     this.setState({
       searchGiphy: !this.state.searchGiphy
@@ -114,7 +116,7 @@ class MessageForm extends React.Component {
       <div className='message-form-container'>
         { this.state.searchGiphy &&
           <div className='giphy-search-container'>
-            <GiphysSearchContainer App={App}/>
+            <GiphysSearchContainer App={App} close={this.toggleGiphy}/>
           </div>
         }
         <form className='message-form' onKeyDown={this.handleKeyDown}>
