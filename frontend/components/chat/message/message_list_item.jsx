@@ -63,10 +63,13 @@ class MessageListItem extends React.Component {
               {users[message.author_id].username}
             </span>
             <div
+              className='my-giphy-message'              
               onMouseEnter={this.handleMyHover}
               onMouseLeave={this.handleMyUnHover}
             >
-              <img src={`${message.giphy_url}`} />
+              <img 
+                src={`${message.giphy_url}`} 
+              />
             </div>
           </li>
         );
@@ -74,10 +77,13 @@ class MessageListItem extends React.Component {
         return (
           <li className={messageClass}> 
             <div
+              className='their-giphy-message'              
               onMouseEnter={this.handleTheirHover}
               onMouseLeave={this.handleTheirUnHover}
             >
-              <img src={`${message.giphy_url}`} />
+              <img 
+                src={`${message.giphy_url}`} 
+              />
             </div>
             <span className={this.state.theirTimeStampClass}>
               {message.timestamp}

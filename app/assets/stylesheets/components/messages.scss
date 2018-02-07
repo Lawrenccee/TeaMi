@@ -1,14 +1,13 @@
 .message-container {
   display: flex;
   flex-direction: column;
-  height: 100%;
   flex: 1 1 auto;
 }
 
 .message-list-container {
   display: flex;
   overflow: auto;
-  flex: 9 1 auto;
+  flex: 2 0 0%;
 }
 
 .message-list {
@@ -54,10 +53,11 @@
   max-width: 50%;
   font-size: 12px;
   display: flex;
+  visibility: visible;
 }
 
 .message-timestamp-hide {
-  display: none;;
+  visibility: hidden;
 }
 
 .my-message {
@@ -103,6 +103,18 @@
 
 .giphy-message img {
   border-radius: 10px;
+  height: auto;
+  width: auto;
+  min-width: 50%;
+  max-width: 100%;
+}
+
+.my-giphy-message {
+  text-align: right;
+}
+
+.their-giphy-message {
+  text-align: left;
 }
 
 .giphy-button {

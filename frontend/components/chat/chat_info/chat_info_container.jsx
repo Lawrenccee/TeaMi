@@ -1,6 +1,5 @@
 import React from 'react';
 // import UsersSearch from '../../users_search/users_search';
-import { Link } from 'react-router-dom';
 
 class ChatInfoContainer extends React.Component {
   constructor(props) {
@@ -22,8 +21,9 @@ class ChatInfoContainer extends React.Component {
           {chat.name}
         </div>
         <div className='my-info'>
-          <Link to='https://github.com/Lawrenccee'>{`TeaMí Profile`}</Link>
-          <Link to='https://www.linkedin.com/in/lawrence-guintu-96a81a101/'>{`Favorite Tea`}</Link>
+          <a href='https://github.com/Lawrenccee'>{`TeaMí Profile`}</a>
+          <br/>
+          <a href='https://www.linkedin.com/in/lawrence-guintu-96a81a101/'>{`Favorite Tea`}</a>
         </div>
         {/* <UsersSearch 
         
