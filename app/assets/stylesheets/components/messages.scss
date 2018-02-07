@@ -2,31 +2,31 @@
   display: flex;
   flex-direction: column;
   height: 100%;
+  flex: 1 1 auto;
 }
 
 .message-list-container {
-  // max-height: 88vh;
   display: flex;
   overflow: auto;
-  flex: 9 1 0%;
+  flex: 9 1 auto;
 }
 
 .message-list {
-  flex: 1 1 auto;
   width: 100%;
 }
 
 .message-form-container {
-  display: flex;
   width: 100%;
-  flex: 1 2 auto;
   position: relative;
+  flex: 0 1 auto;
 }
 
 .message-form {
-  display: flex;
   width: 100%;
-  flex: 1 1 auto;
+  display: flex;
+  flex-direction: row;
+  height: 100%;
+  padding-bottom: 20px;
 }
 
 .message-form button {
@@ -110,8 +110,9 @@
 }
 
 .giphy-button svg {
-  width: 30px;
-  height: 30px;
-  margin-top: -50px;
+  vertical-align: middle;
+  color: rgb(125, 204, 77);
+  bottom: -7px;
   margin-right: 20px;
+  position: relative;
 }

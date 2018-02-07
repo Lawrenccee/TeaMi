@@ -32,8 +32,12 @@ class Chat extends React.Component {
       return (
         <div className="chat-container">
           <ChatHeaderContainer chat={chat}/>
-          <MessageContainer/>
-          {/* <ChatInfoContainer /> */}
+          <div className='chat-bottom-container'>
+            <MessageContainer/>
+            { this.props.chatInfo &&
+              {/* <ChatInfoContainer /> */ }
+            }   
+          </div>
         </div>
       );
     }

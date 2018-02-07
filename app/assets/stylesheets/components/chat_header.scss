@@ -1,8 +1,8 @@
 .new-chat-input, .chat-header {
   display: flex;
   flex-direction: row;
-  min-height: 23px;
-  padding: 13px;
+  min-height: 30px;
+  padding: 10px;
   border-bottom: 1px solid $their-bubble-color;
 }
 
