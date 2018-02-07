@@ -1,7 +1,7 @@
 import React from 'react';
 import ChatHeaderContainer from './chat_header/chat_header_container';
 import MessageContainer from './message/message_container';
-// import ChatInfoContainer from './chat_info/chat_info_container;
+// import ChatInfoContainer from './chat_info/chat_info_container';
 
 class Chat extends React.Component {
   constructor(props) {
@@ -26,17 +26,17 @@ class Chat extends React.Component {
   }
 
   render() {
-    const { chat, messages } = this.props;
+    const { chat, messages, toggleChatInfo } = this.props;
 
     if (chat) {
       return (
         <div className="chat-container">
-          <ChatHeaderContainer chat={chat}/>
+          <ChatHeaderContainer chat={chat} toggleChatInfo={toggleChatInfo}/>
           <div className='chat-bottom-container'>
             <MessageContainer/>
-            { this.props.chatInfo &&
-              {/* <ChatInfoContainer /> */ }
-            }   
+            {/* { this.props.chatInfo &&
+              <ChatInfoContainer chat={chat} />
+            }    */}
           </div>
         </div>
       );

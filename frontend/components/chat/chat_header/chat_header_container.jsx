@@ -19,10 +19,10 @@ import FaInfoCircle from 'react-icons/lib/fa/info-circle';
 //   )(ChatHeader)
 // );
 
-const ChatHeaderContainer = ({ chat }) => (
+const ChatHeaderContainer = ({ chat, toggleChatInfo }) => (
   <div className="chat-header">
     <p>{chat.name}</p>
-    <button><FaInfoCircle size={30} color={`#7DCC4D`} /></button>
+    <button onClick={() => toggleChatInfo()}><FaInfoCircle size={30} color={`#7DCC4D`} /></button>
   </div>
 );
 

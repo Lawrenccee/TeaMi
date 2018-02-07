@@ -19,7 +19,8 @@ class MessageList extends React.Component {
   }
 
   componentDidUpdate(prevProps) {
-    if (prevProps.messages[0] && this.props.messages[this.props.messages.length-1].id !== 
+    if (prevProps.messages[0] && this.props.messages[0] && 
+      this.props.messages[this.props.messages.length-1].id !== 
       prevProps.messages[prevProps.messages.length-1].id) {
       this.scrollBottom();
     } 
