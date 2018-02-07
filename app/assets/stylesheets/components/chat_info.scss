@@ -4,6 +4,8 @@
   flex: 0 2 33.33%;
   border-left: 1px solid $their-bubble-color;
   padding: 15px;
+  overflow-y: auto;
+  overflow-x: hidden;
 }
 
 .chat-info {
@@ -28,7 +30,6 @@
   align-items: center;
   padding: 10px 0;
   border-bottom: 1px solid $their-bubble-color;
-
 }
 
 .my-info a {
@@ -38,6 +39,7 @@
 
 .chat-info-users-search {
   padding: 10px;
+  border-bottom: 1px solid $their-bubble-color;
 }
 
 .chat-info-users-search input {
@@ -68,4 +70,33 @@
 
 .chat-info-users-search ul {
   background-color: $background-color;
+}
+
+.chat-info-members {
+  padding: 10px;
+  overflow: auto;
+}
+
+.chat-info-members p {
+  margin: 10px;
+  margin-bottom: 20px;
+}
+
+.chat-info-members-list li {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin: 5px;
+}
+
+.chat-info-container img {
+  height: 50px;
+  width: 50px;
+  overflow: hidden;
+  align-items: center;
+  margin-right: 10px;
+  box-sizing: border-box;
+  border-radius: 100px;
+  border-left: 1px solid #7DCC4D;
+  border-right: 1px solid #7DCC4D;
 }

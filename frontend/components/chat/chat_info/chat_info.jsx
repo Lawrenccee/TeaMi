@@ -16,25 +16,11 @@ class ChatInfo extends React.Component {
     
     this.handleUser = this.handleUser.bind(this);
     this.handleEnter = this.handleEnter.bind(this);
-    this.handleKeyDown = this.handleKeyDown.bind(this);
     this.handleDeleteMember = this.handleDeleteMember.bind(this);
   }
 
   componentDidMount() {
     this.props.fetchUsers();
-  }
-
-  handleKeyDown(e) {
-    switch (e.keyCode) {
-      case 8:
-        if (this.memberOrder.length > 0 && e.target.value === "") {
-          delete this.members[this.memberOrder.pop()];
-          this.setState({
-            members: this.members,
-          });
-        }
-        break;
-    }
   }
 
   handleEnter(e) {
@@ -107,7 +93,7 @@ class ChatInfo extends React.Component {
             currentUser={currentUser}
             handleEnter={this.handleEnter}
             placeholder={"Add a member to this chat..."}
-            handleKeyDown={this.handleKeyDown}
+            handleKeyDown={() => {}}
             className={"new-chat-users-search"}
             handleUser={this.handleUser}
             chatMembers={chatMembers}
@@ -125,6 +111,24 @@ class ChatInfo extends React.Component {
               )
             }
           </ul>  
+        </div>
+        <div className='chat-info-members'>
+          <p>Current Members:</p>
+          <ul className='chat-info-members-list'>
+            {
+              chatMembers.map(id =>
+                <li>
+                  {usersObject[id].profile_pic_url &&
+                    <img src={`${usersObject[id].profile_pic_url}`} height="50" width="50" />
+                  }
+                  {usersObject[id].profile_pic_url === "" || usersObject[id].profile_pic_url === null &&
+                    <img src={window.staticImages.profile_pic_url} height="50" width="50" />
+                  }
+                  {usersObject[id].username}
+                </li>
+              )
+            }
+          </ul>
         </div>
       </div>
     );
