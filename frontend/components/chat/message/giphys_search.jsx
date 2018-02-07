@@ -25,6 +25,10 @@ class GiphysSearch extends React.Component {
     this.props.clearGiphys();
   }
 
+  componentDidMount() {
+    document.getElementById("giphy-search-input").focus();
+  }
+
   handleClick(e) {
     e.preventDefault();
 
@@ -89,6 +93,7 @@ class GiphysSearch extends React.Component {
         }
         <form className="giphy-search-form" onSubmit={this.handleSubmit}>
           <input 
+            id="giphy-search-input"
             type="text"
             onChange={this.updateSearchTerm()}
             value={this.state.searchTerm}
