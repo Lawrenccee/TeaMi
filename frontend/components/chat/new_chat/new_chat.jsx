@@ -43,12 +43,8 @@ class NewChat extends React.Component {
     if (values(members).length !== 0) {
       members[this.props.currentUser.id] = this.props.currentUser;
 
-      this.props.createChat({members: members}).then(() => {
-        this.members = {};
-        this.memberOrder = [];
-        this.setState({
-          members: this.members,
-        });
+      this.props.createChat({members: members}).then((payload) => {
+        this.props.receiveChatHighlight(values(payload.chat)[0].id);
       });
     }
   }

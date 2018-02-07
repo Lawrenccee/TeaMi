@@ -5,6 +5,7 @@ import { connect } from 'react-redux';
 import { createChat } from '../../../actions/chat_actions';
 import { fetchUsers } from '../../../actions/user_actions';
 import { selectAllUsers } from '../../../reducers/selectors';
+import { receiveChatHighlight } from '../../../actions/ui_actions';
 
 const mapStateToProps = (state, ownProps) => {
   return {
@@ -17,6 +18,7 @@ const mapDispatchToProps = (dispatch, ownProps) => {
   return {
     createChat: (members) => dispatch(createChat(members)),
     fetchUsers: () => dispatch(fetchUsers()),
+    receiveChatHighlight: (chatId) => dispatch(receiveChatHighlight(chatId)),
   };
 };
 
