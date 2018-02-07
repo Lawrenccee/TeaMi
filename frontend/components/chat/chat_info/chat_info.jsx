@@ -18,7 +18,7 @@ class ChatInfo extends React.Component {
           {chat.chat_pic_url === "" || chat.chat_pic_url === null &&
             <img src={window.staticImages.profile_pic_url} height="50" width="50" />
           }
-          {chat.name}
+          <p>{chat.name}</p>
         </div>
         <div className='my-info'>
           <a href='https://github.com/Lawrenccee'>{`TeaMí Profile`}</a>
