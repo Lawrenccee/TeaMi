@@ -17,7 +17,7 @@ class ChatList extends React.Component {
     const listen = () => {
       if (this.listen) {
         this.props.fetchChats().then(() => (
-          setTimeout(listen)
+          setTimeout(listen, 500)
         ));
       }
     };

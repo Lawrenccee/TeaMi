@@ -84,6 +84,9 @@ class MessageForm extends React.Component {
         e.preventDefault();
         App.chat.speak(this.state);
         e.currentTarget.reset();
+        this.setState({
+          body: "",
+        });
         break;
       default:
         break;
