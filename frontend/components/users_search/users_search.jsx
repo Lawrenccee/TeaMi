@@ -1,5 +1,4 @@
 import React from 'react';
-// import UsersSearchItem from './users_search_item';
 
 class UsersSearch extends React.Component {
   constructor(props) {
