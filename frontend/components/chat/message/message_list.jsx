@@ -18,6 +18,10 @@ class MessageList extends React.Component {
     }
   }
 
+  componentDidMount() {
+    this.props.fetchUsers();
+  }
+
   componentDidUpdate(prevProps) {
     if (prevProps.messages[0] && this.props.messages[0] && 
       this.props.messages[this.props.messages.length-1].id !== 
@@ -27,7 +31,7 @@ class MessageList extends React.Component {
   }
 
   render() {
-    const { messages, currentUser } = this.props;
+    const { messages, currentUser, users } = this.props;
 
     if (messages[0] === "loading") {
       return (
@@ -43,6 +47,7 @@ class MessageList extends React.Component {
       <MessageListItem
         message={message}
         currentUser={currentUser}
+        users={users}
         key={`message-${message.id}`}
       />
     )); 

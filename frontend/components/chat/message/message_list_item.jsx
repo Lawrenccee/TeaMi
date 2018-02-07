@@ -40,8 +40,12 @@ class MessageListItem extends React.Component {
   }
 
   render() {
-    const { message, currentUser } = this.props;
+    const { message, currentUser, users } = this.props;
     let messageClass = "message their-message";
+
+    if (Object.keys(users).length === 0 && users.constructor === Object) {
+      return null;
+    }
 
     if (message.author_id === currentUser.id) {
       messageClass = "message my-message";
@@ -55,6 +59,8 @@ class MessageListItem extends React.Component {
           <li className={messageClass}> 
             <span className={this.state.myTimeStampClass}>
               {message.timestamp}
+              <br/>
+              {users[message.author_id].username}
             </span>
             <div
               onMouseEnter={this.handleMyHover}
@@ -75,6 +81,8 @@ class MessageListItem extends React.Component {
             </div>
             <span className={this.state.theirTimeStampClass}>
               {message.timestamp}
+              <br/>
+              {users[message.author_id].username}
             </span>
           </li>
         );
@@ -86,12 +94,16 @@ class MessageListItem extends React.Component {
         <li className={messageClass}> 
           <span className={this.state.myTimeStampClass}>
             {message.timestamp}
+            <br/>
+            {users[message.author_id].username}
           </span>
           <div
             onMouseEnter={this.handleMyHover}
             onMouseLeave={this.handleMyUnHover}
           >
             {message.body}
+            <br />
+            {users[message.author_id].username}
           </div>
         </li>
       );
@@ -103,9 +115,13 @@ class MessageListItem extends React.Component {
             onMouseLeave={this.handleTheirUnHover}
           >
             {message.body}
+            <br/>
+            {users[message.author_id].username}
           </div>
           <span className={this.state.theirTimeStampClass}>
             {message.timestamp}
+            <br />
+            {users[message.author_id].username}
           </span>
         </li>
       );
