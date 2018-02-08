@@ -79,15 +79,21 @@ class ChatInfo extends React.Component {
       chatMembers = [];
     }
 
+    let chatPicUrl = chat.chat_thumb_image_url;
+
+    if (chat.chat_pic_url && chat.chat_pic_url.length > 0) {
+      chatPicUrl = chat.chat_pic_url;
+    }
+
     return (
       <div className='chat-info-container'>
         <div className='chat-info'>
-          {chat.chat_pic_url &&
-            <img src={`${chat.chat_pic_url}`} height="50" width="50" />
-          }
-          {chat.chat_pic_url === "" || chat.chat_pic_url === null &&
-            <img src={window.staticImages.profile_pic_url} height="50" width="50" />
-          }
+          <div className="chat-pic">
+            <div className="edit-chat-pic">
+              <p>Edit</p>
+            </div>
+              <img src={`${chatPicUrl}`} height="50" width="50" />
+          </div> 
           <p>{chat.name}</p>
         </div>
         <div className='my-info'>
@@ -135,17 +141,20 @@ class ChatInfo extends React.Component {
           <p>Current Members:</p>
           <ul className='chat-info-members-list'>
             {
-              chatMembers.map(id =>
-                <li key={`current-member-${id}`}>
-                  {usersObject[id].profile_pic_url &&
-                    <img src={`${usersObject[id].profile_pic_url}`} height="50" width="50" />
-                  }
-                  {usersObject[id].profile_pic_url === "" || usersObject[id].profile_pic_url === null &&
-                    <img src={window.staticImages.profile_pic_url} height="50" width="50" />
-                  }
-                  {usersObject[id].username}
-                </li>
-              )
+              chatMembers.map(id => {
+                let profilePicUrl = usersObject[id].user_thumb_image_url;
+
+                if (usersObject[id].profile_pic_url && usersObject[id].profile_pic_url.length > 0) {
+                  profilePicUrl = usersObject[id].profile_pic_url;
+                }
+
+                return (
+                  <li key={`current-member-${id}`}>
+                    <img src={`${profilePicUrl}`} height="50" width="50" />
+                    {usersObject[id].username}
+                  </li>
+                );
+              })
             }
           </ul>
         </div>

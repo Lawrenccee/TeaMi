@@ -13,7 +13,7 @@ class Chat < ApplicationRecord
       thumb: "50x50>" 
     },
     url: ":s3_domain_url", 
-    default_url: "/images/profile_pic.svg", 
+    default_url: "https://s3-us-west-1.amazonaws.com/teami-#{Rails.env[0..2]}/images/profile_pic.svg", 
     s3_region: ENV["aws_region"],
     path: '/images/chats/:id/:filename'
 

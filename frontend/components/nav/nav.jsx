@@ -4,12 +4,18 @@ import LogoutContainer from '../logout/logout_container';
 import TiEdit from 'react-icons/lib/ti/edit';
 
 const Nav = (props) => {
+  let profilePicUrl = props.currentUser.user_thumb_image_url;
+
+  if (props.currentUser.profile_pic_url && props.currentUser.profile_pic_url.length > 0) {
+    profilePicUrl = props.currentUser.profile_pic_url;
+  }
+
   return (
     <nav className="navbar">
       <ProtectedRoute path="/chats" component={LogoutContainer} />
       <div className="nav-greeting">
         <div className="profile-pic">
-          <img src={`${props.currentUser.user_thumb_image_url}`} width={30} height={30} />
+          <img src={`${profilePicUrl}`} width={40} height={40} />
           <div className="edit-profile-pic">
             <p>Edit</p>
           </div>

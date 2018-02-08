@@ -13,11 +13,40 @@
   align-items: center;
   border-bottom: 1px solid $their-bubble-color;
   padding-bottom: 10px;
+  align-items: center;
+  justify-content: center;
 }
 
 .chat-info {
   font-size: 16px;
   word-break: break-word;
+  position: relative;
+  display: flex;
+}
+
+.edit-chat-pic {
+  position: absolute;
+  font-size: 15px;
+  background-color: rgba(0, 0, 0, .3);
+  color: $background-color;
+  overflow: hidden;
+  height: 50px;
+  width: 50px;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50px;
+  cursor: pointer;
+}
+
+.chat-pic {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.chat-pic:hover .edit-chat-pic {
+  display: flex;
 }
 
 .chat-info p, .chat-info img {
@@ -89,11 +118,18 @@
   padding: 5px;
 }
 
+.chat-info-members-list img {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 5px;
+  margin-right: 10px;
+}
+
 .chat-info-container img {
   height: 50px;
   width: 50px;
   align-items: center;
-  margin-right: 10px;
   box-sizing: border-box;
   border-radius: 100px;
   border-left: 1px solid #7DCC4D;

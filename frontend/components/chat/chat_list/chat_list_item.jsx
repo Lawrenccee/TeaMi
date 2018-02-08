@@ -18,17 +18,17 @@ class ChatListItem extends React.Component {
 
   render() {
     const { chat, chatHighlight, receiveChatHighlight } = this.props;
-    let profilePicUrl = window.staticImages.profile_pic_url;
+    let chatPicUrl = chat.chat_thumb_image_url;
     let highlight = "";
+
+    if (chat.chat_pic_url && chat.chat_pic_url.length > 0) {
+      chatPicUrl = chat.chat_pic_url;
+    }
 
     if (chat.id === parseInt(chatHighlight)) {
       highlight = "highlight";
     }
     
-    if (chat.chat_pic_url) {
-      profilePicUrl = chat.chat_pic_url;
-    }
-
     return (
       <li 
         className={`chat-list-item ${highlight}`} 
@@ -37,9 +37,8 @@ class ChatListItem extends React.Component {
         <div className='chat-list-item-img-container'>
           <div className='chat-list-item-img'>
             <img 
-              onError={(e) => { e.target.src = window.staticImages.profile_pic_url;} } 
-              src={`${profilePicUrl}`} 
-              alt="profile_pic" 
+              src={`${chatPicUrl}`} 
+              alt="chat_pic" 
             />
           </div>
         </div> 

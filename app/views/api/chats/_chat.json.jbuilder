@@ -1,5 +1,6 @@
 json.extract! chat, :id, :name, :chat_pic_url
-# json.set! :timestamp, chat.updated_at.localtime.strftime("%a %b %d %I:%M%P")
+json.set! :chat_thumb_image_url, asset_path(chat.chat_image.url(:thumb))
+json.set! :chat_medium_image_url, asset_path(chat.chat_image.url(:medium))
 
 most_recent_message = chat.messages.order("created_at").last
 
