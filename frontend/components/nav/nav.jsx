@@ -8,15 +8,23 @@ const Nav = (props) => {
     <nav className="navbar">
       <ProtectedRoute path="/chats" component={LogoutContainer} />
       <div className="nav-greeting">
-        <div>
-          <p>
-            TeaMí
-          </p>
+        <div className="profile-pic">
+          <img src={`${props.currentUser.user_thumb_image_url}`} width={30} height={30} />
+          <div className="edit-profile-pic">
+            <p>Edit</p>
+          </div>
         </div>
-        <div className="nav-username">
-          <p>
-            {props.currentUser.username}
+        <div className="nav-text">
+          <div>
+            <p>
+              TeaMí
           </p>
+          </div>
+          <div className="nav-username">
+            <p>
+              {props.currentUser.username}
+            </p>
+          </div>
         </div>
       </div>
       <button onClick={() => {

@@ -5,7 +5,15 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
+# Generate seed file from current data
 gem 'seed_dump'
+
+# AWS
+gem 'aws-sdk', '~> 2.3.0'
+# paperclip
+gem 'paperclip'
+# figaro to hide API keys
+gem 'figaro'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.1.4'

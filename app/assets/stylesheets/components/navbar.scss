@@ -11,24 +11,74 @@
 
 .nav-greeting {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   justify-content: center;
   align-items: center;
-  font-size: 18px;
+  font-size: 20px;
   width: 70%;
   line-height: 1.4;
-  margin-top: 5px;
 }
 
 .nav-username {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   font-size: 16px;
   overflow-x: auto;
   overflow-y: hidden; 
-  white-space: nowrap;
-  width: 100%;
   text-align: center;
+  word-break: break-word;
+  margin-top: -5px;
 }
 
 .logout {
   margin-left: 5px;
+}
+
+.nav-greeting img {
+  overflow: hidden;
+  align-items: center;
+  box-sizing: border-box;
+  border-radius: 100px;
+  border-left: 1px solid #7DCC4D;
+  border-right: 1px solid #7DCC4D;
+  cursor: pointer;
+  position: relative;
+}
+
+.nav-text {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 18px;
+  line-height: 1.4;
+  margin-top: 5px;
+}
+
+.edit-profile-pic {
+  position: absolute;
+  font-size: 15px;
+  background-color: rgba(0, 0, 0, .3);
+  color: $background-color;
+  overflow: hidden;
+  height: 30px;
+  width: 30px;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50px;
+  cursor: pointer;
+}
+
+.profile-pic {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.profile-pic:hover .edit-profile-pic {
+  display: flex;
 }

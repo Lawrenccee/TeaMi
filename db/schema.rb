@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180208002324) do
+ActiveRecord::Schema.define(version: 20180208172316) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -30,6 +30,10 @@ ActiveRecord::Schema.define(version: 20180208002324) do
     t.string "chat_pic_url"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "chat_image_file_name"
+    t.string "chat_image_content_type"
+    t.integer "chat_image_file_size"
+    t.datetime "chat_image_updated_at"
     t.index ["name"], name: "index_chats_on_name"
   end
 
@@ -53,6 +57,10 @@ ActiveRecord::Schema.define(version: 20180208002324) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.boolean "demo", default: false
+    t.string "user_image_file_name"
+    t.string "user_image_content_type"
+    t.integer "user_image_file_size"
+    t.datetime "user_image_updated_at"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["session_token"], name: "index_users_on_session_token", unique: true
     t.index ["username"], name: "index_users_on_username"

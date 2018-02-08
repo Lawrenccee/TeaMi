@@ -1,6 +1,27 @@
 class Chat < ApplicationRecord
   validates :name, presence: true
 
+  has_attached_file :chat_image, 
+    storage: :s3,
+    s3_credentials: {
+      access_key_id: ENV["aws_access_key_id"],
+      secret_access_key: ENV["aws_secret_access_key"],
+      bucket: "teami-#{Rails.env[0..2]}"
+    },
+    styles: { 
+      medium: "100x100>", 
+      thumb: "50x50>" 
+    },
+    url: ":s3_domain_url", 
+    default_url: "/images/profile_pic.svg", 
+    s3_region: ENV["aws_region"],
+    path: '/images/chats/:id/:filename'
+
+  # Validate content type
+  validates_attachment_content_type :chat_image, content_type: /\Aimage/
+  # Validate filename
+  validates_attachment_file_name :chat_image, matches: [/png\z/, /jpe?g\z/]
+
   has_many :messages,
     primary_key: :id,
     foreign_key: :chat_id,
