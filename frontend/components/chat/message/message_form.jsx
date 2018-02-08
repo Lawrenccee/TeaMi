@@ -27,12 +27,18 @@ class MessageForm extends React.Component {
         limit: this.state.limit
       })
     );
+
+    const messageForm = document.getElementById("message-form");
+    messageForm.focus();
   }
 
   componentWillReceiveProps(newProps) {
     if(newProps.match.params.chatId !== this.props.match.params.chatId) {
       this.setState({
         chat_id: newProps.match.params.chatId,
+      }, () => {
+        const messageForm = document.getElementById("message-form");
+        messageForm.focus();
       });
       this.setUpChat(
         newProps.match.params.chatId,
@@ -121,6 +127,7 @@ class MessageForm extends React.Component {
         }
         <form className='message-form' onKeyDown={this.handleKeyDown}>
           <textarea 
+            id="message-form"
             name="body" 
             rows="1" 
             onChange={this.update("body")}
