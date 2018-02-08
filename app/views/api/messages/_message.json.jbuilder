@@ -1,6 +1,6 @@
 created_at = message.created_at
 
-  timestamp = created_at.strftime("%a %b %d %I:%M%P")
+  timestamp = created_at.localtime.strftime("%a %b %d %I:%M%P")
 
   json.set! message.id do 
     json.extract! message, 

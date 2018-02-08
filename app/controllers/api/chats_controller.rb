@@ -19,16 +19,33 @@ class Api::ChatsController < ApplicationController
     # Do I have to do a database search???
 
     @names = []
+    @ids = []
 
     params[:members].each do |_, member|
        @names.push(member[:username])
+       @ids.push(member[:id].to_i)
     end
 
     @chat = Chat.new(name: @names.join(", "))
 
     @errors = []
 
-    if @chat.save
+    current_user.chats.find_each do |chat|
+      @member_ids = chat.members.pluck(:id)
+      p "CHAT IDS"
+      p @member_ids
+      p "NEW IDS"
+      p @ids
+      if (@member_ids.size == @ids.size) && ((@member_ids & @ids) == @member_ids)
+        @exists = true
+        @chat = chat
+        break
+      end
+    end
+
+    if @exists 
+      render :show
+    elsif @chat.save
       params[:members].each do |_, member|
         @membership = ChatMembership.new(
           member_id: member[:id], 
