@@ -27,12 +27,17 @@ class ChatInfo extends React.Component {
     e.preventDefault();
     let members = merge({}, this.state.members);
 
-    if (values(members).length !== 0) {
-      this.props.updateChat({ members: members, chat: this.props.chat });
-    }
+    console.log(this.members);
+    console.log(this.props.chat);
 
-    this.memberOrder = [];
-    this.setState({ members: {} });
+    if (values(members).length !== 0) {
+      this.props.updateChat({ members: members, chat: this.props.chat })
+        .then(() => {
+          this.memberOrder = [];
+          this.members = {};
+          this.setState({ members: {} });
+        });
+    } 
   }
 
   handleUser(user) {
