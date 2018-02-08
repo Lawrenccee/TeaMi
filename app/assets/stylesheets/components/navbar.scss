@@ -1,14 +1,34 @@
- .navbar {
+.navbar {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
   min-height: 50px;
-  padding: 0 10px;
   border-right: 1px solid $their-bubble-color;
   border-bottom: 1px solid $their-bubble-color;
- }
+  width: 100%;
+}
 
- .navbar p {
-   font-size: 20px;
- }
+.nav-greeting {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 18px;
+  width: 70%;
+  line-height: 1.4;
+  margin-top: 5px;
+}
+
+.nav-username {
+  font-size: 16px;
+  overflow-x: auto;
+  overflow-y: hidden; 
+  white-space: nowrap;
+  width: 100%;
+  text-align: center;
+}
+
+.logout {
+  margin-left: 5px;
+}

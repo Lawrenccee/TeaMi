@@ -5,7 +5,7 @@ import { clearChatHighlight } from '../../actions/ui_actions';
 import Nav from './nav';
 
 const mapStateToProps = (state, ownProps) => ({
-
+  currentUser: state.session.currentUser,
 });
 
 const mapDisptachToProps = (dispatch, ownProps) => ({
@@ -14,7 +14,7 @@ const mapDisptachToProps = (dispatch, ownProps) => ({
 
 export default withRouter(
   connect(
-    null,
+    mapStateToProps,
     mapDisptachToProps
   )(Nav)
 );
