@@ -86,7 +86,7 @@
   display: flex;
   flex-direction: row;
   align-items: center;
-  margin: 5px;
+  padding: 5px;
 }
 
 .chat-info-container img {
@@ -103,4 +103,8 @@
 .new-chat-users-search ul {
   max-height: 300px;
   overflow: auto;
+}
+
+.chat-info-members-list li:hover {
+  background-color: $light-gray;
 }

@@ -14,12 +14,14 @@ class MessageList extends React.Component {
     document.getElementsByClassName('message-list-container')[0];
 
     if (messageListContainer) {
-      messageListContainer.scrollTop = messageListContainer.scrollHeight;
+      messageListContainer.scrollTop =
+        messageListContainer.scrollHeight;
     }
   }
 
   componentDidMount() {
-    this.props.fetchUsers();
+    this.props.fetchUsers()
+      .then(() => this.scrollBottom());
   }
 
   componentDidUpdate(prevProps) {
