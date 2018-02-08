@@ -4,8 +4,7 @@ class Chat < ApplicationRecord
   has_many :messages,
     primary_key: :id,
     foreign_key: :chat_id,
-    class_name: :Message,
-    dependent: :destroy
+    class_name: :Message
 
   has_many :chat_memberships,
     primary_key: :id,

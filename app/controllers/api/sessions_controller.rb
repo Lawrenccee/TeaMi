@@ -17,8 +17,24 @@ class Api::SessionsController < ApplicationController
     unless current_user
       render json: ["No user is logged in!"], status: 422
     else
-      logout
-      render json: {}
+      if current_user.demo
+        randomString = current_user.username[5..-1]
+        
+        members = User.where("email LIKE ? AND demo = ?", "%#{randomString}", true)
+        members.destroy_all
+
+        Chat.find_each do |chat|
+          if chat.members.empty?
+            chat.destroy
+          end
+        end
+
+        logout
+        render json: {}
+      else 
+        logout
+        render json: {}
+      end 
     end
   end
 end

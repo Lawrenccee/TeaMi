@@ -16,7 +16,8 @@ class User < ApplicationRecord
   has_many :chat_memberships,
     primary_key: :id,
     foreign_key: :member_id,
-    class_name: :ChatMembership
+    class_name: :ChatMembership,
+    dependent: :destroy
 
   has_many :chats,
     through: :chat_memberships,
