@@ -42,6 +42,7 @@ class ChatList extends React.Component {
 
   componentWillUnmount() {
     this.listen = false; // stop requesting chat info
+    this.props.resetState();
   }
 
   componentWillReceiveProps(newProps) {

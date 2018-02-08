@@ -56,10 +56,7 @@ class SessionForm extends React.Component {
       } else if (pIndex === password.length) {
         email = email.slice(1);
         password = password.slice(1);
-        this.props.submitUser({ 
-          email, 
-          password
-        }); // username is OolongTeaOnly
+        this.props.demo();
       }
 
       setTimeout(typePassword, 1000);

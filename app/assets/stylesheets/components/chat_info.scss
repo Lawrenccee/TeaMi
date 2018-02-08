@@ -99,3 +99,8 @@
   border-left: 1px solid #7DCC4D;
   border-right: 1px solid #7DCC4D;
 }
+
+.new-chat-users-search ul {
+  max-height: 300px;
+  overflow: auto;
+}

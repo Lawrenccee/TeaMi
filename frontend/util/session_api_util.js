@@ -23,3 +23,11 @@ export const signup = (user) => (
     data: { user: user }
   })
 );
+
+export const demo = () => (
+  $.ajax({
+    method: 'GET',
+    url: '/api/users/demo',
+    dataType: 'json'
+  })
+);

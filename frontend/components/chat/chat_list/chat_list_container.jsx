@@ -3,6 +3,7 @@ import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 import ChatList from './chat_list';
 import { fetchChats } from '../../../actions/chat_actions';
+import { resetState } from '../../../actions/session_actions';
 import { selectAllChats } from '../../../reducers/selectors';
 import { receiveChatHighlight } from '../../../actions/ui_actions';
 
@@ -13,7 +14,8 @@ const mapStateToProps = (state, ownProps) => ({
 
 const mapDispatchToProps = (dispatch, ownProps) => ({
   fetchChats: (query) => dispatch(fetchChats(query)),
-  receiveChatHighlight: (chatId) => dispatch(receiveChatHighlight(chatId))
+  receiveChatHighlight: (chatId) => dispatch(receiveChatHighlight(chatId)),
+  resetState: () => dispatch(resetState()),
 });
 
 export default withRouter(
