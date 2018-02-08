@@ -86,11 +86,17 @@ class ChatInfo extends React.Component {
           <p>{chat.name}</p>
         </div>
         <div className='my-info'>
-          <a href='https://github.com/Lawrenccee'>
+          <a 
+            target='_blank'
+            href='https://github.com/Lawrenccee'
+          >
             {`TeaMí Profile`}
           </a>
           <br />
-          <a href='https://www.linkedin.com/in/lawrence-guintu-96a81a101/'>
+          <a 
+            target='_blank'
+            href='https://www.linkedin.com/in/lawrence-guintu-96a81a101/'
+          >
             {`Favorite Milk Tea`}
           </a>
         </div>
