@@ -2,6 +2,7 @@ import React from 'react';
 import UsersSearch from '../../users_search/users_search';
 import values from 'lodash/values';
 import merge from 'lodash/merge';
+import { ClipLoader } from 'react-spinners';
 
 class ChatInfo extends React.Component {
   constructor(props) {
@@ -10,7 +11,8 @@ class ChatInfo extends React.Component {
     this.state = ({
       members: {},
       name: "",
-      chat_image: ""
+      chat_image: "",
+      loading: false
     });
 
     this.members = {};
@@ -27,18 +29,20 @@ class ChatInfo extends React.Component {
     this.props.fetchUsers();
   }
 
-  updateImage(e) {
-    console.log(this.props);
-    
+  updateImage(e) {    
     const reader = new FileReader();
     const file = e.currentTarget.files[0];
+
     reader.onloadend = () => (
-      this.setState({ chat_image: file },
+      this.setState({ chat_image: file, loading: true },
         () => {
           const formData = new FormData();
           formData.append("chat_image", file);
           this.props.updateChatImage({ formData, chat: this.props.chat.id })
-            .then(() => this.props.fetchUsers());
+            .then(() => {
+              this.props.fetchUsers();
+              this.setState({ loading: false });
+            });
         })
     );
 
@@ -110,7 +114,15 @@ class ChatInfo extends React.Component {
       <div className='chat-info-container'>
         <div className='chat-info'>
           <div className="chat-pic">
-            <div className="edit-chat-pic">
+            { this.state.loading &&
+              <div className="chat-pic-loader">
+                <ClipLoader
+                  color={'#7DCC4D'}
+                  size={25}
+                />
+              </div>
+            }
+            <div className="edit-chat-pic"> 
               <input
                 type="file"
                 accept=".jpg,.png,.jpeg,.bmp,.tif,.tiff"

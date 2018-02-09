@@ -45,6 +45,20 @@
   justify-content: center;
 }
 
+.chat-pic-loader {
+  position: absolute;
+  display: flex;
+  z-index: 1;
+  background-color: rgba(0, 0, 0, .3);
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  overflow: hidden;
+  height: 50px;
+  width: 50px;
+  border-radius: 50px;
+}
+
 .chat-pic input {
   display: flex;
   opacity: 0;

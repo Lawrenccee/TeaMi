@@ -2,6 +2,7 @@ import React from 'react';
 import { ProtectedRoute } from '../../util/route_util';
 import LogoutContainer from '../logout/logout_container';
 import TiEdit from 'react-icons/lib/ti/edit';
+import { ClipLoader } from 'react-spinners';
 
 class Nav extends React.Component {
   constructor(props) {
@@ -10,7 +11,8 @@ class Nav extends React.Component {
     this.state = ({
       id: this.props.currentUser.id,
       username: "",
-      user_image: ""
+      user_image: "",
+      loading: false,
     });
 
     this.updateImage = this.updateImage.bind(this);
@@ -33,12 +35,15 @@ class Nav extends React.Component {
     const reader = new FileReader();
     const file = e.currentTarget.files[0];
     reader.onloadend = () => (
-      this.setState({ user_image: file },
+      this.setState({ user_image: file, loading: true },
         () => {
           const formData = new FormData();
           formData.append("user_image", file);
           this.props.updateUser({formData, user: this.state.id})
-            .then(() => this.props.fetchUsers());
+            .then(() => {
+              this.props.fetchUsers();
+              this.setState({ loading: false });
+            });
         })
     );
     
@@ -61,6 +66,14 @@ class Nav extends React.Component {
         <ProtectedRoute path="/chats" component={LogoutContainer} />
         <div className="nav-greeting">
           <div className="profile-pic">
+            { this.state.loading &&
+              <div className="profile-pic-loader">
+                <ClipLoader
+                  color={'#7DCC4D'}
+                  size={20}
+                />
+              </div>
+            }
             <img src={`${profilePicUrl}`} width={40} height={40} />
             <div className="edit-profile-pic">
               <input
