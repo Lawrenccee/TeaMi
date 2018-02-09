@@ -17,9 +17,11 @@ TeaMÃ­ was inspired by Facebook Messenger, which is a real-time messenger. TeaMÃ
 ### Messages
 
 When creating a new user account, the default new chat page is shown. Users can be searched through the search bar of the chat.
+
 <img src="https://raw.githubusercontent.com/Lawrenccee/TeaMi/master/readme/new_chat.gif">
 
 If there already exists a chat with that user or group then that specific chat will be opened instead.
+
 <img src="https://raw.githubusercontent.com/Lawrenccee/TeaMi/master/readme/existing_chat.gif">
 
 This is done with a query of the chats that the current user belongs to. Then by going through each chats members to see if this specific group of users already exists. If they do then the existing chat is sent back and opened. It is done like so:
@@ -47,6 +49,7 @@ This is done with a query of the chats that the current user belongs to. Then by
 An includes is used to fetch the data for all the members of the chats when the first query to sets @user_chats is done. So when it loops through all of the chats their members already exist, preventing another query, and overall an N+1 query.
 
 The most important bit is the real-time messaging. By using ActionCable in Rails, websockets are implemented to have users listening for new messages in their current chats as well as their own person channel to see if they have a new chat coming.
+
 <img src="https://raw.githubusercontent.com/Lawrenccee/TeaMi/master/readme/real_time_message.gif">
 
 This is done by subscribing the user to certain channels to listen for messages which are then broadcast to other users on that channel.
@@ -137,6 +140,7 @@ Users are subscribed to channels on the frontend, which then connects them to ce
 
 Users can click on different chats to open up the messages in the chat.
 Users can search through their chats dynamically as shown:
+
 <img src="https://raw.githubusercontent.com/Lawrenccee/TeaMi/master/readme/chat_search.gif">
 
 This is done with another database query, utilizing the power of ActiveRecord in Rails.
