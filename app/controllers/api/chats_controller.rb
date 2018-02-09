@@ -24,7 +24,8 @@ class Api::ChatsController < ApplicationController
 
     @errors = []
 
-    current_user.chats.find_each do |chat|
+    @user_chats = current_user.chats.includes(:members)
+    @user_chats.find_each do |chat|
       @member_ids = chat.members.pluck(:id)
 
       if (@member_ids.size == @ids.size) && ((@member_ids & @ids) == @member_ids)

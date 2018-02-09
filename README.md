@@ -19,41 +19,50 @@ TeaMí was inspired by Facebook Messenger, which is a real-time messenger. TeaM�
 When creating a new user account, the default new chat page is shown. Users can be searched through the search bar of the chat.
 <img src="https://raw.githubusercontent.com/Lawrenccee/TeaMi/master/readme/new_chat.gif">
 
+If there already exists a chat with that user or group then that specific chat will be opened instead.
+<img src="https://raw.githubusercontent.com/Lawrenccee/TeaMi/master/readme/existing_chat.gif">
 
-### 1. Hosting on Heroku (0.5 days)
+This is done with a query of the chats that the current user belongs to. Then by going through each chats members to see if this specific group of users already exists. If they do then the existing chat is sent back and opened. It is done like so:
 
-### 2. New account creation, login, and guest/demo login (2 days)
+```ruby
+...
+@ids = []
 
-### 3. Messages (2 days)
-* Users will be able to send real-time messages to each other
+@user_chats = current_user.chats.includes(:members)
+    @user_chats.find_each do |chat|
+      @member_ids = chat.members.pluck(:id)
 
-### 4. Chats (2 days)
-* Users will be able to make chats with other users
+      if (@member_ids.size == @ids.size) && ((@member_ids & @ids) == @member_ids)
+        @exists = true
+        @chat = chat
+        break
+      end
+    end
 
-### 5. Search Users and Chats (1 day)
-* Users will be able to search for specific users to make chats with and filter chats
+    if @exists 
+      render :show
+...
+```
 
-### 6. Send GIFs (1 day)
-* Users will be able to send Gifs to each other through the GIPHY API
+An includes is used to fetch the data for all the members of the chats when the first query to sets @user_chats is done. So when it loops through all of the chats their members already exist, preventing another query, and overall an N+1 query.
 
-### 7. A production README (0.5 days)
+## Design
 
-***
+TeaMí was designed with trying to make a close, but different, clone of Messenger. I mostly tried to copy the main features of Messenger within the 10 day timeframe we had. Sometimes, features were a main priority over clean code. Now that the application works with basic functionalities, I plan on refactoring my code before moving on to make everything more clean and crisp. I hope that this will serve as a good reference to myself in the future.
 
-#### Bonus: Edit Username and Chat Names
-#### Bonus: Upload profile pictures
-#### Bonus: Add a chat bot
-#### Bonus: Milk Tea Styling
-#### Bonus: The web app will be mobile friendly
+## Technologies
 
-<!-- ## 4. Bonus: The web app will be mobile friendly. -->
+Rails was used because it's convention over configuration, so you can get a basic site up and running in a short amount of time. ActiveRecord and ActionCable served as great tools for my app to work.
 
-<!-- ## 5. Bonus: Users will be able to give nicknames to each other, that only exists in specific chats. -->
+Redux was used with React in order to have easier state management. It's much easier to have a global state object, so you can keep track of what slice of state is being passed around where.
 
-<!-- ## 6. Bonus: Users will be able to change bubble colors for certain users. -->
+AWS was used for image storage along with the paperclip gem to help with uploading and image validations.
 
-<!-- ## 7. Bonus: The web app will have a night mode. -->
+## Future Improvements
 
-<!-- ## 8. Bonus: Users will be able to send stickers or emojis to each other. -->
-
-<!-- ## 9. Bonus: Users will be able to send voice and video calls to each other. -->
+More things on my list to add to the application include:
+  * Being able to edit the user's username
+  * A chatbot
+  * Notifications
+  * Milk Tea styling
+  * Making it mobile friendly
