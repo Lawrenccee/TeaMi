@@ -70,9 +70,13 @@ class UsersSearch extends React.Component {
       if (user.id !== currentUser.id && !chatMembers.includes(user.id) &&
         user.username.toUpperCase().includes(this.state.name.toUpperCase()) &&
         this.state.name && !added.includes(user.id)) {
-          const imgUrl = user.profile_pic_url === null ? 
-            window.staticImages.profile_pic_url : user.profile_pic_url;
+          let imgUrl = user.user_thumb_image_url;
 
+          if (user.profile_pic_url &&
+            user.profile_pic_url.length > 0) {
+            imgUrl = user.profile_pic_url;
+          }
+ 
           UsersSearchItems.push(
             <li 
               onMouseDown={(e) => this.handleMouseDown(e)}
