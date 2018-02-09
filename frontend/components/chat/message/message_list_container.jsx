@@ -10,10 +10,13 @@ const mapStateToProps = (state, ownProps) => ({
   messages: selectMessagesOfChat(state, ownProps.match.params.chatId),
   currentUser: state.session.currentUser,
   users: state.entities.users,
+  chats: state.entities.chats,
+  chatHighlight: state.ui.chatHighlight,
 });
 
 const mapDispatchToProps = (dispatch, ownProps) => ({
   fetchUsers: () => dispatch(fetchUsers()),
+  receiveChatHighlight: (chatId) => dispatch(receiveChatHighlight(chatId))
 });
 
 export default withRouter(

@@ -12,7 +12,12 @@ class Chat extends React.Component {
     this.props.fetchChat({
       chatId: this.props.match.params.chatId,
       limit: 100,
-    });
+    }).then(
+      () => {}, 
+      () => {
+        this.props.history.push(`/chats/new`);
+      }
+    );
   }
 
   componentWillReceiveProps(newProps) {
@@ -21,7 +26,12 @@ class Chat extends React.Component {
       this.props.fetchChat({
         chatId: newProps.match.params.chatId,
         limit: 100,
-      });
+      }).then(
+        () => {}, 
+        () => () => {
+          this.props.history.push(`/chats/new`);
+        }
+      );
     }
   }
 

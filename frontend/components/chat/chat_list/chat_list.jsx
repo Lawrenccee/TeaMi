@@ -38,7 +38,7 @@ class ChatList extends React.Component {
     this.props.fetchChats()
       .then(() => {
         if (this.props.chats.length > 0) {
-          if (this.props.match.params.chatId) {
+          if (this.props.match.params.chatId !== undefined) {
             this.props.receiveChatHighlight(this.props.match.params.chatId);  
           } else {
             this.props.receiveChatHighlight(this.props.chats[0].id);
@@ -55,10 +55,9 @@ class ChatList extends React.Component {
   }
 
   componentWillReceiveProps(newProps) {
-    if (newProps.chatHighlight &&
-      this.props.history.location.pathname !== 
-      `/chats/${newProps.chatHighlight}`) {
+    if (newProps.chatHighlight !== this.props.chatHighlight) {
       this.props.history.push(`/chats/${newProps.chatHighlight}`);
+      this.props.receiveChatHighlight(newProps.chatHighlight);            
     }
   }
 
@@ -71,7 +70,7 @@ class ChatList extends React.Component {
   }
 
   render() {
-    const { chats, chatHighlight, receiveChatHighlight } = this.props;    
+    const { chats, chatHighlight, receiveChatHighlight, currentUser } = this.props;    
     if (chats.length === 0) {
       return null;
     }
@@ -79,10 +78,12 @@ class ChatList extends React.Component {
     const ChatListItems = [];
     
     this.props.chats.forEach(chat => {     
-      if (chat.name.toUpperCase().includes(this.state.query.toUpperCase())) {
+      if (chat.name.toUpperCase().includes(this.state.query.toUpperCase()) 
+        && chat.member_ids.includes(currentUser.id)) {
         ChatListItems.push(
           <ChatListItem 
             key={`chat-${chat.id}`} 
+            currentUser={currentUser}
             chat={chat} 
             chatHighlight={chatHighlight}
             receiveChatHighlight={receiveChatHighlight}

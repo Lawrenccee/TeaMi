@@ -11,6 +11,7 @@ import { receiveChatHighlight } from '../../../actions/ui_actions';
 const mapStateToProps = (state, ownProps) => ({
   chats: selectAllChats(state),
   chatHighlight: state.ui.chatHighlight,
+  currentUser: state.session.currentUser,
 });
 
 const mapDispatchToProps = (dispatch, ownProps) => ({
