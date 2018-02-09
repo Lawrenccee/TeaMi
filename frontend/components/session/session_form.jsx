@@ -43,6 +43,8 @@ class SessionForm extends React.Component {
 
   handleDemo(e) {
     e.preventDefault();
+
+    e.target.disabled = true;
   
     let email = " DemoUser@Tea.Mi";
     let password = " password";

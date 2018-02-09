@@ -88,9 +88,6 @@ class ChatList extends React.Component {
 
   componentWillReceiveProps(newProps) {
     if (newProps.chats[0]) { 
-      console.log("I received these new chat props");
-      console.log(this.props.chats.length);
-      console.log(newProps.chats.length);
       if (this.props.chats[0] && this.props.chats[0].preview.id 
         !== newProps.chats[0].preview.id) {
         this.props.fetchChats(this.state.query)
