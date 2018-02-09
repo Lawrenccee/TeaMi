@@ -9,8 +9,8 @@ class Chat < ApplicationRecord
       bucket: "teami-#{Rails.env[0..2]}"
     },
     styles: { 
-      medium: "100x100>", 
-      thumb: "50x50>" 
+      medium: "100x100#", 
+      thumb: "50x50#" 
     },
     url: ":s3_domain_url", 
     default_url: "https://s3-us-west-1.amazonaws.com/teami-#{Rails.env[0..2]}/images/profile_pic.svg", 
