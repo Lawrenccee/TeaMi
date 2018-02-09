@@ -112,6 +112,7 @@ class ChatInfo extends React.Component {
             <div className="edit-chat-pic">
               <input
                 type="file"
+                accept=".jpg,.png,.jpeg,.bmp,.tif,.tiff"
                 onChange={this.updateImage}
               />
               <p>Edit</p>

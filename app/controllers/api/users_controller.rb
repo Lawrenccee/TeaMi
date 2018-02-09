@@ -253,7 +253,7 @@ class Api::UsersController < ApplicationController
         chat_id: @chats[3].id
       },
       {
-        body: "Currently, only jpeg type files and pngs can be uploaded",
+        body: "Currently, it supports jpeg, png, bmp, and tif images!",
         giphy_url: "",
         author_id: @users[4].id,
         chat_id: @chats[3].id

@@ -20,7 +20,7 @@ class Chat < ApplicationRecord
   # Validate content type
   validates_attachment_content_type :chat_image, content_type: /\Aimage/
   # Validate filename
-  validates_attachment_file_name :chat_image, matches: [/png\z/i, /jpe?g\z/i]
+  validates_attachment_file_name :chat_image, matches: [/png\z/i, /jpe?g\z/i, /tif?f\z/i, /bmp\z/i]
 
   has_many :messages,
     primary_key: :id,

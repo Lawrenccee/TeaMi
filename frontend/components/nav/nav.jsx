@@ -64,6 +64,7 @@ class Nav extends React.Component {
             <div className="edit-profile-pic">
               <input
                 type="file"
+                accept=".jpg,.png,.jpeg,.bmp,.tif,.tiff"
                 onChange={this.updateImage}
               />
               <p>Edit</p>
