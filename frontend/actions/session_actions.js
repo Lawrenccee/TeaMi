@@ -51,3 +51,17 @@ export const demo = () => (dispatch) => (
   SessionApi.demo()
     .then((demoUser) => dispatch(receiveCurrentUser(demoUser)))
 );
+
+export const fetchUser = (userId) => (dispatch) => (
+  SessionApi.fetchUser(userId)
+    .then(
+      (user) => dispatch((receiveCurrentUser(user)))
+    )
+);
+
+export const updateUser = ({ formData, user}) => (dispatch) => (
+  SessionApi.updateUser({ formData, user })
+    .then(
+      (updatedUser) => dispatch((receiveCurrentUser(updatedUser)))
+    )
+);

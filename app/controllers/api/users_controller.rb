@@ -22,28 +22,26 @@ class Api::UsersController < ApplicationController
   def update
     @user = User.find_by(id: params[:id])
 
-    unless @user.id == current_user.id
-      render json: ["You are not permitted to do this"], status: 422
-    end
-
-    unless @user.is_password?(params[:user][:old_password])
-      render json: ["Incorrect Password"], status: 422
-    end
-
-    if @user.update(user_params) && @user.save
-      render :show
+    if params[:user_image] != "" && params[:user_image] != nil
+      file = params[:user_image]
+      if @user.update(user_image: file)
+        render :show
+      else
+        render json: @user.errors.full_messages, status: 422
+      end
+    elsif params[:username] != "" && params[:username] != nil
+      if @user.update(username: params[:user_image])
+        render :show
+      else
+        render json: @user.errors.full_messages, status: 422
+      end
     else
-      render json: @user.errors.full_messages, status: 422
+      render :show
     end
-    
   end
 
   def demo
-    p "HELLO YOU ARE IN THE CONTROLLER FOR DEMO"
     randomString = SecureRandom.urlsafe_base64(5)
-
-    p "This is my random string"
-    p randomString
 
     @user = User.create(
       username: "Guest#{randomString}",
@@ -51,9 +49,6 @@ class Api::UsersController < ApplicationController
       password: "password",
       demo: true
     )
-
-    p "This is my demo user"
-    p @user
 
     @users = User.create([
       {
@@ -215,10 +210,6 @@ class Api::UsersController < ApplicationController
 
     login(@user)
     render :show
-
-    # on logout go through all of the demo users chats, delete the chats and
-    # the joins table stuff check users in that chat delete them if theyre demo
-    # then delete any joins with that chat id
   end
 
   private

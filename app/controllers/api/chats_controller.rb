@@ -15,9 +15,6 @@ class Api::ChatsController < ApplicationController
   end
 
   def create
-    # TODO: How to prevent chat with same memberships?
-    # Do I have to do a database search???
-
     @names = []
     @ids = []
 
@@ -32,10 +29,7 @@ class Api::ChatsController < ApplicationController
 
     current_user.chats.find_each do |chat|
       @member_ids = chat.members.pluck(:id)
-      p "CHAT IDS"
-      p @member_ids
-      p "NEW IDS"
-      p @ids
+
       if (@member_ids.size == @ids.size) && ((@member_ids & @ids) == @member_ids)
         @exists = true
         @chat = chat
@@ -68,7 +62,6 @@ class Api::ChatsController < ApplicationController
   end
 
   def show
-    p params
     @chat = Chat.find_by(id: params[:id])
     @limit = params[:limit]
   end
@@ -123,13 +116,15 @@ class Api::ChatsController < ApplicationController
     # Change name/pic instead
 
     else 
-      if params[:chat][:name] != @chat[:name]
+      if params[:name] != "" && params[:name] != nil
         @body = "#{current_user[:username]} changed the chat name to #{params[:chat][:name]}" 
+        @chat.assign_attributes(name: params[:name])
       else
         @body = "#{current_user[:username]} updated the chat picture"
+        @chat.assign_attributes(chat_image: params[:chat_image])
       end
 
-      if @chat.update(chat_params)
+      if @chat.save
 
         @message = Message.new(
           body: @body,

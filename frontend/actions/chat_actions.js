@@ -35,7 +35,6 @@ export const fetchChat = ({ chatId, limit = 1 }) => dispatch => (
     )
 );
 
-// then change the url to the url of this new chat (id)
 export const createChat = ({ chat, members }) => dispatch => (
   ChatApi.createChat({ chat, members })
     .then(
@@ -60,38 +59,10 @@ export const createMessage = ({ message, limit = 1 }) => dispatch => (
     )
 );
 
-// chatApi.createChat({
-//   members: {
-//     5: {
-//       id: 5,
-//       username: "this is"
-//     },
-//     6: {
-//       id: 6,
-//       username: "testing a name"
-//     }
-//   }
-// })(dispatch)
-
-// chatApi.updateChat({
-//   chat: {
-//     name: "New Name again",
-//     chat_pic_url: "fake pic url",
-//     id: 14
-//   }
-// })(dispatch)
-
-// chatApi.fetchChat({
-//   chatId: 14,
-//   limit: 10
-// })(dispatch)
-
-// chatApi.createMessage({
-//   message: {
-//     body: "Testing console return",
-//     author_id: 6,
-//     chat_id: 14
-//   }
-// })(dispatch)
-
-// chatApi.fetchChats()(dispatch)
+export const updateChatImage = ({ formData, chat }) => dispatch => (
+  ChatApi.updateChatImage({ formData, chat })
+    .then(
+      (updatedChat) => dispatch(receiveChat(updatedChat)),
+      (errors) => dispatch(receiveChatErrors(errors))
+    )
+);

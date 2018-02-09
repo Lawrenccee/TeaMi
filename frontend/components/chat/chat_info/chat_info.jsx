@@ -9,6 +9,8 @@ class ChatInfo extends React.Component {
 
     this.state = ({
       members: {},
+      name: "",
+      chat_image: ""
     });
 
     this.members = {};
@@ -17,18 +19,36 @@ class ChatInfo extends React.Component {
     this.handleUser = this.handleUser.bind(this);
     this.handleEnter = this.handleEnter.bind(this);
     this.handleDeleteMember = this.handleDeleteMember.bind(this);
+    this.updateImage = this.updateImage.bind(this);
+
   }
 
   componentDidMount() {
     this.props.fetchUsers();
   }
 
+  updateImage(e) {
+    console.log(this.props);
+    
+    const reader = new FileReader();
+    const file = e.currentTarget.files[0];
+    reader.onloadend = () => (
+      this.setState({ chat_image: file },
+        () => {
+          const formData = new FormData();
+          formData.append("chat_image", file);
+          this.props.updateChatImage({ formData, chat: this.props.chat.id });
+        })
+    );
+
+    if (file) {
+      reader.readAsDataURL(file);
+    }
+  }
+
   handleEnter(e) {
     e.preventDefault();
     let members = merge({}, this.state.members);
-
-    console.log(this.members);
-    console.log(this.props.chat);
 
     if (values(members).length !== 0) {
       this.props.updateChat({ members: members, chat: this.props.chat })
@@ -90,6 +110,10 @@ class ChatInfo extends React.Component {
         <div className='chat-info'>
           <div className="chat-pic">
             <div className="edit-chat-pic">
+              <input
+                type="file"
+                onChange={this.updateImage}
+              />
               <p>Edit</p>
             </div>
               <img src={`${chatPicUrl}`} height="50" width="50" />
@@ -144,7 +168,8 @@ class ChatInfo extends React.Component {
               chatMembers.map(id => {
                 let profilePicUrl = usersObject[id].user_thumb_image_url;
 
-                if (usersObject[id].profile_pic_url && usersObject[id].profile_pic_url.length > 0) {
+                if (usersObject[id].profile_pic_url && 
+                  usersObject[id].profile_pic_url.length > 0) {
                   profilePicUrl = usersObject[id].profile_pic_url;
                 }
 

@@ -55,3 +55,15 @@ export const createMessage = ({ message }) => (
     }
   })
 );
+
+export const updateChatImage = ({ formData, chat }) => {
+  console.log(chat);
+  return $.ajax({
+    type: 'PATCH',
+    url: `api/chats/${chat}`,
+    processData: false,
+    contentType: false,
+    dataType: 'json',
+    data: formData
+  });
+};

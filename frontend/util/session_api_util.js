@@ -31,3 +31,22 @@ export const demo = () => (
     dataType: 'json'
   })
 );
+
+export const fetchUser = (userId) => (
+  $.ajax({
+    method: 'GET',
+    url: `/api/users/${userId}`,
+    dataType: 'json'
+  })
+);
+
+export const updateUser = ({formData, user}) => {
+  return ($.ajax({
+    url: `/api/users/${user}`,
+    type: 'PATCH',
+    processData: false,
+    contentType: false,
+    dataType: 'json',
+    data: formData
+  }));
+};
