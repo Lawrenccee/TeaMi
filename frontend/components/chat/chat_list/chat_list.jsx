@@ -48,7 +48,9 @@ class ChatList extends React.Component {
             this.props.receiveChatHighlight(this.props.chats[0].id);
           }
         } else {
-          this.props.history.push(`/chats/new`);
+          if (this.props.location.pathname !== `/chats/new`) {
+            this.props.history.push(`/chats/new`);
+          }
         }
       });
   }
@@ -97,7 +99,9 @@ class ChatList extends React.Component {
       }
     }
     if (newProps.chatHighlight !== this.props.chatHighlight) {
-      this.props.history.push(`/chats/${newProps.chatHighlight}`);
+      if (this.props.location.pathname !== `/chats/${newProps.chatHighlight}`) {
+        this.props.history.push(`/chats/${newProps.chatHighlight}`);        
+      }
       this.props.receiveChatHighlight(newProps.chatHighlight);            
     }
   }

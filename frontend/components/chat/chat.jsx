@@ -15,7 +15,9 @@ class Chat extends React.Component {
     }).then(
       () => {}, 
       () => {
-        this.props.history.push(`/chats/new`);
+        if (this.props.location.pathname !== `/chats/new`) {
+          this.props.history.push(`/chats/new`);
+        }
       }
     );
   }
@@ -29,7 +31,9 @@ class Chat extends React.Component {
       }).then(
         () => {}, 
         () => {
-          this.props.history.push(`/chats/new`);
+          if (this.props.location.pathname !== `/chats/new`) {
+            this.props.history.push(`/chats/new`);
+          }
         }
       );
     }
