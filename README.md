@@ -1,16 +1,25 @@
 # TeaMí
 
-TeaMí was inspired by Facebook Messenger, which is a real-time messenger. TeaMí is able to deliver instant messaging through technologies like Rails and ActionCable, PostgreSQL, React.js, Redux, and AWS S3 storage along with paperclip. This project was given a timeframe of 10 days. Knowing this, features are limited, but expansion is planned.
+[Live Demo](https://tea-mi.herokuapp.com)
+
+TeaMí was inspired by Facebook Messenger, which is a real-time messenger. TeaMí is able to deliver instant messaging through technologies like Rails and ActionCable, PostgreSQL, React.js, Redux, and AWS S3 storage along with paperclip. This project was given a timeframe of 10 days. Knowing this, features are limited, but I plan on expanding and making the application better overall.
 
 
 ## Features
-  * User Authentication (backend and frontend)
+  * User Authentication, backend and frontend, utilizaing BCrypt
   * Creating Chats with any other user that has an account
-  * Messages or Giphys sent in real-time
+  * Messages or sent in real-time, thanks to Rails' ActionCable, a helper for websockets
+  * Sending Gifs thanks to the Giphy API
   * Adding more members to a chat
   * Changing your profile picture, chat picture, or chat name
 
-  
+
+### Messages and Chat
+
+When creating a new user account, the default new chat page is shown. Users can be searched through the search bar of the chat.
+![NewChat](https://github.com/Lawrenccee/TeaMi/blob/master/readme/new_chat.gif)
+
+
 ### 1. Hosting on Heroku (0.5 days)
 
 ### 2. New account creation, login, and guest/demo login (2 days)
