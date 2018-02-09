@@ -40,6 +40,7 @@ class MessageList extends React.Component {
         <div className="message-loader">
           <ClipLoader
             color={'#7DCC4D'}
+            size={75}
           />
         </div>
       );

@@ -12,7 +12,8 @@ class ChatInfo extends React.Component {
       members: {},
       name: "",
       chat_image: "",
-      loading: false
+      loading: false,
+      showNameInput: false,
     });
 
     this.members = {};
@@ -22,7 +23,7 @@ class ChatInfo extends React.Component {
     this.handleEnter = this.handleEnter.bind(this);
     this.handleDeleteMember = this.handleDeleteMember.bind(this);
     this.updateImage = this.updateImage.bind(this);
-
+    this.changeName = this.changeName.bind(this);
   }
 
   componentDidMount() {
@@ -49,6 +50,28 @@ class ChatInfo extends React.Component {
     if (file) {
       reader.readAsDataURL(file);
     }
+  }
+
+  changeName(e) {
+    e.preventDefault();
+
+    this.setState({ showNameInput: false });
+
+    if (this.state.name !== "") {
+      const formData = new FormData();
+      formData.append("name", this.state.name);
+
+      this.props.updateChatImage({ formData, chat: this.props.chat.id })
+        .then(() => {
+          this.setState({ name: "" });
+        });
+    }
+  }
+
+  update(property) {
+    return e => {
+      this.setState({ [property]: e.target.value });
+    };
   }
 
   handleEnter(e) {
@@ -132,7 +155,18 @@ class ChatInfo extends React.Component {
             </div>
               <img src={`${chatPicUrl}`} height="50" width="50" />
           </div> 
-          <p>{chat.name}</p>
+          <div className="chat-name" onClick={() => this.setState({ showNameInput: true })}>
+            { this.state.showNameInput &&
+              <form onSubmit={this.changeName}>
+                <input
+                  type="text"
+                  onChange={this.update("name")}
+                />
+                <button>Done</button>
+              </form>
+            }   
+            <p>{chat.name}</p>
+          </div>
         </div>
         <div className='my-info'>
           <a 

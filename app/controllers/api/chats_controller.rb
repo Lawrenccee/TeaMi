@@ -117,7 +117,7 @@ class Api::ChatsController < ApplicationController
 
     else 
       if params[:name] != "" && params[:name] != nil
-        @body = "#{current_user[:username]} changed the chat name to #{params[:chat][:name]}" 
+        @body = "#{current_user[:username]} changed the chat name to #{params[:name]}" 
         @chat.assign_attributes(name: params[:name])
       else
         @body = "#{current_user[:username]} updated the chat picture"

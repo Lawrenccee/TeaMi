@@ -13,8 +13,8 @@ class Chat < ApplicationRecord
       thumb: "50x50#" 
     },
     convert_options: { 
-      thumb: '-quality 50',
-      medium: '-quality 50'
+      thumb: '-quality 80',
+      medium: '-quality 80'
     },
     url: ":s3_domain_url", 
     default_url: "https://s3-us-west-1.amazonaws.com/teami-#{Rails.env[0..2]}/images/profile_pic.svg", 
