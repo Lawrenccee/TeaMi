@@ -28,7 +28,7 @@ class Chat extends React.Component {
         limit: 100,
       }).then(
         () => {}, 
-        () => () => {
+        () => {
           this.props.history.push(`/chats/new`);
         }
       );

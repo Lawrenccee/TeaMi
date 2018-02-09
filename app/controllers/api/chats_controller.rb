@@ -65,14 +65,11 @@ class Api::ChatsController < ApplicationController
     @chats = current_user.chats.where("chats.id = ?", params[:id])
     @limit = params[:limit]
     @chat = @chats[0]
-
-    p "THIS IS THE CHAT"
-    p @chat
-
+    
     if @chat
       render :show
     else
-      render json: ["Chat does not exist for this user!"], status: 422
+      render json: ["Chat does not exist for this user!"], status: 404
     end
   end
 
