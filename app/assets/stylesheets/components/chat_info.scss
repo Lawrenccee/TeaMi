@@ -45,6 +45,16 @@
   justify-content: center;
 }
 
+.chat-pic input {
+  display: flex;
+  opacity: 0;
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  overflow: hidden;
+  cursor: pointer;
+}
+
 .chat-pic:hover .edit-chat-pic {
   display: flex;
 }
