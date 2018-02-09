@@ -19,7 +19,8 @@ class User < ApplicationRecord
       thumb: "50x50#" 
     }, 
     convert_options: { 
-      thumb: '-quality 75' 
+      thumb: '-quality 50',
+      medium: '-quality 50'
     },
     url: ":s3_domain_url",
     default_url: "https://s3-us-west-1.amazonaws.com/teami-#{Rails.env[0..2]}/images/profile_pic.svg", 
