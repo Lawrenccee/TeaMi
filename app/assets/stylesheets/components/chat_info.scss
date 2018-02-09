@@ -80,6 +80,11 @@
   width: 100%;
   height: 25px;
   cursor: pointer;
+  box-sizing: border-box; 
+}
+
+.chat-name:hover {
+  border: 1px solid $light-gray;
 }
 
 .chat-name form {
