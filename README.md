@@ -161,6 +161,18 @@ if current_user
 
 The query fetches whatever chat names that the user has that match the query string pattern.
 
+## ChatInfo
+
+Through the ChatInfo bar users can add members to the chat as well as change the chat photo as well as the chat name. 
+
+<img src="https://raw.githubusercontent.com/Lawrenccee/TeaMi/master/readme/add_member.gif">
+
+It is also worth noting that by hovering over your own profile picture in the top left that you can also change your personal profile picture.
+
+<img src="https://raw.githubusercontent.com/Lawrenccee/TeaMi/master/readme/change_pic.gif">
+
+This is done with aws and the paperclip gem.
+
 ## Design
 
 TeaMí was designed with trying to make a close, but different, clone of Messenger. I mostly tried to copy the main features of Messenger within the 10 day timeframe we had. Sometimes, features were a main priority over clean code. Now that the application works with basic functionalities, I plan on refactoring my code before moving on to make everything more clean and crisp. I hope that this will serve as a good reference to myself in the future.
