@@ -84,6 +84,12 @@ class Api::UsersController < ApplicationController
         password: "password",
         demo: true,
         profile_pic_url: 'https://lh3.googleusercontent.com/SUl4XjMnZ7AoG394N20DpStiI4e1jynSSVDsh6V6h4PzFBPn8UhZ2Sa9ZybBz5rWwEQ=w300'
+      },
+      {
+        username: "Spammer",
+        email: "Spammer#{randomString}",
+        password: "password",
+        demo: true
       }
     ])
 
@@ -99,6 +105,12 @@ class Api::UsersController < ApplicationController
       {
         name: "Milk Tea Group",
         chat_pic_url: 'https://cdn.xl.thumbs.canstockphoto.com/boba-bubble-tea-homemade-various-milk-tea-with-pearls-on-wooden-table-stock-image_csp46514561.jpg'
+      },
+      {
+        name: "Change this chat picture!"
+      },
+      {
+        name: "SpamChat"
       }
     ])
 
@@ -130,10 +142,134 @@ class Api::UsersController < ApplicationController
       {
         chat_id: @chats[2].id,
         member_id: @users[3].id,
+      },
+      {
+        chat_id: @chats[3].id,
+        member_id: @user.id
+      },
+      {
+        chat_id: @chats[3].id,
+        member_id: @users[4].id,
+      },
+      {
+        chat_id: @chats[4].id,
+        member_id: @user.id
+      },
+      {
+        chat_id: @chats[4].id,
+        member_id: @users[5].id,
       }
     ])
 
     @messages = Message.create([
+      {
+        body: "Hey! >:]",
+        giphy_url: "",
+        author_id: @users[5].id,
+        chat_id: @chats[4].id
+      },
+      {
+        body: "This is an example of a larger chat with multiple messages",
+        giphy_url: "",
+        author_id: @users[5].id,
+        chat_id: @chats[4].id
+      },
+      {
+        body: "Why don't I just spam a bunch of cool gifs to you?",
+        giphy_url: "",
+        author_id: @users[5].id,
+        chat_id: @chats[4].id
+      },
+      {
+        body: "Spammer sent you a GIF",
+        giphy_url: "https://media.giphy.com/media/Gue1HInww5M6Q/giphy.gif",
+        author_id: @users[5].id,
+        chat_id: @chats[4].id
+      },
+      {
+        body: "Spammer sent you a GIF",
+        giphy_url: "https://media.giphy.com/media/jnEbIEVqWxY1W/giphy.gif",
+        author_id: @users[5].id,
+        chat_id: @chats[4].id
+      },
+      {
+        body: "Spammer sent you a GIF",
+        giphy_url: "https://media.giphy.com/media/ym6PmLonLGfv2/giphy.gif",
+        author_id: @users[5].id,
+        chat_id: @chats[4].id
+      },
+      {
+        body: "Spammer sent you a GIF",
+        giphy_url: "https://media.giphy.com/media/3oKIPv4pMwu3NQtKhO/giphy.gif",
+        author_id: @users[5].id,
+        chat_id: @chats[4].id
+      },
+      {
+        body: "I hope that was enough GIFs for you!",
+        giphy_url: "",
+        author_id: @users[5].id,
+        chat_id: @chats[4].id
+      },
+      {
+        body: "They're all related to stuff I like :)",
+        giphy_url: "",
+        author_id: @users[5].id,
+        chat_id: @chats[4].id
+      },
+      {
+        body: "Why don't you try sending some GIFs as well?",
+        giphy_url: "",
+        author_id: @users[5].id,
+        chat_id: @chats[4].id
+      },
+      {
+        body: "Okay, okay, I'll stop spamming you now...",
+        giphy_url: "",
+        author_id: @users[5].id,
+        chat_id: @chats[4].id
+      },
+      {
+        body: ":b",
+        giphy_url: "",
+        author_id: @users[5].id,
+        chat_id: @chats[4].id
+      },
+      {
+        body: "Me again~",
+        giphy_url: "",
+        author_id: @users[4].id,
+        chat_id: @chats[3].id
+      },
+      {
+        body: "For the demo accounts with static pictures the chat images can't be changed",
+        giphy_url: "",
+        author_id: @users[4].id,
+        chat_id: @chats[3].id
+      },
+      {
+        body: "But you can try changing the chat picture of this chat as well as your profile picture!",
+        giphy_url: "",
+        author_id: @users[4].id,
+        chat_id: @chats[3].id
+      },
+      {
+        body: "Currently, only jpeg type files and pngs can be uploaded",
+        giphy_url: "",
+        author_id: @users[4].id,
+        chat_id: @chats[3].id
+      },
+      {
+        body: "Have fun!",
+        giphy_url: "",
+        author_id: @users[4].id,
+        chat_id: @chats[3].id
+      },
+      {
+        body: "Lawrence sent you a GIF",
+        giphy_url: "https://media.giphy.com/media/10LKovKon8DENq/giphy.gif",
+        author_id: @users[4].id,
+        chat_id: @chats[3].id
+      },
       {
         body: "Hey there!",
         giphy_url: "",
@@ -195,7 +331,7 @@ class Api::UsersController < ApplicationController
         chat_id: @chats[0].id
       },
       {
-        body: "I hope you enjoy what you see here and have fun playing around with my application!",
+        body: "I hope you enjoy what you see here, and have fun playing around with my application!",
         giphy_url: "",
         author_id: @users[0].id,
         chat_id: @chats[0].id
