@@ -21,6 +21,9 @@ class NewChat extends React.Component {
 
   componentDidMount() {
     this.props.fetchUsers();
+
+    const usersSearch = document.getElementById("users-search");
+    usersSearch.focus();
   }
 
   handleKeyDown(e) {
