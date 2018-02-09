@@ -24,10 +24,18 @@ class ChatInfo extends React.Component {
     this.handleDeleteMember = this.handleDeleteMember.bind(this);
     this.updateImage = this.updateImage.bind(this);
     this.changeName = this.changeName.bind(this);
+    this.toggleShowNameInput = this.toggleShowNameInput.bind(this);
   }
 
   componentDidMount() {
     this.props.fetchUsers();
+  }
+
+  toggleShowNameInput() {
+    this.setState({ showNameInput: true }, () => {
+      const nameInput = document.getElementById("name-input");
+      nameInput.focus();
+    });
   }
 
   updateImage(e) {    
@@ -155,10 +163,11 @@ class ChatInfo extends React.Component {
             </div>
               <img src={`${chatPicUrl}`} height="50" width="50" />
           </div> 
-          <div className="chat-name" onClick={() => this.setState({ showNameInput: true })}>
+          <div className="chat-name" onClick={this.toggleShowNameInput}>
             { this.state.showNameInput &&
               <form onSubmit={this.changeName}>
                 <input
+                  id="name-input"
                   type="text"
                   onChange={this.update("name")}
                 />
