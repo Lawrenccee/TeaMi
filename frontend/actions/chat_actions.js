@@ -19,8 +19,8 @@ export const receiveChatErrors = (errors) => ({
   errors
 });
 
-export const fetchChats = () => dispatch => (
-  ChatApi.fetchChats()
+export const fetchChats = (query) => dispatch => (
+  ChatApi.fetchChats(query)
     .then(
       (chats) => dispatch(receiveChats(chats)),
       (errors) => dispatch(receiveChatErrors(errors))

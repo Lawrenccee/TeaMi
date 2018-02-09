@@ -1,6 +1,7 @@
 import React from 'react';
 import ChatListItem from './chat_list_item';
 import ReactSearch from 'react-icons/lib/fa/search';
+import values from 'lodash/values';
 
 class ChatList extends React.Component {
   constructor(props) {
@@ -8,6 +9,7 @@ class ChatList extends React.Component {
 
     this.state = {
       query: "",
+      queryChats: this.props.chats,
     };
   }
 
@@ -37,6 +39,7 @@ class ChatList extends React.Component {
   componentDidMount() {
     this.props.fetchChats()
       .then(() => {
+        this.setState({ queryChats: this.props.chats });
         if (this.props.chats.length > 0) {
           if (this.props.match.params.chatId !== undefined) {
             this.props.receiveChatHighlight(this.props.match.params.chatId);  
@@ -65,6 +68,11 @@ class ChatList extends React.Component {
     return e => {
       this.setState({
         [property]: e.target.value
+      }, () => {
+        this.props.fetchChats(this.state.query)
+          .then((payload) => {
+            this.setState({ queryChats: values(payload.chats) });
+          });
       });
     };
   }
@@ -77,19 +85,16 @@ class ChatList extends React.Component {
 
     const ChatListItems = [];
     
-    this.props.chats.forEach(chat => {     
-      if (chat.name.toUpperCase().includes(this.state.query.toUpperCase()) 
-        && chat.member_ids.includes(currentUser.id)) {
-        ChatListItems.push(
-          <ChatListItem 
-            key={`chat-${chat.id}`} 
-            currentUser={currentUser}
-            chat={chat} 
-            chatHighlight={chatHighlight}
-            receiveChatHighlight={receiveChatHighlight}
-          />
-        );
-      }
+    this.state.queryChats.forEach(chat => {       
+      ChatListItems.push(
+        <ChatListItem 
+          key={`chat-${chat.id}`} 
+          currentUser={currentUser}
+          chat={chat} 
+          chatHighlight={chatHighlight}
+          receiveChatHighlight={receiveChatHighlight}
+        />
+      );
     });
 
     return (
