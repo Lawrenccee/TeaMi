@@ -17,7 +17,7 @@ TeaMÃ­ was inspired by Facebook Messenger, which is a real-time messenger. TeaMÃ
 ### Messages and Chat
 
 When creating a new user account, the default new chat page is shown. Users can be searched through the search bar of the chat.
-![NewChat](https://github.com/Lawrenccee/TeaMi/blob/master/readme/new_chat.gif)
+<img src="https://raw.githubusercontent.com/Lawrenccee/TeaMi/master/readme/new_chat.gif">
 
 
 ### 1. Hosting on Heroku (0.5 days)
