@@ -37,7 +37,8 @@ class Nav extends React.Component {
         () => {
           const formData = new FormData();
           formData.append("user_image", file);
-          this.props.updateUser({formData, user: this.state.id});
+          this.props.updateUser({formData, user: this.state.id})
+            .then(() => this.props.fetchUsers());
         })
     );
     

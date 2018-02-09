@@ -37,7 +37,8 @@ class ChatInfo extends React.Component {
         () => {
           const formData = new FormData();
           formData.append("chat_image", file);
-          this.props.updateChatImage({ formData, chat: this.props.chat.id });
+          this.props.updateChatImage({ formData, chat: this.props.chat.id })
+            .then(() => this.props.fetchUsers());
         })
     );
 
