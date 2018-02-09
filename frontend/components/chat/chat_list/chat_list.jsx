@@ -14,18 +14,24 @@ class ChatList extends React.Component {
   componentWillMount() {
     this.listen = true;
 
-    const listen = () => {
+    const listenChats = () => {
       if (this.listen) {
         this.props.fetchChats().then(() => (
-          setTimeout(listen, 1000)
-        ));
-        this.props.fetchUsers().then(() => (
-          setTimeout(listen, 10000)
+          setTimeout(listenChats, 1000)
         ));
       }
     };
 
-    listen();
+    const listenUsers = () => {
+      if (this.listen) {
+        this.props.fetchUsers().then(() => (
+          setTimeout(listenUsers, 10000)
+        ));
+      }
+    };
+
+    listenChats();
+    listenUsers();
   }
 
   componentDidMount() {
