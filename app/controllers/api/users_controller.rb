@@ -177,7 +177,7 @@ class Api::UsersController < ApplicationController
       {
         body: "Why don't I just spam a bunch of cool gifs to you?",
         giphy_url: "",
-        author_id: @users[5].id,
+        author_id: @user.id,
         chat_id: @chats[4].id
       },
       {
@@ -195,7 +195,7 @@ class Api::UsersController < ApplicationController
       {
         body: "Spammer sent you a GIF",
         giphy_url: "https://media.giphy.com/media/ym6PmLonLGfv2/giphy.gif",
-        author_id: @users[5].id,
+        author_id: @user.id,
         chat_id: @chats[4].id
       },
       {
@@ -207,7 +207,7 @@ class Api::UsersController < ApplicationController
       {
         body: "I hope that was enough GIFs for you!",
         giphy_url: "",
-        author_id: @users[5].id,
+        author_id: @user.id,
         chat_id: @chats[4].id
       },
       {
@@ -225,7 +225,7 @@ class Api::UsersController < ApplicationController
       {
         body: "Okay, okay, I'll stop spamming you now...",
         giphy_url: "",
-        author_id: @users[5].id,
+        author_id: @user.id,
         chat_id: @chats[4].id
       },
       {
@@ -237,7 +237,7 @@ class Api::UsersController < ApplicationController
       {
         body: "Me again~",
         giphy_url: "",
-        author_id: @users[4].id,
+        author_id: @user.id,
         chat_id: @chats[3].id
       },
       {
@@ -249,7 +249,7 @@ class Api::UsersController < ApplicationController
       {
         body: "But you can try changing the chat picture of this chat as well as your profile picture!",
         giphy_url: "",
-        author_id: @users[4].id,
+        author_id: @user.id,
         chat_id: @chats[3].id
       },
       {
@@ -261,7 +261,7 @@ class Api::UsersController < ApplicationController
       {
         body: "Have fun!",
         giphy_url: "",
-        author_id: @users[4].id,
+        author_id: @user.id,
         chat_id: @chats[3].id
       },
       {
@@ -283,15 +283,21 @@ class Api::UsersController < ApplicationController
         chat_id: @chats[2].id
       },
       {
-        body: "Try clicking the top right 'info' button to see some more cool actions!",
+        body: "The top right 'info' button toggles the sidebar which has some more cool actions!",
         giphy_url: "",
-        author_id: @users[2].id,
+        author_id: @user.id,
         chat_id: @chats[2].id
       },
       {
         body: "Try adding the user Kung Fu Tea. They have some pretty good milk tea too",
         giphy_url: "",
         author_id: @users[3].id,
+        chat_id: @chats[2].id
+      },
+      {
+        body: "Unfortunately, this chat image is static, but you can change some of the other ones... Like the next chat!",
+        giphy_url: "",
+        author_id: @user.id,
         chat_id: @chats[2].id
       },
       {
@@ -303,13 +309,13 @@ class Api::UsersController < ApplicationController
       {
         body: "By the way, did you know you can make a new chat by clicking on the writing button in the top left navbar?",
         giphy_url: "",
-        author_id: @users[1].id,
+        author_id: @user.id,
         chat_id: @chats[1].id
       },
       {
         body: "You can also send GIFs thanks to Giphy!",
         giphy_url: "",
-        author_id: @users[1].id,
+        author_id: @user.id,
         chat_id: @chats[1].id
       },
       {
@@ -327,7 +333,7 @@ class Api::UsersController < ApplicationController
       {
         body: "TeaMí is a real-time messaging app similar to Facebook Messenger",
         giphy_url: "",
-        author_id: @users[0].id,
+        author_id: @user.id,
         chat_id: @chats[0].id
       },
       {
@@ -339,7 +345,7 @@ class Api::UsersController < ApplicationController
       {
         body: "Lawrence sent you a GIF",
         giphy_url: "https://media1.giphy.com/media/Wj7lNjMNDxSmc/200.gif?cid=e1bb72ff5a7b35cb5770457a55db7401",
-        author_id: @users[0].id,
+        author_id: @user.id,
         chat_id: @chats[0].id
       }
     ])
