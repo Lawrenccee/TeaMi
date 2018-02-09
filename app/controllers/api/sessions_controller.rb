@@ -24,7 +24,7 @@ class Api::SessionsController < ApplicationController
         members.destroy_all
 
         Chat.find_each do |chat|
-          if chat.members.empty?
+          if chat.member_ids.length < 2
             chat.destroy
           end
         end
