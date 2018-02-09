@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import Footer from './footer';
+import { ClipLoader } from 'react-spinners';
 
 class SessionForm extends React.Component {
   constructor(props) {
@@ -9,7 +10,8 @@ class SessionForm extends React.Component {
     this.state = {
       username: "",
       password: "",
-      email: ""
+      email: "",
+      loading: false,
     };
 
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -43,41 +45,43 @@ class SessionForm extends React.Component {
 
   handleDemo(e) {
     e.preventDefault();
-
     e.target.disabled = true;
-  
-    let email = " DemoUser@Tea.Mi";
-    let password = " password";
 
-    let pIndex = 0;
+    this.setState({ email: "", password: ""}, () => {
+      let email = " DemoUser@Tea.Mi";
+      let password = " password";
 
-    let typePassword = () => {
-      if (pIndex < password.length) {
-        this.refs.password.value += password[pIndex];
-        pIndex++;
-      } else if (pIndex === password.length) {
-        email = email.slice(1);
-        password = password.slice(1);
-        this.props.demo();
-      }
+      let pIndex = 0;
 
-      setTimeout(typePassword, 1000);
-    };
+      let typePassword = () => {
+        if (pIndex < password.length) {
+          this.refs.password.value += password[pIndex];
+          pIndex++;
+        } else if (pIndex === password.length) {
+          email = email.slice(1);
+          password = password.slice(1);
 
-    let eIndex = 0;
+          this.setState({ loading: true }, () => this.props.demo());
+        }
 
-    let typeEmail = () => {
-      if (eIndex < email.length) {
-        this.refs.email.value += email[eIndex];
-        eIndex++;
-      } else if (eIndex === email.length) {
-        typePassword(); 
-      }
+        setTimeout(typePassword, 1000);
+      };
 
-      setTimeout(typeEmail, 75);
-    };
+      let eIndex = 0;
 
-    typeEmail();
+      let typeEmail = () => {
+        if (eIndex < email.length) {
+          this.refs.email.value += email[eIndex];
+          eIndex++;
+        } else if (eIndex === email.length) {
+          typePassword();
+        }
+
+        setTimeout(typeEmail, 75);
+      };
+
+      typeEmail();
+    });
   }
 
   render() {
@@ -86,6 +90,17 @@ class SessionForm extends React.Component {
 
     return (
       <div className='main-session-container'>
+        {this.state.loading &&
+          <div className="session-loader">
+            <div>
+              Creating Demo Data...
+            </div>
+            <ClipLoader
+              color={'#7DCC4D'}
+              size={100}
+            />
+          </div>
+        }
         <div className='session-container'>
           <div className="session-form-container">
             

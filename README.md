@@ -1,24 +1,50 @@
-# README
+# TeaMí
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+TeaMí was inspired by Facebook Messenger, which is a real-time messenger. TeaMí is able to deliver instant messaging through technologies like Rails and ActionCable, PostgreSQL, React.js, Redux, and AWS S3 storage along with paperclip. This project was given a timeframe of 10 days. Knowing this, features are limited, but expansion is planned.
 
-Things you may want to cover:
 
-* Ruby version
+## Features
+  * User Authentication (backend and frontend)
+  * Creating Chats with any other user that has an account
+  * Messages or Giphys sent in real-time
+  * Adding more members to a chat
+  * Changing your profile picture, chat picture, or chat name
 
-* System dependencies
+  
+### 1. Hosting on Heroku (0.5 days)
 
-* Configuration
+### 2. New account creation, login, and guest/demo login (2 days)
 
-* Database creation
+### 3. Messages (2 days)
+* Users will be able to send real-time messages to each other
 
-* Database initialization
+### 4. Chats (2 days)
+* Users will be able to make chats with other users
 
-* How to run the test suite
+### 5. Search Users and Chats (1 day)
+* Users will be able to search for specific users to make chats with and filter chats
 
-* Services (job queues, cache servers, search engines, etc.)
+### 6. Send GIFs (1 day)
+* Users will be able to send Gifs to each other through the GIPHY API
 
-* Deployment instructions
+### 7. A production README (0.5 days)
 
-* ...
+***
+
+#### Bonus: Edit Username and Chat Names
+#### Bonus: Upload profile pictures
+#### Bonus: Add a chat bot
+#### Bonus: Milk Tea Styling
+#### Bonus: The web app will be mobile friendly
+
+<!-- ## 4. Bonus: The web app will be mobile friendly. -->
+
+<!-- ## 5. Bonus: Users will be able to give nicknames to each other, that only exists in specific chats. -->
+
+<!-- ## 6. Bonus: Users will be able to change bubble colors for certain users. -->
+
+<!-- ## 7. Bonus: The web app will have a night mode. -->
+
+<!-- ## 8. Bonus: Users will be able to send stickers or emojis to each other. -->
+
+<!-- ## 9. Bonus: Users will be able to send voice and video calls to each other. -->
