@@ -18,6 +18,9 @@ class User < ApplicationRecord
       medium: "100x100#", 
       thumb: "50x50#" 
     }, 
+    convert_options: { 
+      thumb: '-quality 75' 
+    },
     url: ":s3_domain_url",
     default_url: "https://s3-us-west-1.amazonaws.com/teami-#{Rails.env[0..2]}/images/profile_pic.svg", 
     s3_region: ENV["aws_region"],
