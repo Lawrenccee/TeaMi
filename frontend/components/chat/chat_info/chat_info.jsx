@@ -170,6 +170,7 @@ class ChatInfo extends React.Component {
                   id="name-input"
                   type="text"
                   onChange={this.update("name")}
+                  autoComplete={"off"}
                 />
                 <button>Done</button>
               </form>

@@ -19,7 +19,7 @@ class MessageForm extends React.Component {
     this.toggleGiphy = this.toggleGiphy.bind(this);
   }
 
-  componentDidMount() {
+  componentDidMount() {    
     this.setUpChat(
       this.props.match.params.chatId, 
       () => this.props.fetchChat({
@@ -68,6 +68,7 @@ class MessageForm extends React.Component {
       },
 
       received: function (data) {
+
         // Called when there's incoming data on the websocket for this channel
         // reactReceive is a function set in the react component to handle the data received
         // when the stuff is done.

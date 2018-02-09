@@ -1,7 +1,7 @@
 import React from 'react';
 import ChatListItem from './chat_list_item';
 import ReactSearch from 'react-icons/lib/fa/search';
-import values from 'lodash/values';
+import { selectAllChats } from '../../../reducers/selectors';
 
 class ChatList extends React.Component {
   constructor(props) {
@@ -13,33 +13,34 @@ class ChatList extends React.Component {
     };
   }
 
-  componentWillMount() {
-    this.listen = true;
-
-    const listenChats = () => {
-      if (this.listen) {
-        this.props.fetchChats().then(() => (
-          setTimeout(listenChats, 1000)
-        ));
-      }
-    };
-
-    const listenUsers = () => {
-      if (this.listen) {
-        this.props.fetchUsers().then(() => (
-          setTimeout(listenUsers, 10000)
-        ));
-      }
-    };
-
-    listenChats();
-    listenUsers();
-  }
-
   componentDidMount() {
+    this.setUpChat(
+      null,
+      () => {
+        this.props.fetchChats();
+        this.props.fetchUsers();
+      },
+      this.props.currentUser.id
+    );
+
     this.props.fetchChats()
       .then(() => {
-        this.setState({ queryChats: this.props.chats });
+        this.setState({ queryChats: this.props.chats }, () => {
+          this.props.chats.forEach((chat) => {
+            this.setUpChat(
+              chat.id,
+              () => {
+                this.props.fetchChat({
+                  chatId: chat.id,
+                  limit: 100,
+                });
+                this.props.fetchChats();
+                this.props.fetchUsers();
+              }
+            );
+          });
+        });
+
         if (this.props.chats.length > 0) {
           if (this.props.match.params.chatId !== undefined) {
             this.props.receiveChatHighlight(this.props.match.params.chatId);  
@@ -52,12 +53,52 @@ class ChatList extends React.Component {
       });
   }
 
+  setUpChat(chatId, receiveData, userId) {
+    App.chat = App.cable.subscriptions.create({ channel: "ChatChannel", chat_id: chatId, user_id: userId }, {
+      connected: function () {
+        // Called when the subscription is ready for use on the server
+        setTimeout(this.perform('subscribed'), 1000);
+      },
+
+      disconnected: function () {
+        // Called when the subscription has been terminated by the server
+      },
+
+      received: function (data) {
+
+        // Called when there's incoming data on the websocket for this channel
+        // reactReceive is a function set in the react component to handle the data received
+        // when the stuff is done.
+        receiveData();
+      },
+
+      logout: function () {
+        // this.perform('unsubscribed');
+      },
+
+      speak: function (message) {
+        return this.perform('speak', message);
+      }
+    });
+  }
+
   componentWillUnmount() {
-    this.listen = false; // stop requesting chat info
     this.props.resetState();
   }
 
   componentWillReceiveProps(newProps) {
+    if (newProps.chats[0]) { 
+      console.log("I received these new chat props");
+      console.log(this.props.chats.length);
+      console.log(newProps.chats.length);
+      if (this.props.chats[0] && this.props.chats[0].preview.id 
+        !== newProps.chats[0].preview.id) {
+        this.props.fetchChats(this.state.query)
+          .then((payload) => {
+            this.setState({ queryChats: selectAllChats({ entities: { chats: payload.chats } }) });
+          });
+      }
+    }
     if (newProps.chatHighlight !== this.props.chatHighlight) {
       this.props.history.push(`/chats/${newProps.chatHighlight}`);
       this.props.receiveChatHighlight(newProps.chatHighlight);            
@@ -71,7 +112,7 @@ class ChatList extends React.Component {
       }, () => {
         this.props.fetchChats(this.state.query)
           .then((payload) => {
-            this.setState({ queryChats: values(payload.chats) });
+            this.setState({ queryChats: selectAllChats({ entities: { chats: payload.chats}}) });
           });
       });
     };

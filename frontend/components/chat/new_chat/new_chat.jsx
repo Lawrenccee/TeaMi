@@ -45,6 +45,7 @@ class NewChat extends React.Component {
 
       this.props.createChat({members: members}).then((payload) => {
         this.props.receiveChatHighlight(values(payload.chat)[0].id);
+        
       });
     }
   }

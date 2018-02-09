@@ -67,8 +67,6 @@ class GiphysSearch extends React.Component {
         loadMore: true,
       }, () => this.props.fetchSearchGiphys(this.state));
     }
-
-    
   }
 
   render() {
