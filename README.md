@@ -188,8 +188,9 @@ AWS was used for image storage along with the paperclip gem to help with uploadi
 ## Future Improvements
 
 More things on my list to add to the application include:
-  * Being able to edit the user's username
-  * A chatbot
-  * Notifications
-  * Milk Tea styling
-  * Making it mobile friendly
+  - [ ] Being able to edit the user's username
+  - [ ] A chatbot
+  - [ ] Load older messages
+  - [ ] Notifications
+  - [ ] Milk Tea styling
+  - [ ] Making it mobile friendly
