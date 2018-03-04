@@ -109,7 +109,7 @@ class SessionForm extends React.Component {
               </div>
 
               <h1>
-                TeaMí
+                TeaMí: <p>A Tea Themed Messenger</p>
               </h1>
 
               <p>
@@ -187,7 +187,8 @@ class SessionForm extends React.Component {
           </div>
 
           <div className='session-image-container'>
-              <div className='session-image' />
+              <div className='session-image'>
+              </div>
           </div>
         </div>
         <Footer />

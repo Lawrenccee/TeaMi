@@ -8,7 +8,7 @@
   width: 296px;
   height: 640px;
   justify-content: center;
-  margin-left: 20%;
+  margin-left: 20px;
   position: relative;
 }
 
@@ -113,6 +113,14 @@
   background-size: contain;
   height: inherit;
   width: inherit;
+  display: flex;
+  justify-content: center;
+}
+
+.session-header h1 p {
+  font-size: 25px;
+  font-weight: 200;
+  margin: 0;
 }
 
 .session-image-container {
@@ -136,14 +144,17 @@
 
 .session-container ul {
   position: absolute;
-  top: 590px;
-  list-style-type: disc; 
+  top: 350px;
+  left: 270px;
+  list-style-type: disc;
   padding-left: 10px;
+  width: 130px;
 }
 
 .main-session-container {
   display: flex;
   flex-direction: column;
+  align-items: center;
 }
 
 .footer {
