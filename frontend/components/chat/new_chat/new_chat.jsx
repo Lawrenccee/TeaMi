@@ -66,8 +66,7 @@ class NewChat extends React.Component {
 
   render() {
     const { users, currentUser } = this.props;
-    let placeholder = 
-      "Press Enter in here to create a new chat or type to add more members";
+    let placeholder = "";
 
     if (this.memberOrder.length === 0) {
       placeholder = "Type the name of a person or group";

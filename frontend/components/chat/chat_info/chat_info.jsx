@@ -3,6 +3,7 @@ import UsersSearch from '../../users_search/users_search';
 import values from 'lodash/values';
 import merge from 'lodash/merge';
 import { ClipLoader } from 'react-spinners';
+import { FaGithub, FaLinkedin } from 'react-icons/lib/fa';
 
 class ChatInfo extends React.Component {
   constructor(props) {
@@ -183,14 +184,14 @@ class ChatInfo extends React.Component {
             target='_blank'
             href='https://github.com/Lawrenccee'
           >
-            {`TeaMí Profile`}
+            {`GitHub`} <FaGithub style={{ verticalAlign: 'bottom' }} />
           </a>
           <br />
           <a 
             target='_blank'
             href='https://www.linkedin.com/in/lawrence-guintu-96a81a101/'
           >
-            {`Favorite Milk Tea`}
+            {`LinkedIn`} <FaLinkedin style={{ verticalAlign: 'bottom' }} />
           </a>
         </div>
         <div className="chat-info-users-search">      

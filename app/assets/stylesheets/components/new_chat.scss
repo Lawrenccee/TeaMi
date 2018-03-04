@@ -40,6 +40,10 @@
   flex: 1 1 auto;
 }
 
+.new-chat-users-search input {
+  padding: 2px 0px;
+}
+
 .new-chat-users-search input:focus {
   outline: none;
 }
@@ -59,6 +63,7 @@
 .new-chat-users-search li {
   cursor: pointer;
   border-radius: 5px;
+  font-size: 18px;
 }
 
 .new-chat-users-search ul div {
@@ -67,8 +72,8 @@
 }
 
 .new-chat-users-search img {
-  height: 25px;
-  width: 25px;
+  height: 30px;
+  width: 30px;
   margin: 5px 0;
   margin-right: 10px;
   border-radius: 50px;
