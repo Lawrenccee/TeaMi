@@ -8,7 +8,7 @@
   width: 296px;
   height: 640px;
   justify-content: center;
-  margin-left: 20px;
+  margin: 0 auto;
   position: relative;
 }
 
@@ -155,7 +155,7 @@
 .main-session-container {
   display: flex;
   flex-direction: column;
-  align-items: center;
+  // align-items: center;
 }
 
 .footer {
